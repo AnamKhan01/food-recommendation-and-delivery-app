@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Delius+Unicase&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Della+Respira&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Telex&display=swap');
+
+
+.navbar {
+    font-family: 'Delius Unicase', cursive;
+}
+
+.navbar-brand {
+    font-family: 'Telex', cursive; 
+    font-size: 1.8rem !important;
+    font-weight: bold;
+    color: #FF7777 !important;
+}
+
+.nav-link {
+    font-weight: bold !important;
+    font-family: 'Telex', cursive;
+    font-size: 1.2rem !important;
+    color: #000; 
+}
+
+.auth-buttons {
+    position: absolute;
+    top: 15px; 
+    right: 10px; 
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-right: 40px;
+    font-family: 'Telex', cursive;
+    font-weight: bold;
+}
+
+.sign-in-btn {
+    color: white !important; 
+    border-color: #fff !important; 
+}
+
+.login-btn {
+    color: #fff !important; 
+    background-color: #ffcc00 !important; 
+    border-color: #ffcc00 !important; 
+}
+
