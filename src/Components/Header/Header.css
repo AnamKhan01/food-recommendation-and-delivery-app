@@ -2,45 +2,67 @@
 @import url('https://fonts.googleapis.com/css2?family=Della+Respira&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Telex&display=swap');
 
-
 .navbar {
     font-family: 'Delius Unicase', cursive;
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%; 
+    z-index: 1;
+}
+
+.navbar-container {
+    display: flex; 
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0px;
+    justify-content: space-between;
+    align-items: top;
 }
 
 .navbar-brand {
-    font-family: 'Telex', cursive; 
-    font-size: 1.8rem !important;
-    font-weight: bold;
-    color: #FF7777 !important;
+    margin-left: 10px; 
+}
+
+.logo {
+    height: 100px; 
+    width: 300px;
 }
 
 .nav-link {
     font-weight: bold !important;
     font-family: 'Telex', cursive;
     font-size: 1.2rem !important;
-    color: #000; 
+    color: #503301;
 }
 
+.icon{
+    font-size: 2rem;
+}
 .auth-buttons {
-    position: absolute;
-    top: 15px; 
-    right: 10px; 
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-right: 40px;
     font-family: 'Telex', cursive;
-    font-weight: bold;
+    font-weight: bold !important;
+    margin-left: 4.5rem;
 }
 
 .sign-in-btn {
-    color: white !important; 
-    border-color: #fff !important; 
+    color: #503301 !important; 
+    border-color: rgb(180, 300, 128) !important; 
+    font-weight: bold !important;
+    background-color: rgb(180, 300, 128) !important;
 }
 
 .login-btn {
     color: #fff !important; 
-    background-color: #ffcc00 !important; 
-    border-color: #ffcc00 !important; 
-}
+    background-color: #73BBA3 !important; 
+    border-color: #73BBA3 !important; 
+    margin-left: 2rem;
+    font-weight: bold !important;
+} 
 
