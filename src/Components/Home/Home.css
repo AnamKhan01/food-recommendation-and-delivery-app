@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Delius+Unicase:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+.body-contents {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+}
+
+.written-content {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    right: 0;
+    top: 0;
+}
+
+.slogan {
+    font-family: "Chewy", system-ui;
+    font-size: 40px;
+    color: #fff;
+    margin: 0px;
+    padding: 0px;
+}
+
+.about {
+    font-size: 1.2rem;
+    font-family: "Alata", sans-serif;
+    color: #fff;
+    margin-top: 1.5rem;
+}
+
+.swift {
+    margin-left: 7rem;
+}
+
+.sub-heading {
+    margin-left: 5rem;
+}
+
+.arrowicon {
+    margin-left: 0.5rem;
+    border-radius: 50%;
+    font-size: 1.5rem;
+}
+
+.getRecipes {
+    margin-top: 2rem;
+    padding: 0.8rem 1.6rem;
+    font-family: 'Shantell Sans', cursive;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #503301;
+    background-color: #F3F69F !important;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+
+}

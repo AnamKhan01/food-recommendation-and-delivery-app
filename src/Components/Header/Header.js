@@ -2,14 +2,13 @@ import React from 'react';
 import { Navbar, Nav, Button} from 'react-bootstrap';
 import { FaSignInAlt, FaUserPlus } from 'react-icons/fa';
 import { BsCart4 } from "react-icons/bs";
-import logo from './images/Logos.png';
 import './Header.css';
 
 const Header = () => {
     return (
-        <Navbar expand="lg">
+        <Navbar>
             <div className='navbar-container'>
-                <Navbar.Brand href="#" className="navbar-brand"><img src={logo} alt="FlashFeast" className='logo'></img></Navbar.Brand>
+                <Navbar.Brand href="#" className="navbar-brand">FlashFeast🔥</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
