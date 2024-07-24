@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');
+
+.shopping-container{
+    background-image: url('./Images/background1.png');
+    width: 100%;
+    height: 100vh;
+    top:0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.shopping-card{
+    margin-left: 2rem !important;
+    margin-right: 2rem !important;
+    height: auto;
+    width: 70%;
+    gap: 2rem;
+}
+
+.card-title{
+    font-family: "Bree Serif", serif;
+    font-weight: bold;
+}
+
+.shopping-container h2{
+    font-family: "Rancho", cursive;
+    color: white !important;
+    margin-top: 0 !important;
+    font-size: 4rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.individual-cards{
+    border-radius: 5% !important;
+    border: 5px solid #FFC700 !important;
+}
+
+.card-img-top{
+    border-top-left-radius: 5% !important;
+    border-top-right-radius: 5% !important;
+}
+
+.card-footer{
+    font-family: "Telex", serif;
+    
+}
+
+.card-footer a{
+    font-weight: bold;
+}
+
+.shop-icon{
+    font-size: 1.5rem;
+}
+
+
+.explore {
+    margin-top: 2rem;
+    margin-bottom: -50px;
+    padding: 0.6rem 1.2rem;
+    font-family: 'Shantell Sans', cursive;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #B85607;
+    background-color: #fff !important;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.arrowicon2 {
+    margin-left: 0.5rem;
+    border-radius: 50%;
+    font-size: 1.8rem;
+}

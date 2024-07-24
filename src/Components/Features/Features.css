@@ -15,13 +15,14 @@
     
 }
 
-.card{
+.img-container{
     height: auto;
     width: 50%;
     margin-top: 2rem !important;
     border: 7px solid #FFC700 !important;
     border-radius: 15% !important;
     margin-left: 2rem !important;
+    background: white;
 }
 
 
@@ -30,8 +31,6 @@
     font-family: "Playfair Display", serif;
     font-weight: bold;
     font-size: 2.5rem;
-    
-
 }
 
 .desc p{
@@ -49,11 +48,4 @@
 
 .items{
     fill: #000;
-}
-
-h2{
-    font-family: "Rancho", cursive;
-    color: white !important;
-    margin-top: 0 !important;
-    font-size: 4rem !important;
 }

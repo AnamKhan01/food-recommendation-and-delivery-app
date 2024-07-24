@@ -4,6 +4,8 @@ import Home from './Components/Home/Home';
 import Features from './Components/Features/Features';
 import './App.css';
 import homepage from './images/Homepage2.png'
+import Shopping from './Components/Shopping/Shopping';
+import Contact from './Components/Contact/Contact';
 
 function App() {
     return (
@@ -18,7 +20,8 @@ function App() {
                 </div>
             </div>
             <Features/>
-            
+            <Shopping/>
+            <Contact/>
         </div>
     );
 }

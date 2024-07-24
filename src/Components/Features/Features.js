@@ -3,13 +3,13 @@ import card1 from './images/card1.jpg';
 import card2 from './images/card2.jpg';
 import card3 from './images/card3.jpg';
 import './Features.css';
-// import background from './images/background.png'
+
 function Features() {
     return (
         <>
             <div className='features-container'>
                 {/* <h2>UNCOVER OUR <br/>HIGHLIGHTS</h2> */}
-                <Carousel className='card carousel carousel-dark slide'>
+                <Carousel className='img-container carousel carousel-dark slide'>
                     <Carousel.Item className='items'>
                         <img className='bg-image' src={card1} alt="First slide" />
                         <Carousel.Caption  className='desc'>
