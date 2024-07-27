@@ -1,0 +1,68 @@
+.get-recipes-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.manual-input-section {
+  margin-bottom: 20px;
+}
+
+.manual-input-field {
+  padding: 10px;
+  width: 300px;
+  margin-right: 10px;
+}
+
+.manual-input-button {
+  padding: 10px;
+  background-color: #f8a500;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.ingredient-list-section, .recipe-list-section {
+  margin-bottom: 40px;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+/* IngredientList.css */
+.ingredient-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ingredient-item {
+  margin-right: 15px;
+  margin-bottom: 10px;
+}
+
+.ingredient-checkbox {
+  margin-right: 5px;
+}
+
+/* RecipeList.css */
+.recipe-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.recipe-item {
+  margin-right: 15px;
+  margin-bottom: 20px;
+  max-width: 200px;
+}
+
+.recipe-image {
+  width: 100%;
+  height: auto;
+}
+
+.recipe-instructions-section{
+  width: 100%;
+  height: auto;
+}
