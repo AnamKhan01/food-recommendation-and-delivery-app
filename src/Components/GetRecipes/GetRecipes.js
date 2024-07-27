@@ -79,9 +79,10 @@ const GetRecipes = () => {
           type="text"
           value={manualInput}
           onChange={handleManualInputChange}
-          placeholder="Enter ingredients separated by commas"
+          placeholder="Enter ingredients separated by commas" 
+          className='manual-input-field'
         />
-        <button onClick={handleManualInputSubmit}>Add Ingredients</button>
+        <button className='manual-input-button' onClick={handleManualInputSubmit}>Add Ingredients</button>
       </div>
 
       <div className="ingredient-list-section">

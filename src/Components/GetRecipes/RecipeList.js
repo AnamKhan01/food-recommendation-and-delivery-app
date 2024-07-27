@@ -6,7 +6,7 @@ const RecipeList = ({ recipes, onRecipeClick }) => {
       <ul>
         {recipes.map((recipe) => (
           <li key={recipe.id} onClick={() => onRecipeClick(recipe.id)}>
-            <h3>{recipe.title}</h3>
+            <h4>{recipe.title}</h4>
             <img src={recipe.image} alt={recipe.title} />
           </li>
         ))}

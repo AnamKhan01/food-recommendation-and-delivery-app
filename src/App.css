@@ -1,13 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Delius+Unicase&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Della+Respira&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Telex&display=swap');
 
 body {
-  font-family: 'Delius Unicase', cursive; 
-}
-
-h3{
-  font-family: 'Della Respira', serif;
+  font-family: 'Telex', cursive; 
 }
 
 .app-container {

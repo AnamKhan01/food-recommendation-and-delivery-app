@@ -30,7 +30,6 @@ h2 {
   margin-bottom: 10px;
 }
 
-/* IngredientList.css */
 .ingredient-list {
   display: flex;
   flex-wrap: wrap;
@@ -45,7 +44,6 @@ h2 {
   margin-right: 5px;
 }
 
-/* RecipeList.css */
 .recipe-list {
   display: flex;
   flex-wrap: wrap;
