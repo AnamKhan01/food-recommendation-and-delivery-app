@@ -1,17 +1,37 @@
+.ingredient-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ingredient-item {
+  flex: 1 1 45%;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.ingredient-checkbox {
+  margin-right: 5px;
+}
+
 .get-recipes-container {
   padding: 20px;
   max-width: 1200px;
   margin: auto;
+  font-family: Arial, sans-serif;
 }
 
 .manual-input-section {
   margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .manual-input-field {
   padding: 10px;
   width: 300px;
   margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .manual-input-button {
@@ -20,47 +40,84 @@
   color: white;
   border: none;
   cursor: pointer;
+  border-radius: 4px;
 }
 
-.ingredient-list-section, .recipe-list-section {
-  margin-bottom: 40px;
-}
-
-h2 {
-  margin-bottom: 10px;
-}
-
-.ingredient-list {
+.content-section {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.ingredient-item {
-  margin-right: 15px;
-  margin-bottom: 10px;
+.ingredient-list-section{
+    width: 30%;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    background: #fff;
 }
 
-.ingredient-checkbox {
-  margin-right: 5px;
+.recipe-list-section {
+  width: 70%;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  background: #fff;
 }
 
 .recipe-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .recipe-item {
-  margin-right: 15px;
-  margin-bottom: 20px;
-  max-width: 200px;
+  width: 200px;
+  margin: 10px;
+  cursor: pointer;
 }
 
-.recipe-image {
+.recipe-item img {
   width: 100%;
   height: auto;
+  border-radius: 4px;
 }
 
-.recipe-instructions-section{
+.recipe-instructions-section {
   width: 100%;
   height: auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  background: #fff;
+  margin-top: 20px;
+}
+
+.recipe-instructions-section h2 {
+  text-align: center;
+}
+
+.recipe-instructions-section img {
+  display: block;
+  margin: 20px auto;
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.recipe-instructions-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.recipe-instructions-section li {
+  margin-bottom: 10px;
+}
+
+.recipe-instructions-section li:before {
+  content: "•";
+  color: #f8a500;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
 }

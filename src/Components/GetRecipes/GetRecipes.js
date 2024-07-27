@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import IngredientList from './IngredientList';
 import RecipeList from './RecipeList';
-import RecipesInstructions from './RecipesInstructions';
-import { getIngredients, getRecipes, getRecipesInstructions } from './api/recipeApi';
+import { getIngredients, getRecipes } from './api/recipeApi';
 import './GetRecipes.css';
 
 const GetRecipes = () => {
   const [ingredients, setIngredients] = useState([]);
   const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [recipes, setRecipes] = useState([]);
-  const [selectedRecipe, setSelectedRecipe] = useState([]);
   const [manualInput, setManualInput] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchIngredients = async () => {
@@ -60,14 +60,8 @@ const GetRecipes = () => {
     setSelectedIngredients(prevSelected => [...new Set([...prevSelected, ...ingredientsArray])]);
   };
 
-  const handleRecipeClick = async (recipeId) => {
-    try {
-      const recipeInstructions = await getRecipesInstructions(recipeId);
-      setSelectedRecipe(recipeInstructions);
-      console.log('Recipe instructions response:', recipeInstructions);
-    } catch (error) {
-      console.error('Error fetching recipe instructions:', error);
-    }
+  const handleRecipeClick = (recipeId) => {
+    navigate(`/recipe/${recipeId}`);
   };
 
   return (
@@ -79,29 +73,26 @@ const GetRecipes = () => {
           type="text"
           value={manualInput}
           onChange={handleManualInputChange}
-          placeholder="Enter ingredients separated by commas" 
+          placeholder="Enter ingredients separated by commas"
           className='manual-input-field'
         />
         <button className='manual-input-button' onClick={handleManualInputSubmit}>Add Ingredients</button>
       </div>
 
-      <div className="ingredient-list-section">
-        <h2>Select Ingredients</h2>
-        <IngredientList
-          ingredients={ingredients}
-          selectedIngredients={selectedIngredients}
-          handleSelect={handleSelect}
-        />
-      </div>
+      <div className="content-section">
+        <div className="ingredient-list-section">
+          <h2>Select Ingredients</h2>
+          <IngredientList
+            ingredients={ingredients}
+            selectedIngredients={selectedIngredients}
+            handleSelect={handleSelect}
+          />
+        </div>
 
-      <div className="recipe-list-section">
-        <h2>Recipes</h2>
-        <RecipeList recipes={recipes} onRecipeClick={handleRecipeClick} />
-      </div>
-
-      <div className="recipe-instructions-section">
-        <h2>Recipe Instructions</h2>
-        <RecipesInstructions selectedRecipe={selectedRecipe} />
+        <div className="recipe-list-section">
+          <h2>Recipes</h2>
+          <RecipeList recipes={recipes} onRecipeClick={handleRecipeClick} />
+        </div>
       </div>
     </div>
   );

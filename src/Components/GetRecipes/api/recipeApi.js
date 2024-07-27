@@ -4,16 +4,16 @@ import axios from 'axios';
 const API_KEY = 'e950445d2ebe4361b544d12f94a16169';
 const BASE_URL = 'https://api.spoonacular.com';
 
-export const getIngredients = async (query = 'a') => { // Set default query to 'a'
+export const getIngredients = async (query = 'a') => { 
     try {
         const response = await axios.get(`${BASE_URL}/food/ingredients/autocomplete`, {
             params: {
                 apiKey: API_KEY,
                 query: query.trim(),
-                number: 100
+                number: 50
             }
         });
-        console.log('Ingredients fetched:', response.data); // Log the fetched ingredients
+        console.log('Ingredients fetched:', response.data); 
         return response.data;
     } catch (error) {
         console.error('Error fetching ingredients:', error);
@@ -42,23 +42,22 @@ export const getRecipes = async (selectedIngredients) => {
     }
 };
 
-export const getRecipesInstructions = async (recipeId) => {
+export const getRecipeInformation = async (recipeId) => {
     if (!recipeId) {
         throw new Error('Recipe ID is required');
     }
 
     try {
-        const response = await axios.get(`${BASE_URL}/recipes/${recipeId}/analyzedInstructions`, {
+        const response = await axios.get(`${BASE_URL}/recipes/${recipeId}/information`, {
             params: {
                 apiKey: API_KEY,
+                includeNutrition: true 
             }
         });
-        console.log('Recipe instructions response:', response.data);
+        console.log('Recipe information response:', response.data);
         return response.data;
     } catch (error) {
-        console.error('Error fetching recipe instructions:', error);
+        console.error('Error fetching recipe information:', error);
         throw error;
     }
 };
-
-
