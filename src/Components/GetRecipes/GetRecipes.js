@@ -1,29 +1,41 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import IngredientList from './IngredientList';
 import RecipeList from './RecipeList';
 import { getIngredients, getRecipes } from './api/recipeApi';
 import './GetRecipes.css';
 
+const predefinedIngredients = [
+  "butter", "egg", "garlic", "milk", "onion", "sugar", "flour", "olive oil",
+  "garlic powder", "white rice", "cinnamon", "ketchup", "soy sauce", "mayonnaise",
+  "vegetable oil", "bread", "baking powder", "brown sugar", "oregano", "potato",
+  "honey", "paprika", "tomato", "avocado", "mango", "coriander", "lemon", "ginger", "cumin"
+];
+
 const GetRecipes = () => {
-  const [ingredients, setIngredients] = useState([]);
   const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [recipes, setRecipes] = useState([]);
   const [manualInput, setManualInput] = useState('');
+  const [suggestions, setSuggestions] = useState([]);
   const navigate = useNavigate();
+  const inputRef = useRef();
 
   useEffect(() => {
-    const fetchIngredients = async () => {
+    const fetchIngredients = async (query) => {
       try {
-        const ingredientsData = await getIngredients();
+        const ingredientsData = await getIngredients(query);
         console.log('Ingredients fetched:', ingredientsData);
-        setIngredients(ingredientsData.map(ingredient => ingredient.name));
+        setSuggestions(ingredientsData.map(ingredient => ingredient.name));
       } catch (error) {
         console.error('Error fetching ingredients:', error);
       }
     };
-    fetchIngredients();
-  }, []);
+
+    if (manualInput) {
+      fetchIngredients(manualInput);
+    } else {
+      setSuggestions([]);
+    }
+  }, [manualInput]);
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -42,8 +54,7 @@ const GetRecipes = () => {
     fetchRecipes();
   }, [selectedIngredients]);
 
-  const handleSelect = (event) => {
-    const ingredient = event.target.value;
+  const handleSelect = (ingredient) => {
     setSelectedIngredients(prevSelected =>
       prevSelected.includes(ingredient)
         ? prevSelected.filter(i => i !== ingredient)
@@ -55,9 +66,10 @@ const GetRecipes = () => {
     setManualInput(event.target.value);
   };
 
-  const handleManualInputSubmit = () => {
-    const ingredientsArray = manualInput.split(',').map(ingredient => ingredient.trim()).filter(Boolean);
-    setSelectedIngredients(prevSelected => [...new Set([...prevSelected, ...ingredientsArray])]);
+  const handleSuggestionClick = (suggestion) => {
+    setSelectedIngredients(prevSelected => [...new Set([...prevSelected, suggestion])]);
+    setManualInput('');
+    setSuggestions([]);
   };
 
   const handleRecipeClick = (recipeId) => {
@@ -73,26 +85,53 @@ const GetRecipes = () => {
           type="text"
           value={manualInput}
           onChange={handleManualInputChange}
-          placeholder="Enter ingredients separated by commas"
+          placeholder="Add/remove/paste ingredients"
           className='manual-input-field'
+          ref={inputRef}
         />
-        <button className='manual-input-button' onClick={handleManualInputSubmit}>Add Ingredients</button>
+        {suggestions.length > 0 && (
+          <ul className="suggestions-list">
+            {suggestions.map((suggestion, index) => (
+              <li key={index}>
+                <span onClick={() => handleSuggestionClick(suggestion)}>{suggestion}</span>
+                <button className='suggestion-button' onClick={() => handleSelect(suggestion)}>
+                  {selectedIngredients.includes(suggestion) ? 'Remove' : 'Add'}
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
 
-      <div className="content-section">
-        <div className="ingredient-list-section">
-          <h2>Select Ingredients</h2>
-          <IngredientList
-            ingredients={ingredients}
-            selectedIngredients={selectedIngredients}
-            handleSelect={handleSelect}
-          />
+      <div className="ingredient-list-section">
+        <h2>Pantry Essentials</h2>
+        <div className="predefined-ingredients">
+          {predefinedIngredients.map((ingredient, index) => (
+            <button
+              key={index}
+              className={`ingredient-button ${selectedIngredients.includes(ingredient) ? 'selected' : ''}`}
+              onClick={() => handleSelect(ingredient)}
+            >
+              {ingredient}
+            </button>
+          ))}
         </div>
+      </div>
 
-        <div className="recipe-list-section">
-          <h2>Recipes</h2>
-          <RecipeList recipes={recipes} onRecipeClick={handleRecipeClick} />
+      <div className="selected-ingredients-section">
+        <h2>Selected Ingredients</h2>
+        <div className="selected-ingredients">
+          {selectedIngredients.map((ingredient, index) => (
+            <span key={index} className="selected-ingredient">
+              {ingredient}
+            </span>
+          ))}
         </div>
+      </div>
+
+      <div className="recipe-list-section">
+        <h2>Recipes</h2>
+        <RecipeList recipes={recipes} onRecipeClick={handleRecipeClick} />
       </div>
     </div>
   );

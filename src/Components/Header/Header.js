@@ -8,15 +8,15 @@ const Header = () => {
     return (
         <Navbar>
             <div className='navbar-container'>
-                <Navbar.Brand href="#" className="navbar-brand">FlashFeast🔥</Navbar.Brand>
+                <Navbar.Brand href="#" className="navbar-brand">♨️FlashFeast</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
-                        <Nav.Link href="#home" className='px-5'>Home</Nav.Link>
-                        <Nav.Link href="#features" className='px-5'>Features</Nav.Link>
-                        <Nav.Link href="#shopping" className='px-5'>Shopping</Nav.Link>
-                        <Nav.Link href="#contact" className='px-5'>Contact</Nav.Link>
-                        <Nav.Link href="#about" className='px-5'><BsCart4 className='icon' /></Nav.Link>
+                        <Nav.Link href="#home" className='px-5 header-links'>Home</Nav.Link>
+                        <Nav.Link href="#features" className='px-5 header-links'>Features</Nav.Link>
+                        <Nav.Link href="#shopping" className='px-5 header-links'>Shopping</Nav.Link>
+                        <Nav.Link href="#contact" className='px-5 header-links'>Contact</Nav.Link>
+                        <Nav.Link href="#about" className='px-5 header-links'><BsCart4 className='icon' /></Nav.Link>
                     </Nav>
                     <div className="auth-buttons">
                         <Button variant="outline-light" className="sign-in-btn"> <FaUserPlus className="me-2" />SIGN-IN</Button>
