@@ -23,7 +23,6 @@ const GetRecipes = () => {
     const fetchIngredients = async (query) => {
       try {
         const ingredientsData = await getIngredients(query);
-        console.log('Ingredients fetched:', ingredientsData);
         setSuggestions(ingredientsData.map(ingredient => ingredient.name));
       } catch (error) {
         console.error('Error fetching ingredients:', error);
@@ -42,7 +41,6 @@ const GetRecipes = () => {
       try {
         if (selectedIngredients.length > 0) {
           const recipesData = await getRecipes(selectedIngredients);
-          console.log('Recipes fetched:', recipesData);
           setRecipes(recipesData);
         } else {
           setRecipes([]);
@@ -60,6 +58,8 @@ const GetRecipes = () => {
         ? prevSelected.filter(i => i !== ingredient)
         : [...prevSelected, ingredient]
     );
+    setManualInput('');
+    setSuggestions([]);
   };
 
   const handleManualInputChange = (event) => {
@@ -103,35 +103,39 @@ const GetRecipes = () => {
         )}
       </div>
 
-      <div className="ingredient-list-section">
-        <h2>Pantry Essentials</h2>
-        <div className="predefined-ingredients">
-          {predefinedIngredients.map((ingredient, index) => (
-            <button
-              key={index}
-              className={`ingredient-button ${selectedIngredients.includes(ingredient) ? 'selected' : ''}`}
-              onClick={() => handleSelect(ingredient)}
-            >
-              {ingredient}
-            </button>
-          ))}
+      <div className="main-grid">
+        <div className="left-panel">
+          <h2>Pantry Essentials</h2>
+          <div className="pantry-essentials">
+            {predefinedIngredients.map((ingredient, index) => (
+              <button
+                key={index}
+                className={`ingredient-button ${selectedIngredients.includes(ingredient) ? 'selected' : ''}`}
+                onClick={() => handleSelect(ingredient)}
+              >
+                {ingredient}
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
 
-      <div className="selected-ingredients-section">
-        <h2>Selected Ingredients</h2>
-        <div className="selected-ingredients">
-          {selectedIngredients.map((ingredient, index) => (
-            <span key={index} className="selected-ingredient">
-              {ingredient}
-            </span>
-          ))}
+        <div className="right-panel">
+          <div className="selected-ingredients-container">
+            <h2>Selected Ingredients</h2>
+            <div className="selected-ingredients">
+              {selectedIngredients.map((ingredient, index) => (
+                <span key={index} className="selected-ingredient">
+                  {ingredient}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <h2>Recipes</h2>
+          <div className="recipe-list">
+            <RecipeList recipes={recipes} onRecipeClick={handleRecipeClick} />
+          </div>
         </div>
-      </div>
-
-      <div className="recipe-list-section">
-        <h2>Recipes</h2>
-        <RecipeList recipes={recipes} onRecipeClick={handleRecipeClick} />
       </div>
     </div>
   );
