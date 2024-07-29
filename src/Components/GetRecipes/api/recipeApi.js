@@ -4,12 +4,12 @@ import axios from 'axios';
 const API_KEY = 'e950445d2ebe4361b544d12f94a16169';
 const BASE_URL = 'https://api.spoonacular.com';
 
-export const getIngredients = async (query = 'a') => { 
+export const getIngredients = async (query) => { 
     try {
         const response = await axios.get(`${BASE_URL}/food/ingredients/autocomplete`, {
             params: {
                 apiKey: API_KEY,
-                query: query.trim(),
+                query: query,
                 number: 50
             }
         });
