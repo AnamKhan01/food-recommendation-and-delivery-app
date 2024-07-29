@@ -2,7 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');
 
 .shopping-container{
+<<<<<<< Updated upstream
     background-image: url('./Images/background1.png');
+=======
+    /* background-image: url('./Images/background1.png'); */
+    background-color: black;
+>>>>>>> Stashed changes
     width: 100%;
     height: 100vh;
     top:0;
@@ -28,16 +33,27 @@
 }
 
 .shopping-container h2{
+<<<<<<< Updated upstream
     font-family: "Rancho", cursive;
     color: white !important;
     margin-top: 0 !important;
     font-size: 4rem !important;
+=======
+    font-family: "Bebas Neue", sans-serif;
+    color: white !important;
+    margin-top: 2rem !important;
+    font-size: 3rem !important;
+>>>>>>> Stashed changes
     margin-bottom: 1rem !important;
 }
 
 .individual-cards{
     border-radius: 5% !important;
+<<<<<<< Updated upstream
     border: 5px solid #FFC700 !important;
+=======
+    border: 5px solid yellow !important;
+>>>>>>> Stashed changes
 }
 
 .card-img-top{
@@ -66,15 +82,82 @@
     font-family: 'Shantell Sans', cursive;
     font-size: 1.5rem;
     font-weight: bold;
+<<<<<<< Updated upstream
     color: #B85607;
+=======
+>>>>>>> Stashed changes
     background-color: #fff !important;
     border: none;
     border-radius: 15px;
     cursor: pointer;
 }
 
+<<<<<<< Updated upstream
 .arrowicon2 {
     margin-left: 0.5rem;
     border-radius: 50%;
     font-size: 1.8rem;
 }
+=======
+
+.explore {
+    margin-top: 2rem;
+    padding: 0.8rem 1.6rem;
+    font-family: 'Telex';
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+    background-color: white !important;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.explore span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.explore span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.explore:hover span {
+    padding-right: 25px;
+
+}
+
+.explore:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.explore:hover{
+    background-color: yellow !important;
+}
+
+.text-muted:hover{
+    text-decoration: underline!important;
+    text-decoration-color: red !important;
+    color: red !important;
+}
+
+.individual-cards:hover{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: 1s ease;
+    color:black;
+    box-shadow: 0 0 10px #ffee10;
+    text-shadow: 0 0 10px #ffee10;
+    
+}
+>>>>>>> Stashed changes

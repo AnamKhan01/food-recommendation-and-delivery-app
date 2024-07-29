@@ -17,7 +17,11 @@ const Home = () => {
             <p className="about">Discover delicious recipe suggestions tailored to your tastes with <em>FlashFeast</em>.
                 Get fresh ingredients delivered right to your door and enjoy cooking made easy.
                 Download now and start your culinary journey today!</p>
+<<<<<<< Updated upstream
             <button onClick={handleGetRecipesClick} className="getRecipes">Get Recipes<FaPlayCircle className='arrowicon'/></button>
+=======
+            <button class="getRecipes"><span>Get Recipes</span></button>
+>>>>>>> Stashed changes
         </div>
     );
 }

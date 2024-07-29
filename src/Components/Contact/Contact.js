@@ -6,6 +6,10 @@ import { AiFillInstagram } from "react-icons/ai";
 const Contact = () => {
     return (
         <div className="contact-container">
+<<<<<<< Updated upstream
+=======
+            
+>>>>>>> Stashed changes
             <h2>Have Question in Mind?</h2>
             <h3>Let Us Help You</h3>
             <div className="query-div">

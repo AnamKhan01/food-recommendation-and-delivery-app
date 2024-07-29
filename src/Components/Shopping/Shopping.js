@@ -49,7 +49,11 @@ function Shopping() {
         </Card.Footer>
       </Card>
     </CardGroup>
+<<<<<<< Updated upstream
     <button class="explore">Explore More<FaPlayCircle className='arrowicon2'/></button>
+=======
+    <button class="explore"><span>Explore More</span></button>
+>>>>>>> Stashed changes
     </div>
   );
 }
