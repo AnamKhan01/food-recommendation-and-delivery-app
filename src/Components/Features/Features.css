@@ -25,11 +25,8 @@
     border-radius: 15% !important;
     margin-left: 2rem !important;
     background: white;
-<<<<<<< Updated upstream
-=======
     position: relative !important;
     z-index: 1;
->>>>>>> Stashed changes
 }
 
 .desc h3{
@@ -55,8 +52,6 @@
 .items{
     fill: #000;
 }
-<<<<<<< Updated upstream
-=======
 
 .line-effect {
     position: absolute;
@@ -136,4 +131,3 @@
     top: 90%;
     animation-delay: 0.9s;
 }
->>>>>>> Stashed changes

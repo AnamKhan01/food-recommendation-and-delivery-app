@@ -5,7 +5,6 @@ import fruits from './Images/fruits.jpg';
 import milk from './Images/milk.jpg';
 import grocery from './Images/grocery.jpg';
 import { IoIosArrowRoundForward } from "react-icons/io";
-import { FaPlayCircle } from "react-icons/fa";
 
 function Shopping() {
   return (
@@ -49,11 +48,7 @@ function Shopping() {
         </Card.Footer>
       </Card>
     </CardGroup>
-<<<<<<< Updated upstream
-    <button class="explore">Explore More<FaPlayCircle className='arrowicon2'/></button>
-=======
     <button class="explore"><span>Explore More</span></button>
->>>>>>> Stashed changes
     </div>
   );
 }

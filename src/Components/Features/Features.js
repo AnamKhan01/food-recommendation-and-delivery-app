@@ -9,8 +9,6 @@ function Features() {
         <>
             <div className='features-container'>
                 {/* <h2>UNCOVER OUR <br/>HIGHLIGHTS</h2> */}
-<<<<<<< Updated upstream
-=======
                 <div className='line-effect'>
                     <div className='line line-1'></div>
                     <div className='line line-2'></div>
@@ -22,7 +20,6 @@ function Features() {
                     <div className='line line-8'></div>
                     <div className='line line-9'></div>
                 </div>
->>>>>>> Stashed changes
                 <Carousel className='img-container carousel carousel-dark slide'>
                     <Carousel.Item className='items'>
                         <img className='bg-image' src={card1} alt="First slide" />
