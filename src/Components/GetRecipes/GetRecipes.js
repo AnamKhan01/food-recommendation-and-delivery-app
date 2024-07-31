@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import RecipeList from './RecipeList';
 import { getIngredients, getRecipes } from './api/recipeApi';
 import './GetRecipes.css';
+import Header from '../Header/Header';
 
 const predefinedIngredients = [
   "butter", "egg", "garlic", "milk", "onion", "sugar", "flour", "olive oil",
@@ -78,6 +79,8 @@ const GetRecipes = () => {
 
   return (
     <div className="get-recipes-container">
+      <Header/>
+      <div className='main-container'>
       <h1>Recipe Finder</h1>
 
       <div className="manual-input-section">
@@ -85,7 +88,7 @@ const GetRecipes = () => {
           type="text"
           value={manualInput}
           onChange={handleManualInputChange}
-          placeholder="Add/remove/paste ingredients"
+          placeholder="Search ingredients"
           className='manual-input-field'
           ref={inputRef}
         />
@@ -94,9 +97,13 @@ const GetRecipes = () => {
             {suggestions.map((suggestion, index) => (
               <li key={index}>
                 <span onClick={() => handleSuggestionClick(suggestion)}>{suggestion}</span>
-                <button className='suggestion-button' onClick={() => handleSelect(suggestion)}>
+                <button
+                  className={`suggestion-button ${selectedIngredients.includes(suggestion) ? 'remove-button' : 'add-button'}`}
+                  onClick={() => handleSelect(suggestion)}
+                >
                   {selectedIngredients.includes(suggestion) ? 'Remove' : 'Add'}
                 </button>
+
               </li>
             ))}
           </ul>
@@ -105,7 +112,7 @@ const GetRecipes = () => {
 
       <div className="main-grid">
         <div className="left-panel">
-          <h2>Pantry Essentials</h2>
+          <h2>Everyday Ingredients</h2>
           <div className="pantry-essentials">
             {predefinedIngredients.map((ingredient, index) => (
               <button
@@ -124,18 +131,22 @@ const GetRecipes = () => {
             <h2>Selected Ingredients</h2>
             <div className="selected-ingredients">
               {selectedIngredients.map((ingredient, index) => (
-                <span key={index} className="selected-ingredient">
+                <button key={index} className="selected-ingredient" onClick={() => handleSelect(ingredient)}>
                   {ingredient}
-                </span>
+                </button>
               ))}
             </div>
           </div>
 
           <h2>Recipes</h2>
           <div className="recipe-list">
+            {recipes.length === 0 && (
+              <h2 className='quote'>Sprinkle your ingredients, let the journey start, Each one a key to new recipes, a culinary art.</h2>
+            )}
             <RecipeList recipes={recipes} onRecipeClick={handleRecipeClick} />
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
