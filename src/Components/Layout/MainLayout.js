@@ -8,7 +8,7 @@ import homepage from '../../images/Homepage2.png';
 const MainLayout = ({ children }) => {
   return (
     <div className="app-container">
-      <Header />
+      <Header isFixed={true} />
       <div className="body-contents">
         <div className="written-content">
           {children}

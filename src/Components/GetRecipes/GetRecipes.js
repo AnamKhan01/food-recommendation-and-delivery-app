@@ -7,10 +7,11 @@ import Header from '../Header/Header';
 
 const predefinedIngredients = [
   "butter", "egg", "garlic", "milk", "onion", "sugar", "flour", "olive oil",
-  "garlic powder", "white rice", "cinnamon", "ketchup", "soy sauce", "mayonnaise",
-  "vegetable oil", "bread", "baking powder", "brown sugar", "oregano", "potato",
-  "honey", "paprika", "tomato", "avocado", "mango", "coriander", "lemon", "ginger", "cumin"
+  "garlic powder", "white rice", "cinnamon", "ketchup", "soy sauce",
+  "vegetable oil", "bread", "baking powder", "potato",
+  "honey", "paprika", "tomato", "avocado", "mango", "coriander", "lemon", "ginger", "cumin", "apple"
 ];
+
 
 const GetRecipes = () => {
   const [selectedIngredients, setSelectedIngredients] = useState([]);
@@ -79,74 +80,75 @@ const GetRecipes = () => {
 
   return (
     <div className="get-recipes-container">
-      <Header/>
+      <Header isFixed={false} />
       <div className='main-container'>
-      <h1>Recipe Finder</h1>
+        <h1>Recipe Finder</h1>
 
-      <div className="manual-input-section">
-        <input
-          type="text"
-          value={manualInput}
-          onChange={handleManualInputChange}
-          placeholder="Search ingredients"
-          className='manual-input-field'
-          ref={inputRef}
-        />
-        {suggestions.length > 0 && (
-          <ul className="suggestions-list">
-            {suggestions.map((suggestion, index) => (
-              <li key={index}>
-                <span onClick={() => handleSuggestionClick(suggestion)}>{suggestion}</span>
-                <button
-                  className={`suggestion-button ${selectedIngredients.includes(suggestion) ? 'remove-button' : 'add-button'}`}
-                  onClick={() => handleSelect(suggestion)}
-                >
-                  {selectedIngredients.includes(suggestion) ? 'Remove' : 'Add'}
-                </button>
+        <div className="manual-input-section">
+          <input
+            type="text"
+            value={manualInput}
+            onChange={handleManualInputChange}
+            placeholder="Search ingredients"
+            className='manual-input-field'
+            ref={inputRef}
+          />
+          {suggestions.length > 0 && (
+            <ul className="suggestions-list">
+              {suggestions.map((suggestion, index) => (
+                <li key={index}>
+                  <span onClick={() => handleSuggestionClick(suggestion)}>{suggestion}</span>
+                  <button
+                    className={`suggestion-button ${selectedIngredients.includes(suggestion) ? 'remove-button' : 'add-button'}`}
+                    onClick={() => handleSelect(suggestion)}
+                  >
+                    {selectedIngredients.includes(suggestion) ? 'Remove' : 'Add'}
+                  </button>
 
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-
-      <div className="main-grid">
-        <div className="left-panel">
-          <h2>Everyday Ingredients</h2>
-          <div className="pantry-essentials">
-            {predefinedIngredients.map((ingredient, index) => (
-              <button
-                key={index}
-                className={`ingredient-button ${selectedIngredients.includes(ingredient) ? 'selected' : ''}`}
-                onClick={() => handleSelect(ingredient)}
-              >
-                {ingredient}
-              </button>
-            ))}
-          </div>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
 
-        <div className="right-panel">
-          <div className="selected-ingredients-container">
-            <h2>Selected Ingredients</h2>
-            <div className="selected-ingredients">
-              {selectedIngredients.map((ingredient, index) => (
-                <button key={index} className="selected-ingredient" onClick={() => handleSelect(ingredient)}>
+        <div className="main-grid">
+          <div className="left-panel">
+            <h2>Everyday Ingredients</h2>
+            <div className="pantry-essentials">
+              {predefinedIngredients.map((ingredient, index) => (
+                <button
+                  key={index}
+                  className={`ingredient-button ${selectedIngredients.includes(ingredient) ? 'selected' : ''}`}
+                  onClick={() => handleSelect(ingredient)}
+                >
                   {ingredient}
                 </button>
               ))}
             </div>
           </div>
 
-          <h2>Recipes</h2>
-          <div className="recipe-list">
-            {recipes.length === 0 && (
-              <h2 className='quote'>Sprinkle your ingredients, let the journey start, Each one a key to new recipes, a culinary art.</h2>
-            )}
-            <RecipeList recipes={recipes} onRecipeClick={handleRecipeClick} />
+          <div className="right-panel">
+            <div className="selected-ingredients-container">
+              <h2>Selected Ingredients</h2>
+              <div className="selected-ingredients">
+                {selectedIngredients.map((ingredient, index) => (
+                  <button key={index} className="selected-ingredient" onClick={() => handleSelect(ingredient)}>
+                    {ingredient}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* <h2>Recipes</h2> */}
+            <div className={`recipe-list ${recipes.length > 0 ? 'has-recipes' : ''}`}>
+              {recipes.length === 0 ? (
+                <h2 className='quote'>Sprinkle your ingredients, let the journey start, Each one a key to new recipes, a culinary art.</h2>
+              ) : (
+                <RecipeList recipes={recipes} onRecipeClick={handleRecipeClick} />
+              )}
+            </div>
           </div>
         </div>
-      </div>
       </div>
     </div>
   );
