@@ -13,11 +13,11 @@ const Header = ({ isFixed = true }) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Link href="#home" className='px-5 header-links'>Home</Nav.Link>
-            <Nav.Link href="#features" className='px-5 header-links'>Features</Nav.Link>
-            <Nav.Link href="#shopping" className='px-5 header-links'>Shopping</Nav.Link>
-            <Nav.Link href="#contact" className='px-5 header-links'>Contact</Nav.Link>
-            <Nav.Link href="#about" className='px-5 header-links'><BsCart4 className='icon' /></Nav.Link>
+            <Nav.Link href="#home" className='mx-4 px-3 header-links'>Home</Nav.Link>
+            <Nav.Link href="#features" className='mx-5 px-3 header-links'>Features</Nav.Link>
+            <Nav.Link href="#shopping" className='mx-5 px-3 header-links'>Shopping</Nav.Link>
+            <Nav.Link href="#contact" className='mx-5 px-3 header-links'>Contact</Nav.Link>
+            <Nav.Link href="#about" className='mx-4 px-3 header-links'><BsCart4 className='icon' /></Nav.Link>
           </Nav>
           <div className="auth-buttons">
             <Button variant="outline-light" className="sign-in-btn"> <FaUserPlus className="me-2" />SIGN-IN</Button>

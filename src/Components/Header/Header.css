@@ -86,10 +86,19 @@
 #basic-navbar-nav {
     margin-top: 1.4rem !important; 
 }
-  
-.nav-link:hover {
-    text-decoration: underline !important;
-    text-decoration-color: red !important;
-    text-decoration-thickness: 0.2rem!important;
+.nav-link {
+    display: inline-block; /* Ensure the padding and border-radius are applied correctly */
+    padding: 0.5rem 0.75rem; /* Set padding to make the link size appropriate */
+    border-radius: 0.5rem;
 }
-  
+
+.nav-link:hover {
+    text-decoration: none !important;
+    text-decoration-color: red !important;
+    text-decoration-thickness: 0.2rem !important;
+    background-color: #4caf50 !important;
+    transform: scale(1.05);
+    border-radius: 0.5rem; /* Changed to a smaller value to fit better with padding */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0.75rem; /* Ensure padding remains consistent on hover */
+}

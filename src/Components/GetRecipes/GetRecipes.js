@@ -4,6 +4,7 @@ import RecipeList from './RecipeList';
 import { getIngredients, getRecipes } from './api/recipeApi';
 import './GetRecipes.css';
 import Header from '../Header/Header';
+import bread from './images/dancing-bread.gif';
 
 const predefinedIngredients = [
   "butter", "egg", "garlic", "milk", "onion", "sugar", "flour", "olive oil",
@@ -82,7 +83,7 @@ const GetRecipes = () => {
     <div className="get-recipes-container">
       <Header isFixed={false} />
       <div className='main-container'>
-        <h1>Recipe Finder</h1>
+        {/* <h1>Recipe Finder</h1> */}
 
         <div className="manual-input-section">
           <input
@@ -128,23 +129,29 @@ const GetRecipes = () => {
           </div>
 
           <div className="right-panel">
-            <div className="selected-ingredients-container">
-              <h2>Selected Ingredients</h2>
-              <div className="selected-ingredients">
-                {selectedIngredients.map((ingredient, index) => (
-                  <button key={index} className="selected-ingredient" onClick={() => handleSelect(ingredient)}>
-                    {ingredient}
-                  </button>
-                ))}
-              </div>
-            </div>
 
             {/* <h2>Recipes</h2> */}
             <div className={`recipe-list ${recipes.length > 0 ? 'has-recipes' : ''}`}>
               {recipes.length === 0 ? (
-                <h2 className='quote'>Sprinkle your ingredients, let the journey start, Each one a key to new recipes, a culinary art.</h2>
+                <div className='quote-content'>
+                  <img src={bread} alt="bread" className='bread'></img>
+                  <h2 className='quote'>Sprinkle your ingredients, let the journey start, Each one a key to new recipes, a culinary art.</h2>
+                </div>
               ) : (
-                <RecipeList recipes={recipes} onRecipeClick={handleRecipeClick} />
+                <div>
+                  <div className="selected-ingredients-container">
+
+                    <h2>Selected Ingredients</h2>
+                    <div className="selected-ingredients">
+                      {selectedIngredients.map((ingredient, index) => (
+                        <button key={index} className="selected-ingredient" onClick={() => handleSelect(ingredient)}>
+                          {ingredient}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  <RecipeList recipes={recipes} onRecipeClick={handleRecipeClick} />
+                </div>
               )}
             </div>
           </div>
