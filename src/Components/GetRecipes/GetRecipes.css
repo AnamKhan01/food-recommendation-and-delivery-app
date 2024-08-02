@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@0,100..900;1,100..900&family=Alfa+Slab+One&family=Anton+SC&family=Bebas+Neue&family=Gluten:wght@100..900&family=Oswald:wght@200..700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@0,100..900;1,100..900&family=Alfa+Slab+One&family=Anton+SC&family=Bebas+Neue&family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Gluten:wght@100..900&family=Oswald:wght@200..700&family=Quicksand:wght@300..700&display=swap');
 .get-recipes-container {
   font-family: 'Telex', serif;
   width: 100%;
@@ -79,7 +79,7 @@
 }
 
 .left-panel {
-  border-right: 2px solid #e0e0e0; 
+  /* border-right: 2px solid #e0e0e0;  */
 }
 
 .left-panel h2{
@@ -87,9 +87,8 @@
   color: white;
   position: absolute;
   z-index: 1;
-  top: 90px;
-  font-size: 2.3rem;
-  margin-left: 12px;
+  top: 0px;
+  margin-left: 30px;
 }
 
 .suggestions-list {
@@ -182,25 +181,51 @@
   background-color: #959494;
 }
 
-.ingredient-button.selected,
-.selected-ingredient {
+.ingredient-button.selected
+ {
   background-color: #FFF600;
   color: black;
   border: none;
 }
 
+.ingredient-button.selected:hover{
+  background-color: #d6cf03;
+}
+
+.selected-ingredient {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.selected-ingredient:hover{
+  background-color: #3e8442;
+}
+
 .quote{
-  font-family: "Oswald", sans-serif;
-  font-size: 2.5rem;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.6rem;
   text-align: center;
-  color: #fff;
+  color: #abf6ec !important;
   margin: 0;
   line-height: 1.5;
   margin: 50px auto;
   width: 65%;
-  /* padding: 20px;
-  background-color: #333;
-  border-radius: 10px; */
+  margin-top: 0px;
+}
+
+.quote-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.bread{
+  width:15rem;
+  height: 8rem;
+  margin-top: 5rem;
+  bottom: 0px;
 }
 
 .recipe-list {
@@ -213,7 +238,7 @@
 
 .recipe-item {
   background-color: #fff;
-  border: 3px solid yellow;
+  border: 3px solid greenyellow;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -276,8 +301,7 @@
 }
 
 .buy-button:hover {
-  background-color: #FFF600;
-  color: black;
+  background-color: orangered;
 }
 
 .recipe-item p {
@@ -285,6 +309,7 @@
   font-size: 16px;
   font-weight: 400;
   color: black;
+  width: 60%;
 }
 
 .recipe-item:hover {

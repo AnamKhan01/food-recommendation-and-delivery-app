@@ -19,13 +19,40 @@
     top: 0;
 }
 
+@keyframes moveUpDown {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes colorChange {
+    0% {
+        color: yellow;
+    }
+    50% {
+        color: white;
+    }
+    100% {
+        color: yellow;
+    }
+}
+
 .slogan {
     font-family: "Bebas Neue", sans-serif;
     font-size: 55px;
-    color: #fff;
+    color: yellow; /* Starting color */
     margin: 0px;
     padding: 0px;
+    animation: moveUpDown 1s infinite ease-in-out, colorChange 2s infinite;
 }
+
+
 
 .about {
     font-size: 1.2rem;

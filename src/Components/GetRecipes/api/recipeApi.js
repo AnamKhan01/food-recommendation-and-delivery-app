@@ -31,7 +31,7 @@ export const getRecipes = async (selectedIngredients) => {
             params: {
                 apiKey: API_KEY,
                 ingredients: selectedIngredients.join(','),
-                number: 10
+                number: 9
             }
         });
         console.log('Recipes response:', response.data);
