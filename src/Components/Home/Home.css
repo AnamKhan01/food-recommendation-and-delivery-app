@@ -19,7 +19,7 @@
     top: 0;
 }
 
-@keyframes moveUpDown {
+/* @keyframes moveUpDown {
     0% {
         transform: translateY(0);
     }
@@ -29,9 +29,9 @@
     100% {
         transform: translateY(0);
     }
-}
+} */
 
-@keyframes colorChange {
+/* @keyframes colorChange {
     0% {
         color: yellow;
     }
@@ -41,7 +41,7 @@
     100% {
         color: yellow;
     }
-}
+} */
 
 .slogan {
     font-family: "Bebas Neue", sans-serif;
@@ -49,7 +49,7 @@
     color: yellow; /* Starting color */
     margin: 0px;
     padding: 0px;
-    animation: moveUpDown 1s infinite ease-in-out, colorChange 2s infinite;
+    /* animation: moveUpDown 1s infinite ease-in-out, colorChange 2s infinite; */
 }
 
 

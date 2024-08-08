@@ -244,6 +244,10 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  position: relative;
 }
 
 .recipe-item img {
@@ -259,6 +263,7 @@
   color: black;
   text-align: center;
   font-family: 'Telex', sans-serif;
+  align-self: center;
 }
 
 .recipe-item h5 {
@@ -268,6 +273,7 @@
   color: #333;
   font-weight: bold;
   font-family: 'Telex', sans-serif;
+  align-self: center;
 }
 
 .recipe-item ul {
@@ -277,9 +283,24 @@
 }
 
 .recipe-item li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 5px;
+  position: relative;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: black;
+  padding-left: 30px;
+  padding-bottom: 5px;
+} 
+.recipe-item li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 35%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px; 
+  background: url('./images/noodles.png') no-repeat center center; 
+  background-size: contain;
 }
 
 .buy-button {
@@ -289,28 +310,17 @@
   font-family: 'Telex', sans-serif;
   padding: 4px 8px;
   border-radius: 5px;
-  margin-right: 10px; 
   cursor: pointer;
-  /* background-image: url(./images/groceries.png);
-  background-position: 10px 10px; 
-  background-repeat: no-repeat;
-  background-size: 25px;
-  padding: 10px 25px 10px 45px;*/
-  margin-right: 10px; 
   color: white;
+  margin-bottom: 1rem;
+  align-self: center;
+  margin-top: auto;
 }
 
 .buy-button:hover {
   background-color: orangered;
 }
 
-.recipe-item p {
-  margin: 0;
-  font-size: 16px;
-  font-weight: 400;
-  color: black;
-  width: 60%;
-}
 
 .recipe-item:hover {
   -webkit-transform: scale(1.1);
@@ -338,4 +348,35 @@
   gap: 10px;
   margin-bottom: 20px;
 }
+
+.nav-dot-container{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 50px;
+  margin-top: 2rem; 
+}
+
+.nav-dot {
+  cursor: pointer;
+  margin-left: 20px;
+  bottom: 2rem;
+  width: 15px;
+  height: 15px;
+
+  opacity: .5;
+  background-color: white;
+  border-radius: 50%;
+  transition: .4s;
+
+  &:hover {
+    opacity: .8;
+    transform: scale(1.2);
+  }
+
+  &:active {
+    transform: scale(0.9);
+  } 
+}
+
 

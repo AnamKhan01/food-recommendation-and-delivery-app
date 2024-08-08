@@ -13,11 +13,11 @@ const RecipeList = ({ recipes, onRecipeClick }) => {
           <ul>
             {recipe.missedIngredients?.map((missingIngredient, index) => (
               <li key={index}>
-                <button className='buy-button'>Buy Now<FaBasketShopping className="ms-2 mb-1"/></button>
-                <p>{missingIngredient.originalName}</p>
+                {missingIngredient.originalName}
               </li>
             ))}
           </ul>
+          <button className='buy-button'>Buy Now<FaBasketShopping className="ms-2 mb-1"/></button>
         </div>
       ))}
     </div>

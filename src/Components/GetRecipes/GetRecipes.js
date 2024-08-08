@@ -154,6 +154,11 @@ const GetRecipes = () => {
                 </div>
               )}
             </div>
+            <div className="nav-dot-container">
+              <label for="slide1" class="nav-dot"></label>
+              <label for="slide2" class="nav-dot"></label>
+              <label for="slide3" class="nav-dot"></label>
+            </div>
           </div>
         </div>
       </div>
