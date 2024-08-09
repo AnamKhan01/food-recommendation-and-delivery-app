@@ -1,5 +1,5 @@
 import React from 'react';
-import './GetRecipes.css';
+import './Recipe.css';
 
 const RecipesInstructions = ({ selectedRecipe }) => {
 

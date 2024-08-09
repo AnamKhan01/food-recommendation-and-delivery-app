@@ -5,6 +5,8 @@ import { getIngredients, getRecipes } from './api/recipeApi';
 import './GetRecipes.css';
 import Header from '../Header/Header';
 import bread from './images/dancing-bread.gif';
+import { SlArrowRightCircle } from "react-icons/sl";
+import { SlArrowLeftCircle } from "react-icons/sl";
 
 const predefinedIngredients = [
   "butter", "egg", "garlic", "milk", "onion", "sugar", "flour", "olive oil",
@@ -64,6 +66,11 @@ const GetRecipes = () => {
     setManualInput('');
     setSuggestions([]);
   };
+
+  const handleRemoveSelect = () =>{
+    setSelectedIngredients([]);
+  };
+
 
   const handleManualInputChange = (event) => {
     setManualInput(event.target.value);
@@ -148,6 +155,7 @@ const GetRecipes = () => {
                           {ingredient}
                         </button>
                       ))}
+                      <button className='remove-all-button' onClick={() => handleRemoveSelect()}>Remove All</button>
                     </div>
                   </div>
                   <RecipeList recipes={recipes} onRecipeClick={handleRecipeClick} />
@@ -155,9 +163,11 @@ const GetRecipes = () => {
               )}
             </div>
             <div className="nav-dot-container">
+              <SlArrowLeftCircle className='arrow-icon-left'/>
               <label for="slide1" class="nav-dot"></label>
               <label for="slide2" class="nav-dot"></label>
               <label for="slide3" class="nav-dot"></label>
+              <SlArrowRightCircle className='arrow-icon-right'/>
             </div>
           </div>
         </div>

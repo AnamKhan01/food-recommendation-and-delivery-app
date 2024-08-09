@@ -1,16 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@0,100..900;1,100..900&family=Alfa+Slab+One&family=Anton+SC&family=Bebas+Neue&family=Gluten:wght@100..900&family=Oswald:wght@200..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@0,100..900;1,100..900&family=Alfa+Slab+One&family=Anton+SC&family=Bebas+Neue&family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Gluten:wght@100..900&family=Oswald:wght@200..700&family=Quicksand:wght@300..700&display=swap');
+
+body{
+  position: relative;
+  z-index: 1;
+  background-color: black !important;
+  background-size:auto;
+  background-image: url(./images/background.svg);
+}
+
 .get-recipes-container {
   font-family: 'Telex', serif;
   width: 100%;
   height: auto;
-  z-index: 1;
   padding-left: 12px;
   padding-right: 12px;
-  background-color: black;
-  background-size:auto;
-  background-image: url(./images/background.svg);
-  margin: 0 auto;
+  margin: 0 ;
 }
 
 .main-container{
@@ -123,7 +128,8 @@
   background-color: #fffc67;
 }
 
-.suggestion-button {
+.suggestion-button,
+.remove-all-button {
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
@@ -136,8 +142,13 @@
   background-color: #4caf50;
 }
 
-.remove-button {
+.remove-button,
+.remove-all-button {
   background-color: #f44336; 
+}
+
+.remove-all-button:hover{
+  opacity: 0.8;
 }
 
 .suggestion-button:hover {
@@ -202,6 +213,7 @@
 .selected-ingredient:hover{
   background-color: #3e8442;
 }
+
 
 .quote{
   font-family: "Quicksand", sans-serif;
@@ -352,25 +364,25 @@
 .nav-dot-container{
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
   margin-top: 2rem; 
 }
 
 .nav-dot {
   cursor: pointer;
   margin-left: 20px;
-  bottom: 2rem;
   width: 15px;
   height: 15px;
 
-  opacity: .5;
+  opacity: .6;
   background-color: white;
   border-radius: 50%;
   transition: .4s;
 
   &:hover {
-    opacity: .8;
+    opacity: .9;
     transform: scale(1.2);
   }
 
@@ -380,3 +392,27 @@
 }
 
 
+.arrow-icon-left,
+.arrow-icon-right{
+  color: white;
+  width: 2rem;
+  height: 2rem;
+  margin-left: 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.arrow-icon-right:hover,
+.arrow-icon-left:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.arrow-icon-right:active,
+.arrow-icon-left:active {
+  transform: scale(0.95); 
+  background-color: rgba(255, 255, 255, 0.3); 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
