@@ -17,9 +17,15 @@ const MainLayout = ({ children }) => {
           <img src={homepage} alt="Home page" className="bg-img" />
         </div>
       </div>
-      <Features />
-      <Shopping />
-      <Contact />
+      <div id="features">
+        <Features />
+      </div>
+      <div id="shopping">
+        <Shopping />
+      </div>
+      <div id="contact">
+        <Contact />
+      </div>
     </div>
   );
 };
