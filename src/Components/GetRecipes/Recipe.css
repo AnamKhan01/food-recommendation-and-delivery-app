@@ -26,9 +26,29 @@
   margin-bottom: 20px;
 }
 
+.recipe-instructions-section p{
+    font-family: Telex;
+}
 .recipe-image {
     border-radius: 12px;
     margin-bottom: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
 
+}
+
+.used-ingredients{
+    align-self: start;
+}
+
+.used-ingredients h3,
+.recipe-container h3,
+.recipe-instructions-section p strong
+{
+    font-family: Telex;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.stepwise-instructions li{
+    line-height: 1.3rem;
 }
