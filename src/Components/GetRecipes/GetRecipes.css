@@ -387,13 +387,20 @@ body{
   }
 
   &:active {
+    opacity: 1;
     transform: scale(0.9);
   } 
+}
+
+.nav-dot.active {
+  opacity: 1;
+  transform: scale(1.2);
 }
 
 
 .arrow-icon-left,
 .arrow-icon-right{
+  cursor: pointer;
   color: white;
   width: 2rem;
   height: 2rem;

@@ -5,8 +5,7 @@ import { getIngredients, getRecipes } from './api/recipeApi';
 import './GetRecipes.css';
 import Header from '../Header/Header';
 import bread from './images/dancing-bread.gif';
-import { SlArrowRightCircle } from "react-icons/sl";
-import { SlArrowLeftCircle } from "react-icons/sl";
+import { SlArrowRightCircle, SlArrowLeftCircle } from "react-icons/sl";
 
 const predefinedIngredients = [
   "butter", "egg", "garlic", "milk", "onion", "sugar", "flour", "olive oil",
@@ -15,10 +14,12 @@ const predefinedIngredients = [
   "honey", "paprika", "tomato", "avocado", "mango", "coriander", "lemon", "ginger", "cumin", "apple"
 ];
 
+const recipesPerPage = 9;
 
 const GetRecipes = () => {
   const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [recipes, setRecipes] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
   const [manualInput, setManualInput] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const navigate = useNavigate();
@@ -47,6 +48,7 @@ const GetRecipes = () => {
         if (selectedIngredients.length > 0) {
           const recipesData = await getRecipes(selectedIngredients);
           setRecipes(recipesData);
+          setCurrentPage(0); 
         } else {
           setRecipes([]);
         }
@@ -67,10 +69,9 @@ const GetRecipes = () => {
     setSuggestions([]);
   };
 
-  const handleRemoveSelect = () =>{
+  const handleRemoveSelect = () => {
     setSelectedIngredients([]);
   };
-
 
   const handleManualInputChange = (event) => {
     setManualInput(event.target.value);
@@ -86,12 +87,28 @@ const GetRecipes = () => {
     navigate(`/recipe/${recipeId}`);
   };
 
+  const totalPages = Math.ceil(recipes.length / recipesPerPage);
+  const startIndex = currentPage * recipesPerPage;
+  const currentRecipes = recipes.slice(startIndex, startIndex + recipesPerPage);
+
+  const handlePageChange = (direction) => {
+    if (direction === 'left' && currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+    } else if (direction === 'right' && currentPage < totalPages - 1) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handleDotClick = (index) => {
+    setCurrentPage(index);
+  };
+
+  const showNavControls = selectedIngredients.length > 0 && recipes.length > 0;
+
   return (
     <div className="get-recipes-container">
       <Header isFixed={false} />
       <div className='main-container'>
-        {/* <h1>Recipe Finder</h1> */}
-
         <div className="manual-input-section">
           <input
             type="text"
@@ -112,7 +129,6 @@ const GetRecipes = () => {
                   >
                     {selectedIngredients.includes(suggestion) ? 'Remove' : 'Add'}
                   </button>
-
                 </li>
               ))}
             </ul>
@@ -136,8 +152,6 @@ const GetRecipes = () => {
           </div>
 
           <div className="right-panel">
-
-            {/* <h2>Recipes</h2> */}
             <div className={`recipe-list ${recipes.length > 0 ? 'has-recipes' : ''}`}>
               {recipes.length === 0 ? (
                 <div className='quote-content'>
@@ -147,7 +161,6 @@ const GetRecipes = () => {
               ) : (
                 <div>
                   <div className="selected-ingredients-container">
-
                     <h2>Selected Ingredients</h2>
                     <div className="selected-ingredients">
                       {selectedIngredients.map((ingredient, index) => (
@@ -155,20 +168,27 @@ const GetRecipes = () => {
                           {ingredient}
                         </button>
                       ))}
-                      <button className='remove-all-button' onClick={() => handleRemoveSelect()}>Remove All</button>
+                      <button className='remove-all-button' onClick={handleRemoveSelect}>Remove All</button>
                     </div>
                   </div>
-                  <RecipeList recipes={recipes} onRecipeClick={handleRecipeClick} />
+                  <RecipeList recipes={currentRecipes} onRecipeClick={handleRecipeClick} />
                 </div>
               )}
             </div>
-            <div className="nav-dot-container">
-              <SlArrowLeftCircle className='arrow-icon-left'/>
-              <label for="slide1" class="nav-dot"></label>
-              <label for="slide2" class="nav-dot"></label>
-              <label for="slide3" class="nav-dot"></label>
-              <SlArrowRightCircle className='arrow-icon-right'/>
-            </div>
+            {showNavControls && (
+              <div className="nav-dot-container">
+                <SlArrowLeftCircle className='arrow-icon-left' onClick={() => handlePageChange('left')} />
+                {Array.from({ length: totalPages }).map((_, index) => (
+                  <label
+                    key={index}
+                    htmlFor={`slide${index}`}
+                    className={`nav-dot ${currentPage === index ? 'active' : ''}`}
+                    onClick={() => handleDotClick(index)}
+                  ></label>
+                ))}
+                <SlArrowRightCircle className='arrow-icon-right' onClick={() => handlePageChange('right')} />
+              </div>
+            )}
           </div>
         </div>
       </div>
