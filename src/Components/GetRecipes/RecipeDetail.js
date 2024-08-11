@@ -33,13 +33,14 @@ const RecipeDetail = () => {
         <p><strong>Cooking Time:</strong> {recipe.readyInMinutes} minutes</p>
         <p><strong>Servings:</strong> {recipe.servings}</p>
         <p><strong>Nutrition:</strong> {recipe.nutrition.nutrients.map(nutrient => `${nutrient.name}: ${nutrient.amount}${nutrient.unit}`).join(', ')}</p>
-        <h3>Used Ingredients</h3>
-        <ul>
-          {recipe.extendedIngredients.map((ingredient, index) => (
-            <li key={index}>{ingredient.original}</li>
-          ))}
-        </ul>
-        <h3>Instructions</h3>
+        <div className='used-ingredients'>
+          <h3><strong>Used Ingredients</strong></h3>
+          <ul>
+            {recipe.extendedIngredients.map((ingredient, index) => (
+              <li key={index}>{ingredient.original}</li>
+            ))}
+          </ul>
+        </div>
         <RecipesInstructions selectedRecipe={recipe.analyzedInstructions} />
       </div>
     </div>
