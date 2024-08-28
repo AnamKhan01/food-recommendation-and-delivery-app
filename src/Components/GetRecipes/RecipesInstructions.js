@@ -2,19 +2,16 @@ import React from 'react';
 import './Recipe.css';
 
 const RecipesInstructions = ({ selectedRecipe }) => {
+  if (!selectedRecipe || selectedRecipe.length === 0) {
+    return <div>No instructions available</div>;
+  }
 
   return (
     <div className="recipe-container">
-      {selectedRecipe.map((recipe, recipeIndex) => (
-        <div key={recipeIndex}>
-          <h3><strong>{recipe.name || 'Recipe Instructions'}</strong></h3>
-          <ul className='stepwise-instructions'>
-            {recipe.steps.map((step, stepIndex) => (
-              <li key={stepIndex} className="recipe-item-list">
-                <p>{step.step}</p>
-              </li>
-            ))}
-          </ul>
+      {selectedRecipe.map((step, index) => (
+        <div key={index}>
+          <h3><strong>Step {index + 1}</strong></h3>
+          <p>{step}</p>
         </div>
       ))}
     </div>

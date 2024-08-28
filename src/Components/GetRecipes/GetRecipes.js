@@ -16,6 +16,18 @@ const predefinedIngredients = [
 
 const recipesPerPage = 9;
 
+// Normalize the ingredient name (lowercase and trimmed)
+const normalizeIngredient = (ingredient) => {
+  return ingredient.toLowerCase().trim();
+};
+
+// Function to check if the selected ingredient is part of the ingredient name
+const isIngredientMatch = (ingredient, selectedIngredient) => {
+  const normalizedIngredient = normalizeIngredient(ingredient);
+  const normalizedSelectedIngredient = normalizeIngredient(selectedIngredient);
+  return normalizedIngredient.includes(normalizedSelectedIngredient);
+};
+
 const GetRecipes = () => {
   const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [recipes, setRecipes] = useState([]);
@@ -47,7 +59,23 @@ const GetRecipes = () => {
       try {
         if (selectedIngredients.length > 0) {
           const recipesData = await getRecipes(selectedIngredients);
-          setRecipes(recipesData);
+          
+          // Filter out missing ingredients for each recipe
+          const recipesWithMissingIngredients = recipesData.map((recipeData) => {
+            const recipeIngredients = recipeData.recipe.ingredients.map(ingredient => ingredient.food.toLowerCase());
+            const missingIngredients = recipeIngredients.filter(ingredient => 
+              !selectedIngredients.some(selected => isIngredientMatch(ingredient, selected))
+            );
+            return {
+              ...recipeData,
+              recipe: {
+                ...recipeData.recipe,
+                missedIngredients: missingIngredients
+              }
+            };
+          });
+
+          setRecipes(recipesWithMissingIngredients);
           setCurrentPage(0); 
         } else {
           setRecipes([]);
@@ -84,9 +112,10 @@ const GetRecipes = () => {
   };
 
   const handleRecipeClick = (recipeId) => {
-    navigate(`/recipe/${recipeId}`);
+    const encodedRecipeId = encodeURIComponent(recipeId);
+    navigate(`/recipe/${encodedRecipeId}`);
   };
-
+  
   const totalPages = Math.ceil(recipes.length / recipesPerPage);
   const startIndex = currentPage * recipesPerPage;
   const currentRecipes = recipes.slice(startIndex, startIndex + recipesPerPage);
