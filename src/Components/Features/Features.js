@@ -8,7 +8,8 @@ function Features() {
     return (
         <>
             <div className='features-container'>
-                {/* <h2>UNCOVER OUR <br/>HIGHLIGHTS</h2> */}
+                
+                {/* <h2>FEATURES THAT DEFINE US</h2> */}
                 <div className='line-effect'>
                     <div className='line line-1'></div>
                     <div className='line line-2'></div>

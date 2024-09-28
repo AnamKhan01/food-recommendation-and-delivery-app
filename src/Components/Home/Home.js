@@ -12,8 +12,8 @@ const Home = () => {
     return (
         <div className="sub-heading">
             <p className="slogan">Tasty Delights</p>
-            <p className="slogan swift">Swiftly Arrived</p>
-            <p className="about">Discover delicious recipe suggestions tailored to your tastes with <em>FlashFeast</em>.
+            <p className="slogan swift">Swiftly Arrived...</p>
+            <p className="about">Discover delicious recipe suggestions tailored to your tastes with <em>FlashFeast</em>.<br/>
                 Get fresh ingredients delivered right to your door and enjoy cooking made easy.
                 Download now and start your culinary journey today!</p>
             <button onClick={handleGetRecipesClick} className="getRecipes"><span>Get Recipes</span></button>

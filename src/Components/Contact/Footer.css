@@ -1,0 +1,165 @@
+/* Footer Container Styles */
+.footer-container {
+    background-color: #feee9d;
+    position: relative;
+    height: 83vh;
+    overflow: hidden;
+}
+
+.footer-top {
+    width: 100%;
+}
+
+.footer-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Query Section (Get in Touch) */
+.query-section {
+    padding-right: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.get-in-touch {
+    font-family: "Bebas Neue", sans-serif;
+    color: #c1564c!important;
+    margin-top: 2rem !important;
+    font-size: 3rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.question {
+    font-size: 1rem;
+    font-family: "Telex", serif;
+    font-weight: 300;
+    color: #6a7695;
+    margin-bottom: 20px;
+}
+
+.footer-row{
+    width: 100%;
+}
+
+.query-form{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.query-form input.query-question {
+    width: 30%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.query-form input.query-question:focus{
+    outline: none;
+    border: 1px solid #c1564c ;
+}
+
+.query-form .submit-button {
+    background-color: #c1564c;
+    color: #f5e9e4;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.query-form .submit-button:hover {
+    background-color: #f5e9e4;
+    color: #c1564c;
+}
+
+/*Social Section */
+.social-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 1rem;
+}
+
+.social-icon div {
+    background-color: #f5e9e4;
+    color: #c1564c;
+    font-size: 24px;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.social-icon div:hover {
+    background-color: #c1564c;
+    color: #f5e9e4;
+}
+
+.footer_bottom {
+    background-color: #fff;
+    padding: 20px 0;
+    position: absolute; 
+    bottom: 0;
+    width: 100%; 
+    text-align: center;
+}
+
+.copyright-tag{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.copyright {
+    margin-top: 2rem;
+    font-size: 14px;
+    font-family: "Telex", serif;
+    color: #6a7695;
+}
+
+.footer-bg {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 32.3vh;
+    background-image: url('../../images/tea.gif');
+    background-size: 25%; 
+    background-repeat: repeat-x;
+    background-position: 0 0;
+    animation: moveBackground 5s linear infinite; 
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: 0 0; /* Start position */
+    }
+    100% {
+        background-position: 100% 0; /* Move to the right end */
+    }
+}
+
+

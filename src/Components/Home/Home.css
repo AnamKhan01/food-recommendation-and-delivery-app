@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gluten:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+
 
 .body-contents {
     display: grid;
@@ -16,7 +18,7 @@
     justify-content: center;
     position: relative;
     right: 0;
-    top: 0;
+    top: 2%;
 }
 
 /* @keyframes moveUpDown {
@@ -45,20 +47,22 @@
 
 .slogan {
     font-family: "Bebas Neue", sans-serif;
-    font-size: 55px;
-    color: yellow; /* Starting color */
+    font-size: 6rem;
+    color: #c1564c; /* Starting color */
     margin: 0px;
     padding: 0px;
+    line-height: 1.2;
     /* animation: moveUpDown 1s infinite ease-in-out, colorChange 2s infinite; */
 }
 
 
-
 .about {
     font-size: 1.2rem;
-    font-family: "Alata", sans-serif;
+    font-family: "Telex", serif;
     color: #fff;
     margin-top: 1.5rem;
+    letter-spacing: 1px;
+    width: 120%;
 }
 
 .swift {
@@ -75,8 +79,8 @@
     font-family: 'Telex';
     font-size: 1.5rem;
     font-weight: bold;
-    color: black;
-    background-color: white !important;
+    background-color: #f5e9e4 !important;
+    color:#c1564c !important;
     border: none;
     border-radius: 20px;
     cursor: pointer;
@@ -110,7 +114,9 @@
 }
 
 .getRecipes:hover{
-    background-color: yellow !important;
+    background-color: #f5e9e4 !important;
+    color: #6e2b25 !important;
+    border:2px #c1564c !important;
 } 
 
 

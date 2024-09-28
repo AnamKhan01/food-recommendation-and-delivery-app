@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import RecipeList from './RecipeList';
 import { getIngredients, getRecipes } from './api/recipeApi';
 import './GetRecipes.css';
-import Header from '../Header/Header';
-import bread from './images/dancing-bread.gif';
+import RecipeHeader from './RecipeHeader';
+import bread from './images/bread.gif';
 import { SlArrowRightCircle, SlArrowLeftCircle } from "react-icons/sl";
 
 const predefinedIngredients = [
@@ -136,7 +136,7 @@ const GetRecipes = () => {
 
   return (
     <div className="get-recipes-container">
-      <Header isFixed={false} />
+      <RecipeHeader/>
       <div className='main-container'>
         <div className="manual-input-section">
           <input
