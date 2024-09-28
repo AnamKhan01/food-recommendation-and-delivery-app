@@ -11,7 +11,7 @@ const predefinedIngredients = [
   "butter", "egg", "garlic", "milk", "onion", "sugar","paprika", "tomato",
   "avocado", "mango", "coriander", "lemon", "ginger", "cumin", "apple", "flour", 
   "olive oil", "bread", "potato", "cinnamon", "ketchup", "cheese",
-  "chicken", "garlic", "paneer", "rice", "honey"
+  "chicken", "rajma", "paneer", "rice", "honey"
 ];
 
 const recipesPerPage = 9;
@@ -34,8 +34,23 @@ const GetRecipes = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [manualInput, setManualInput] = useState('');
   const [suggestions, setSuggestions] = useState([]);
+  const [noRecipesFound, setNoRecipesFound] = useState(false); // New state to track no recipes
   const navigate = useNavigate();
   const inputRef = useRef();
+  const suggestionsRef = useRef(null);  // Ref for suggestion list
+  
+  // Event listener to handle clicks outside of the suggestion list
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (suggestionsRef.current && !suggestionsRef.current.contains(event.target)) {
+        setSuggestions([]); // Clear suggestions when clicking outside
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   useEffect(() => {
     const fetchIngredients = async (query) => {
@@ -54,7 +69,6 @@ const GetRecipes = () => {
       setSuggestions([]);
     }
   }, [manualInput]);
-  
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -78,9 +92,11 @@ const GetRecipes = () => {
           });
 
           setRecipes(recipesWithMissingIngredients);
+          setNoRecipesFound(recipesWithMissingIngredients.length === 0); // Set state if no recipes found
           setCurrentPage(0); 
         } else {
           setRecipes([]);
+          setNoRecipesFound(false); // Reset no recipes message
         }
       } catch (error) {
         console.error('Error fetching recipes:', error);
@@ -101,6 +117,7 @@ const GetRecipes = () => {
 
   const handleRemoveSelect = () => {
     setSelectedIngredients([]);
+    setNoRecipesFound(false); // Reset no recipes message when clearing selection
   };
 
   const handleManualInputChange = (event) => {
@@ -150,7 +167,7 @@ const GetRecipes = () => {
             ref={inputRef}
           />
           {suggestions.length > 0 && (
-            <ul className="suggestions-list">
+            <ul className="suggestions-list" ref={suggestionsRef}>
               {suggestions.map((suggestion, index) => (
                 <li key={index}>
                   <span onClick={() => handleSuggestionClick(suggestion)}>{suggestion}</span>
@@ -188,6 +205,7 @@ const GetRecipes = () => {
                 <div className='quote-content'>
                   <img src={bread} alt="bread" className='bread'></img>
                   <h2 className='quote'>Sprinkle your ingredients, let the journey start, Each one a key to new recipes, a culinary art.</h2>
+                  {noRecipesFound && <p className="no-recipes-message">No recipes available for the selected ingredients.</p>} {/* Display message if no recipes */}
                 </div>
               ) : (
                 <div>
