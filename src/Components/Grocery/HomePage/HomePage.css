@@ -1,0 +1,79 @@
+.homepage-container {
+    position: relative;
+    z-index: 1;
+    background-size:auto;
+    background-image: url(./background.svg);
+    background-color: #fff;
+    background-repeat: repeat;
+    width: 100%;
+    height: auto;
+    padding: 0.2rem;
+}
+
+
+.intro {
+    display: flex;
+    width: 100%;
+    height: 49vh;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 0 5%; 
+    position: relative;
+    margin-top: 0 !important;
+    margin-bottom: 6%;
+}
+
+.svg-div{
+    margin-top: 0;
+}
+
+/* .delivery{
+    width: 24rem;
+    height: 14rem;
+    margin-top: 25%;
+} */
+.grocery-bag {
+    margin-top:5.92%; 
+    width: 80%; 
+    height: auto;
+    transform: rotate(-11deg);
+    border-radius: 20%;
+    margin-left: 9%;
+    align-self: center; 
+}
+
+
+.heading {
+    font-size: 3.3rem; 
+    color: #c1564c;
+    font-family: "Bebas Neue", sans-serif;
+    max-width: 60%; 
+}
+
+.pattern {
+    /* top: 15%; */
+    position: absolute;
+    margin: 1.5rem 1.5rem 1.5rem 1.85rem;
+    width: 97%;
+    left: 0;
+    overflow: hidden;
+    z-index: -1; 
+    border-top-left-radius: 20px;
+}
+
+.shop-quote{
+    font-size: 1.2rem;
+    color: #fff;
+    font-family: "Telex", serif;
+    margin-top: 2.5%;
+}
+
+.shop-quote span{
+    margin-left: 31.3%;
+}
+
+.picks-heading{
+    margin-left: 1.85rem;
+    font-size: 2.5rem;
+    font-family: "Bebas Neue", sans-serif;
+}

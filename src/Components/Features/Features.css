@@ -4,14 +4,15 @@
 
 .features-container{
     /* background-image: url('./images/background1.png'); */
-    background-color: black;
+    background-color:#ffdb6e ;
     width: 100%;
-    height: 100vh;
+    height: 90vh;
     top:0;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
     position: relative;
     overflow: hidden;
@@ -19,7 +20,7 @@
 
 .img-container{
     height: auto;
-    width: 40%;
+    width: 45%;
     margin-top: 2rem !important;
     border: 7px solid #FFC700 !important;
     border-radius: 15% !important;
@@ -42,11 +43,14 @@
     font-size: 1.5rem;
 }
 
+.carousel-inner{
+    border-radius: 14% !important;
+}
+
 .bg-image{
     width:100%;
     height: auto;
     opacity: 0.25;
-    border-radius: 15%;
 }
 
 .items{
@@ -65,13 +69,19 @@
 .line {
     position: absolute;
     height: 5px;
-    background-color: yellow;
     border-radius: 20%;
     left: -100%;
-    animation: moveRight 3s infinite;
+    animation: moveRight 2s infinite;
 
 }
 
+.line-1,.line-3,.line-5,.line-7,.line-9{
+    background-color: #f0be49;
+}
+
+.line-2,.line-4,.line-6,.line-8,.line-10{
+    background-color: #c1564c;
+}
 @keyframes moveRight {
     to {
         left: 100%;

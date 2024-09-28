@@ -4,7 +4,7 @@
 body{
   position: relative;
   z-index: 1;
-  background-color: black !important;
+  background-color: white !important;
   background-size:auto;
   background-image: url(./images/background.svg);
 }
@@ -15,21 +15,12 @@ body{
   height: auto;
   padding-left: 12px;
   padding-right: 12px;
-  margin: 0 ;
+  margin: 0;
 }
 
 .main-container{
   position: relative;
   top:10px;
-}
-
-.get-recipes-container h1 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: yellow;
-  position: relative;
-  font-family: "Advent Pro", sans-serif;
-  font-size: 4rem;
 }
 
 .manual-input-section {
@@ -49,14 +40,14 @@ body{
   padding: 10px 25px 10px 45px;
   margin-right: 10px;
   border-radius: 5px;
-  border: 3px solid yellow;
+  border: 2px solid #c1564c;
 }
 
 .manual-input-field:focus
 {
   outline: none;
-  border-color: #ffcc00; 
-  box-shadow: 0 0 15px rgba(255, 204, 0, 0.6); 
+  border-color: #c1564c; 
+  box-shadow: 0 0 15px #e5b5b0; 
 }
 
 .manual-input-button {
@@ -89,7 +80,7 @@ body{
 
 .left-panel h2{
   font-family: "Oswald", sans-serif;
-  color: white;
+  color: #c1564c;
   position: absolute;
   z-index: 1;
   top: 0px;
@@ -180,16 +171,17 @@ body{
 .selected-ingredient {
   padding: 10px 15px;
   border-radius: 10px;
-  background-color: #505050;
-  /* border: 1px solid #fff; */
+  border: none;
   cursor: pointer;
   width: 100px;
+  background-color: #c1564c;
   color: #fff;
   transition: background-color 0.3s ease;
 }
 
 .ingredient-button:hover{
-  background-color: #959494;
+  background-color: #fe8a7d;
+  /* color: #c1564c; */
 }
 
 .ingredient-button.selected
@@ -219,7 +211,8 @@ body{
   font-family: "Quicksand", sans-serif;
   font-size: 1.6rem;
   text-align: center;
-  color: #abf6ec !important;
+  /* color: #fc7263 !important; */
+  color: #d3885c !important;
   margin: 0;
   line-height: 1.5;
   margin: 50px auto;
@@ -234,10 +227,10 @@ body{
   flex-direction: column;
 }
 .bread{
-  width:15rem;
+  width:10rem;
   height: 8rem;
   margin-top: 5rem;
-  bottom: 0px;
+  margin-bottom: 10px;
 }
 
 .recipe-list {

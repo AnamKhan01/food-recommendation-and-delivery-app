@@ -1,0 +1,212 @@
+/* Header.css */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Delius+Unicase&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Della+Respira&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Telex&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@0,100..900;1,100..900&family=Alfa+Slab+One&family=Anton+SC&family=Bebas+Neue&family=Gluten:wght@100..900&display=swap');
+
+
+
+.header-section {
+  z-index: 1000;
+  background-color: #f0be49;
+  width: 96%;
+  margin: 1rem 0.5rem 0.5rem 1.85rem;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.shopping-bar {
+  width: 100%;
+  padding: 0.5rem 1rem;
+}
+
+.shopping-bar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Brand */
+.brand {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logo {
+  width: 3rem;
+  height: 3rem;
+  /* margin-bottom: 1rem; */
+}
+
+.brand-name {
+  color: #c1564c;
+  font-weight: bold;
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 2.3rem;
+  margin-left: 0.5rem;
+}
+
+/* Toggle Button */
+.toggle-button {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.toggle-button .bar {
+  height: 3px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+/* Navbar Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.search-container {
+  flex: 1;
+  max-width: 50%;
+  margin: 0 auto;
+  width: 40%;
+}
+
+.search-input {
+  width: 100%;
+  padding: 4px 16px;
+  padding-left: 45px;
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  font-family: 'Telex', sans-serif;
+  background-image: url('./search-icon.png');
+  /* Ensure this path is correct */
+  background-position: 10px center;
+  background-repeat: no-repeat;
+  background-size: 25px;
+}
+
+.search-input:focus{
+  outline: none;
+  border: 2px solid #c1564c;
+  box-shadow: 0 0 15px #f7d1d1; 
+}
+
+/* Navigation Items */
+.nav-items {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* .nav-icon {
+  color: #fff;
+  font-size: 2rem;
+  transition: background-color 0.3s, transform 0.3s;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  align-self: center;
+  margin-bottom: 0.5rem;
+} */
+
+/* .nav-icon:hover {
+  background-color: #4caf50;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+} */
+
+/* Buttons */
+
+.nav-icon {
+  border-radius: 50% !important;
+  padding: 0.45rem 0.55rem !important;
+}
+
+.cart{
+  width: 1.5rem;
+  height: 1.4rem;;
+}
+
+.home-button,
+.login-button,
+.nav-icon {
+  background-color: #c1564c;
+  color: #f5e9e4;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  font-family: 'Telex', sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.home-button:hover,
+.login-button:hover,
+.nav-icon:hover {
+  background-color: #f5e9e4;
+  color: #c1564c;
+}
+
+
+.login-button .icon {
+  margin-right: 0.2rem;
+  width: 1rem;
+  height: 1.5rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .toggle-button {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in;
+  }
+
+  .nav-links.active {
+    max-height: 500px;
+    /* Arbitrary large value to allow content to expand */
+  }
+
+  .search-container {
+    width: 100%;
+    margin: 0 0 1rem 0;
+  }
+
+  .nav-items {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .home-button,
+  .login-button {
+    width: 100%;
+    text-align: left;
+  }
+}

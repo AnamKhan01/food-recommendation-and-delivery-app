@@ -4,11 +4,13 @@ import Home from '../Home/Home';
 import GetRecipes from '../GetRecipes/GetRecipes';
 import RecipeDetail from '../GetRecipes/RecipeDetail';
 import MainLayout from '../Layout/MainLayout';
+import Homepage from '../Grocery/HomePage/HomePage';
 
 const LandingPage = () => {
   return (
     <Routes>
       <Route path="/get-recipes" element={<GetRecipes />} />
+      <Route path="/grocery-home" element={<Homepage />} />
       <Route path="/recipe/:id" element={<RecipeDetail />} />
       <Route path="/" element={
         <MainLayout>

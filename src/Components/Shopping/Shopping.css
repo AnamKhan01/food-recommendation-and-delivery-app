@@ -3,7 +3,7 @@
 
 .shopping-container{
     /* background-image: url('./Images/background1.png'); */
-    background-color: black;
+    background-color: #fee484;
     width: 100%;
     height: 100vh;
     top:0;
@@ -14,6 +14,7 @@
     flex-direction: column;
     justify-content: center;
 }
+
 
 .shopping-card{
     margin-left: 2rem !important;
@@ -30,7 +31,7 @@
 
 .shopping-container h2{
     font-family: "Bebas Neue", sans-serif;
-    color: white !important;
+    color: #c1564c!important;
     margin-top: 2rem !important;
     font-size: 3rem !important;
     margin-bottom: 1rem !important;
@@ -38,7 +39,7 @@
 
 .individual-cards{
     border-radius: 5% !important;
-    border: 5px solid yellow !important;
+    border: 3px solid #c1564c !important;
 }
 
 .card-img-top{
@@ -60,19 +61,6 @@
 }
 
 
-.explore {
-    margin-top: 2rem;
-    margin-bottom: -50px;
-    padding: 0.6rem 1.2rem;
-    font-family: 'Shantell Sans', cursive;
-    font-size: 1.5rem;
-    font-weight: bold;
-    background-color: #fff !important;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-}
-
 
 .explore {
     margin-top: 2rem;
@@ -80,8 +68,8 @@
     font-family: 'Telex';
     font-size: 1.5rem;
     font-weight: bold;
-    color: black;
-    background-color: white !important;
+    color: #c1564c;
+    background-color: #f5e9e4 !important;
     border: none;
     border-radius: 20px;
     cursor: pointer;
@@ -115,7 +103,8 @@
 }
 
 .explore:hover{
-    background-color: yellow !important;
+    background-color: #f5e9e4 !important;
+    color: #6e2b25 !important;
 }
 
 .text-muted:hover{
@@ -133,4 +122,9 @@
     box-shadow: 0 0 10px #ffee10;
     text-shadow: 0 0 10px #ffee10;
     
+}
+
+.shop-pattern{
+    width: 100%;
+    background-color: #feee9d;
 }
