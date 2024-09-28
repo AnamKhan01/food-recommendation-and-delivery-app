@@ -35,6 +35,7 @@
     align-items: top;
 }
 
+
 .navbar-brand {
     color: #c1564c !important;
     font-weight: bold;
@@ -111,7 +112,7 @@
 
 
 #basic-navbar-nav {
-    margin-top: 1.4rem !important;
+    margin-top: 0.8rem !important;
 }
 
 .nav-link {

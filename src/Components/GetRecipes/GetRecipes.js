@@ -8,10 +8,10 @@ import bread from './images/bread.gif';
 import { SlArrowRightCircle, SlArrowLeftCircle } from "react-icons/sl";
 
 const predefinedIngredients = [
-  "butter", "egg", "garlic", "milk", "onion", "sugar", "flour", "olive oil",
-  "garlic powder", "white rice", "cinnamon", "ketchup", "soy sauce",
-  "vegetable oil", "bread", "baking powder", "potato",
-  "honey", "paprika", "tomato", "avocado", "mango", "coriander", "lemon", "ginger", "cumin", "apple"
+  "butter", "egg", "garlic", "milk", "onion", "sugar","paprika", "tomato",
+  "avocado", "mango", "coriander", "lemon", "ginger", "cumin", "apple", "flour", 
+  "olive oil", "bread", "potato", "cinnamon", "ketchup", "cheese",
+  "chicken", "garlic", "paneer", "rice", "honey"
 ];
 
 const recipesPerPage = 9;
@@ -41,6 +41,7 @@ const GetRecipes = () => {
     const fetchIngredients = async (query) => {
       try {
         const ingredientsData = await getIngredients(query);
+        console.log('Ingredients fetched:', ingredientsData);
         setSuggestions(ingredientsData.map(ingredient => ingredient.name));
       } catch (error) {
         console.error('Error fetching ingredients:', error);
@@ -53,6 +54,7 @@ const GetRecipes = () => {
       setSuggestions([]);
     }
   }, [manualInput]);
+  
 
   useEffect(() => {
     const fetchRecipes = async () => {

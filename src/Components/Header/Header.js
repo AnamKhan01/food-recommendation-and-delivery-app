@@ -1,4 +1,3 @@
-// Header.js
 import React from 'react';
 import { Navbar, Nav, Button } from 'react-bootstrap';
 import { FaSignInAlt, FaUserPlus } from 'react-icons/fa';
@@ -11,19 +10,28 @@ const Header = ({ isFixed = true }) => {
   const navigate = useNavigate();
 
   const handleNavLinkClick = (sectionId) => {
-    navigate('/', { replace: true });
-    setTimeout(() => {
-      const section = document.getElementById(sectionId);
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100); 
+    if (sectionId === 'home') {
+      // Navigate to the homepage and scroll to top
+      navigate('/');
+      window.scrollTo(0, 0);  // This ensures scrolling to the top of the page
+    } else {
+      // For other sections, scroll to the section after navigating
+      navigate('/', { replace: true });
+      setTimeout(() => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
   };
 
   return (
     <Navbar className={isFixed ? 'navbar fixed' : 'navbar static'}>
       <div className='navbar-container'>
-        <Navbar.Brand href="#" className="navbar-brand"><img src={hotpot} alt='' className='hotPot'></img>FlashFeast</Navbar.Brand>
+        <Navbar.Brand href="#" className="navbar-brand" onClick={() => navigate('/')}>
+          <img src={hotpot} alt='' className='hotPot'></img>FlashFeast
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mx-4">
