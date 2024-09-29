@@ -195,6 +195,7 @@ body{
   color: white;
   border: none;
   cursor: pointer;
+  width: auto;
 }
 
 .selected-ingredient:hover{

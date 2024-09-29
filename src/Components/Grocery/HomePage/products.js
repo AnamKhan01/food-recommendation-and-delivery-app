@@ -1,34 +1,34 @@
-import apple from './itemsImages/apple.png';
-import banana from './itemsImages/banana.png';
-import potato from './itemsImages/potato.png';
-import onion from './itemsImages/onion.png';
+import apple from './itemsImages/fruits-and-vegetables/apple.png';
+import banana from './itemsImages/fruits-and-vegetables/banana.png';
+import potato from './itemsImages/fruits-and-vegetables/potato.png';
+import onion from './itemsImages/fruits-and-vegetables/onion.png';
 
-import salt from './itemsImages/salt.png';
-import sugar from './itemsImages/sugar.png';
-import flour from './itemsImages/flour.png';
-import rice from './itemsImages/rice.png';
+import salt from './itemsImages/pantry-staples/salt.png';
+import sugar from './itemsImages/pantry-staples/sugar.png';
+import flour from './itemsImages/pantry-staples/flour.png';
+import rice from './itemsImages/pantry-staples/rice.png';
 
-import chicken from './itemsImages/chicken.png';
-import mutton from './itemsImages/lamb.png';
-import fish from './itemsImages/fish.png';
-import shrimps from './itemsImages/shrimp.png';
+import chicken from './itemsImages/meat/chicken.png';
+import mutton from './itemsImages/meat/lamb.png';
+import fish from './itemsImages/meat/fish.png';
+import shrimps from './itemsImages/meat/shrimp.png';
 
-import egg from './itemsImages/eggs.png';
-import milk from './itemsImages/milk.png';
-import butter from './itemsImages/butter.png';
-import cheese from './itemsImages/cheese.png';
+import egg from './itemsImages/dairy-products/eggs.png';
+import milk from './itemsImages/dairy-products/milk.png';
+import butter from './itemsImages/dairy-products/butter.png';
+import cheese from './itemsImages/dairy-products/cheese.png';
 
-import bread from './itemsImages/breads.png';
-import buns from './itemsImages/bun.png';
-import cookies from './itemsImages/cookie.png';
+import bread from './itemsImages/snacks/breads.png';
+import buns from './itemsImages/snacks/bun.png';
+import cookies from './itemsImages/snacks/cookie.png';
 
-import starAnise from './itemsImages/masala.png';
-import cloves from './itemsImages/clove.png';
-import oil from './itemsImages/sunflower-oil.png';
+import starAnise from './itemsImages/masala-and-oils/masala.png';
+import cloves from './itemsImages/masala-and-oils/clove.png';
+import oil from './itemsImages/masala-and-oils/sunflower-oil.png';
 
-import sauce from './itemsImages/tomato-sauce.png';
-import oregano from './itemsImages/oregano.png';
-import tea from './itemsImages/green-tea.png';
+import sauce from './itemsImages/sauces/tomato-sauce.png';
+import oregano from './itemsImages/sauces/oregano.png';
+import tea from './itemsImages/beverages/green-tea.png';
 
 export const products = [
     {
