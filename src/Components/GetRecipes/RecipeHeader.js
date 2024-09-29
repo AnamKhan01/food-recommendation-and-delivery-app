@@ -19,6 +19,10 @@ const RecipeHeader = ({setShowLogin}) => {
     }, 100); 
   };
 
+  const handleCartClick = ()=>{
+    navigate('/grocery-home');
+  };
+
   return (
     <Navbar className='custom-navbar'>
       <div className='custom-navbar-container'>
@@ -32,7 +36,7 @@ const RecipeHeader = ({setShowLogin}) => {
             <Nav.Link className='custom-nav-link' onClick={() => handleNavLinkClick('features')}>Features</Nav.Link>
             <Nav.Link className='custom-nav-link' onClick={() => handleNavLinkClick('shopping')}>Shopping</Nav.Link>
             <Nav.Link className='custom-nav-link' onClick={() => handleNavLinkClick('contact')}>Contact</Nav.Link>
-            <Nav.Link href="#about" className='custom-nav-cart'>
+            <Nav.Link onClick={handleCartClick} className='custom-nav-cart'>
               <ShoppingCart className='custom-icon' />
             </Nav.Link>
           </Nav>
