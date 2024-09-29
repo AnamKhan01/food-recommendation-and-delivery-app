@@ -1,16 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import ShoppingHeader from "../ShoppingHeader/ShoppingHeader";
 import "./HomePage.css";
 import grocery from "./grocery-bag.png";
 import Categories from "./Categories";
 import BestSeller from "./BestSeller";
+import Login from "../../LoginSignup/Login";
 
 const HomePage = () => {
 
+    const [showLogin,setShowLogin] = useState(0);
+
     return (
         <>
+            {showLogin === 2 ? <Login setShowLogin={setShowLogin} /> : <></>}
             <div className="homepage-container">
-                <ShoppingHeader />
+                <ShoppingHeader setShowLogin={setShowLogin} />
                 <div className="intro">
                     <div className="intro-text">
                         <h3 className="heading">Skip the line, <br />We deliver in no time.</h3>

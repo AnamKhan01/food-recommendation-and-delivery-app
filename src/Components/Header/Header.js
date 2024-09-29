@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import './Header.css';
 import hotpot from '../../images/hot-pot.png';
 
-const Header = ({ isFixed = true }) => {
+const Header = ({setShowLogin}) => {
   const navigate = useNavigate();
 
   const handleNavLinkClick = (sectionId) => {
@@ -26,28 +26,34 @@ const Header = ({ isFixed = true }) => {
     }
   };
 
+  const handleCartClick = () => {
+    navigate('/grocery-home');
+  };
+
   return (
-    <Navbar className={isFixed ? 'navbar fixed' : 'navbar static'}>
-      <div className='navbar-container'>
-        <Navbar.Brand href="#" className="navbar-brand" onClick={() => navigate('/')}>
-          <img src={hotpot} alt='' className='hotPot'></img>FlashFeast
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mx-4">
-            <Nav.Link className='mx-4 px-3 header-links' onClick={() => handleNavLinkClick('home')}>Home</Nav.Link>
-            <Nav.Link className='mx-5 px-3 header-links' onClick={() => handleNavLinkClick('features')}>Features</Nav.Link>
-            <Nav.Link className='mx-5 px-3 header-links' onClick={() => handleNavLinkClick('shopping')}>Shopping</Nav.Link>
-            <Nav.Link className='mx-5 px-3 header-links' onClick={() => handleNavLinkClick('contact')}>Contact</Nav.Link>
-            <Nav.Link href="#about" className='mx-4 px-3 header-links nav-cart'><ShoppingCart className='icon' /></Nav.Link>
-          </Nav>
-          <div className="auth-buttons">
-            <Button variant="outline-light" className="sign-in-btn"> <FaUserPlus className="me-2" />SIGN-IN</Button>
-            <Button variant="warning" className="login-btn"><FaSignInAlt className="me-2" />LOGIN</Button>
-          </div>
-        </Navbar.Collapse>
-      </div>
-    </Navbar>
+    <>
+      <Navbar className="main-navbar">
+        <div className='navbar-container'>
+          <Navbar.Brand href="#" className="navbar-brand" onClick={() => navigate('/')}>
+            <img src={hotpot} alt='' className='hotPot'></img>FlashFeast
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mx-4">
+              <Nav.Link className='mx-4 px-3 header-links' onClick={() => handleNavLinkClick('home')}>Home</Nav.Link>
+              <Nav.Link className='mx-5 px-3 header-links' onClick={() => handleNavLinkClick('features')}>Features</Nav.Link>
+              <Nav.Link className='mx-5 px-3 header-links' onClick={() => handleNavLinkClick('shopping')}>Shopping</Nav.Link>
+              <Nav.Link className='mx-5 px-3 header-links' onClick={() => handleNavLinkClick('contact')}>Contact</Nav.Link>
+              <Nav.Link className='mx-4 px-3 header-links nav-cart' onClick={handleCartClick}><ShoppingCart className='icon' /></Nav.Link>
+            </Nav>
+            <div className="auth-buttons">
+              <Button variant="outline-light" className="sign-in-btn" onClick={() => setShowLogin(1)}> <FaUserPlus className="me-2" />SIGN-IN</Button>
+              <Button variant="warning" className="login-btn" onClick={() => setShowLogin(2)}><FaSignInAlt className="me-2" />LOGIN</Button>
+            </div>
+          </Navbar.Collapse>
+        </div>
+      </Navbar>
+    </>
   );
 };
 

@@ -8,7 +8,7 @@ import { ShoppingCart } from 'lucide-react';
 // import groceryCart from './grocery-cart.png';
 import logo from './grocery-basket.png';
 
-const ShoppingHeader = ({ isFixed = true }) => {
+const ShoppingHeader = ({setShowLogin}) => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -64,7 +64,7 @@ const ShoppingHeader = ({ isFixed = true }) => {
               <button className="home-button" onClick={() => handleNavLinkClick('home')}>
                 🏠︎ HOME
               </button>
-              <button className="login-button">
+              <button className="login-button" onClick={() => setShowLogin(2)}>
                 <FaSignInAlt className="icon" /> LOGIN
               </button>
             </div>

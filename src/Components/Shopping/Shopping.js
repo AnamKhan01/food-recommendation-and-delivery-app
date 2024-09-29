@@ -6,6 +6,7 @@ import milk from './Images/milk.jpg';
 import grocery from './Images/grocery.jpg';
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 function Shopping() {
 
@@ -13,7 +14,14 @@ function Shopping() {
 
   const handleExploreClick = () => {
     navigate('/grocery-home');
+    window.scrollTo({ top: 0, behavior: 'instant' });  // Scroll to the top of the page
   };
+
+  // Scroll to top on component mount if needed
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });  // Ensure the page loads at the top
+  }, []);
+
   return (
     <div className='shopping-container'>
       <h2>Pure, Fresh Produce</h2>

@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import './RecipeHeader.css';
 import hotpot from '../../images/hot-pot.png';
 
-const RecipeHeader = () => {
+const RecipeHeader = ({setShowLogin}) => {
   const navigate = useNavigate();
 
   const handleNavLinkClick = (sectionId) => {
@@ -37,10 +37,10 @@ const RecipeHeader = () => {
             </Nav.Link>
           </Nav>
           <div className="custom-auth-buttons">
-            <Button variant="outline-light" className="custom-sign-in-btn"> 
+            <Button variant="outline-light" className="custom-sign-in-btn" onClick={() => setShowLogin(1)}> 
               <FaUserPlus className="me-2" />SIGN-IN
             </Button>
-            <Button variant="warning" className="custom-login-btn">
+            <Button variant="warning" className="custom-login-btn" onClick={() => setShowLogin(2)}>
               <FaSignInAlt className="me-2" />LOGIN
             </Button>
           </div>
