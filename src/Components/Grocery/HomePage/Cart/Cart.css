@@ -1,0 +1,130 @@
+.cart-footer-container {
+    min-height: 100vh;  /* Ensure it takes the full height of the viewport */
+    display: flex;
+    flex-direction: column;  /* Stack the items vertically */
+}
+
+.cart-container {
+    display: flex;
+    flex: 1; 
+    width: 96%;
+    margin: 1rem 0.5rem 0.5rem 1.85rem;
+    height: auto;
+    background-size: auto;
+    background-image: url("../background.svg");
+    background-color: #fff;
+    background-repeat: repeat;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cart-items {
+    width: 70%;
+}
+
+.cart-items-title {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    width: 100%;
+    background-color: #e2e2e2;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.cart-items-title p {
+    font-size: 1.2rem;
+    font-family: "Telex";
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.cart-items-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    width: 100%;
+    margin-top: 0.5rem;
+    background-color: white;
+    padding: 0.2rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.cart-items-item p {
+    font-weight: 400;
+    margin: 0;
+}
+
+.cart-items-item img {
+    width: 4rem;
+    height: 4rem;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-left: 2rem;
+}
+
+.cart-items-item p:last-child {
+    cursor: pointer;
+    font-size: 22px;
+    color: #c1564c;
+}
+
+.cart-items-item p:last-child:hover{
+    color: #bd4136;
+    transform: scale(1.1);
+}
+
+.cart-bottom {
+    display: flex;
+    margin-top: 2rem;
+    /* flex-direction: column; */
+    align-items: center;
+    font-family: 'Telex', sans-serif;
+    background-color: #e2e2e2;
+    width: 70%;
+    border-radius: 10px;
+    justify-content: center;
+    padding: 0.5rem 2rem;
+}
+
+.cart-total {
+    text-align: left;
+    font-size: 1.25rem;
+    margin: 0.5rem;
+}
+
+.cart-total-details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+.cart-total-details b {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+
+.checkout-btn {
+    background-color: #c1564c;
+    color: #f5e9e4;
+    padding: 0.6rem 1.3rem;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease;
+    width: 30%;
+}
+
+.checkout-btn:hover {
+    color: #c1564c;
+    background-color: #f5e9e4;
+}

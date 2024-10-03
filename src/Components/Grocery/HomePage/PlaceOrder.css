@@ -1,0 +1,119 @@
+/* General container styling */
+.place-order-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #feee9d;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    gap: 2rem;
+    font-family: "Telex";
+}
+
+.place-order-left, .place-order-right {
+    width: 48%;
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Order title styling */
+.order-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+/* Multi-field container */
+.multi-fields {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.place-order-left input {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+    background-color: #fff;
+    transition: border-color 0.3s;
+}
+
+.place-order-left input:focus {
+    border-color: #ff6347;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(255, 99, 71, 0.25);
+}
+
+/* Cart totals section */
+.cart-total-order h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.cart-total-details-order {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin: 1rem 0; */
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.cart-total-details-order p{
+    margin: 0;
+}
+
+.cart-total-details-order b {
+    font-weight: 700;
+}
+
+/* Button styling */
+.order-btn {
+    background-color: #c1564c;
+    color: #f5e9e4;
+    padding: 0.6rem 1.3rem;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.order-btn:hover {
+    color: #c1564c;
+    background-color: #f5e9e4;
+}
+
+.divider {
+    border: 0;
+    border-top: 1px solid rgb(149, 149, 149);
+    /* margin: 1rem 0; */
+}
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .place-order-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .place-order-left, .place-order-right {
+        width: 100%;
+    }
+}

@@ -5,6 +5,8 @@ import grocery from "./grocery-bag.png";
 import Categories from "./Categories";
 import BestSeller from "./BestSeller";
 import Login from "../../LoginSignup/Login";
+import ForgotPassword from "../../LoginSignup/ForgotPassword";
+import ShoppingFooter from "./ShoppingFooter";
 
 const HomePage = () => {
 
@@ -13,6 +15,7 @@ const HomePage = () => {
     return (
         <>
             {showLogin === 2 ? <Login setShowLogin={setShowLogin} /> : <></>}
+            {showLogin===3 ? <ForgotPassword setShowLogin={setShowLogin} /> : <></>}
             <div className="homepage-container">
                 <ShoppingHeader setShowLogin={setShowLogin} />
                 <div className="intro">
@@ -39,6 +42,7 @@ const HomePage = () => {
                 <Categories />
                 <h3 className="picks-heading">Top Picks For You</h3>
                 <BestSeller/>
+                <ShoppingFooter/>
             </div>
         </>
     );

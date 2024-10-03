@@ -8,6 +8,7 @@ import bread from './images/bread.gif';
 import { SlArrowRightCircle, SlArrowLeftCircle } from "react-icons/sl";
 import SignUp from '../LoginSignup/SignUp';
 import Login from '../LoginSignup/Login'; 
+import ForgotPassword from '../LoginSignup/ForgotPassword';
 
 const predefinedIngredients = [
   "butter", "egg", "garlic", "milk", "onion", "sugar", "paprika", "tomato",
@@ -161,7 +162,7 @@ const GetRecipes = () => {
     <>
       {showLogin === 1 ? <SignUp setShowLogin={setShowLogin} /> : <></>}
       {showLogin === 2 ? <Login setShowLogin={setShowLogin} /> : <></>}
-
+      {showLogin===3 ? <ForgotPassword setShowLogin={setShowLogin} /> : <></>}
       <div className="get-recipes-container">
         <RecipeHeader setShowLogin={setShowLogin} />
         <div className='main-container'>

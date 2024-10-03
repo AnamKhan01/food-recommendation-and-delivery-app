@@ -1,13 +1,8 @@
-/* Header.css */
-
-/* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Delius+Unicase&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Della+Respira&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Telex&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@0,100..900;1,100..900&family=Alfa+Slab+One&family=Anton+SC&family=Bebas+Neue&family=Gluten:wght@100..900&display=swap');
-
-
 
 .header-section {
   z-index: 1000;
@@ -72,76 +67,30 @@
 /* Navbar Links */
 .nav-links {
   display: flex;
-  align-items: center;
-  width: 100%;
-}
-
-.search-container {
-  flex: 1;
-  max-width: 50%;
-  margin: 0 auto;
-  width: 40%;
-}
-
-.search-input {
-  width: 100%;
-  padding: 4px 16px;
-  padding-left: 45px;
-  border-radius: 5px;
-  border: 1px solid #ced4da;
-  font-family: 'Telex', sans-serif;
-  background-image: url('./search-icon.png');
-  /* Ensure this path is correct */
-  background-position: 10px center;
-  background-repeat: no-repeat;
-  background-size: 25px;
-}
-
-.search-input:focus{
-  outline: none;
-  border: 2px solid #c1564c;
-  box-shadow: 0 0 15px #f7d1d1; 
+  justify-content: flex-end;
+  /* width: 100%; */
 }
 
 /* Navigation Items */
 .nav-items {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 1rem;
 }
 
-/* .nav-icon {
-  color: #fff;
-  font-size: 2rem;
-  transition: background-color 0.3s, transform 0.3s;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  align-self: center;
-  margin-bottom: 0.5rem;
-} */
-
-/* .nav-icon:hover {
-  background-color: #4caf50;
-  transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-decoration: none;
-} */
-
-/* Buttons */
-
-.nav-icon {
-  border-radius: 50% !important;
+/* .nav-shopping-icon {
   padding: 0.45rem 0.55rem !important;
-}
+} */
 
-.cart{
+.nav-shop-cart{
   width: 1.5rem;
   height: 1.4rem;
+  margin-right: 0.3rem;
 }
 
 .home-button,
 .login-button,
-.nav-icon {
+.nav-shopping-icon {
   background-color: #c1564c;
   color: #f5e9e4;
   border: none;
@@ -156,7 +105,7 @@
 
 .home-button:hover,
 .login-button:hover,
-.nav-icon:hover {
+.nav-shopping-icon:hover {
   background-color: #f5e9e4;
   color: #c1564c;
 }
@@ -166,52 +115,6 @@
   margin-right: 0.2rem;
   width: 1rem;
   height: 1.5rem;
-}
-
-.fixed-cart-button {
-  position: fixed;
-  bottom: 20px; /* Distance from the bottom */
-  right: 20px; /* Distance from the right */
-  /* background-color: #c1564c;  */
-  border: none; /* Remove border */
-  border-radius: 50%; /* Make it circular */
-  padding: 0; /* Remove padding to make it the same size as the parent */
-  cursor: pointer; /* Change cursor to pointer on hover */
-  z-index: 1000; /* Ensure it stays above other content */
-  transition: background-color 0.3s, color 0.3s; /* Transition effect for background color */
-  color: white; /* Default text color */
-  width: 5rem; /* Set width */
-  height: 5rem; /* Set height */
-}
-
-.fixed-cart-icon:hover {
-  background-color: #f5e9e4;
-  color: #c1564c; 
-}
-
-.fixed-cart-icon {
-  background: transparent; /* Transparent background */
-  border: none; /* Remove border */
-  cursor: pointer; /* Pointer cursor */
-  outline: none; /* Remove outline */
-  width: 80%; /* Fill the container */
-  height: 80%; /* Fill the container */
-  background-color: #c1564c;
-  border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
-}
-
-.fixed-cart {
-  font-size: 26px; /* Adjust icon size */
-  color: white; /* Color of the cart icon */
-  width: 1.6rem; /* Width of the cart icon */
-  height: 1.6rem; /* Height of the cart icon */
-
-}
-
-/* Hover effect for cart icon */
-.fixed-cart-icon:hover .fixed-cart {
-  color: #c1564c;/* Change color on hover */
 }
 
 
@@ -258,18 +161,3 @@
   }
 }
 
-.cart-count{
-  width: 37%;
-  height: 37%;
-  background-color: #f0be49;
-  border-radius: 50%;
-  color: #552420;
-  font-weight: bold;
-  position: absolute;
-  top: 0;
-  right: 8px;
-  /* margin: 1rem/; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
