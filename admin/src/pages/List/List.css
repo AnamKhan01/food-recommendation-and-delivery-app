@@ -1,0 +1,96 @@
+/* Main List Container */
+.list {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    font-family: "Telex", sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+}
+
+.list-heading{
+    font-weight: 600;
+}
+
+.list p {
+    font-size: 2rem;
+    /* font-weight: 600; */
+    color: #c1564c; /* Primary color */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Table container for the list items */
+.list-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Table headers */
+.list-table-format.title {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    padding: 17px;
+    background-color: #c1564c; /* Secondary color */
+    color: #fff;
+    text-align: center;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Individual product row */
+.list-table-format {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Image styling */
+.list-table-format img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+
+/* Text in each row */
+.list-table-format p {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+
+
+.remove{
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 768px) {
+    .list-table-format, .list-table-format.title {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .list-table-format img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .list-table-format p {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,135 @@
+.add {
+    padding: 40px;
+    width: 60%;
+    margin: 0 auto;
+    font-family: "Telex", sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align the form */
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.add-image-upload {
+    display: flex;
+    justify-content: flex-end; /* Align image to the right */
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.add-image-upload img {
+    height: 80px;
+    width: 80px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.add-image-upload img:hover {
+    transform: scale(1.1);
+}
+
+input[type="file"] {
+    display: none;
+}
+
+input[type="text"], textarea, select {
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    font-family: "Telex", sans-serif; /* Apply Telex font */
+}
+
+::placeholder {
+    font-family: "Telex", sans-serif; /* Font for placeholders */
+    color: #888;
+}
+
+select {
+    font-family: "Telex", sans-serif; /* Font for dropdown */
+}
+
+input[type="text"]:focus, textarea:focus, select:focus {
+    border-color: #c1564c;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+button.admin-add-button {
+    background-color: #c1564c;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+button.admin-add-button:hover {
+    background-color: #f0be49;
+    color: #c1564c;
+    transform: scale(1.05);
+}
+
+.add-category-price {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+}
+
+.add-category, .add-product-quantity, .add-product-price {
+    flex: 1;
+}
+
+.add-product-price input {
+    width: 100%;
+}
+
+.name-image {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+}
+
+.add-product-name {
+    width: 100%;
+}
+
+.add-product-description textarea {
+    width: 100%;
+    resize: none;
+    height: 100px;
+}
+
+@media (max-width: 768px) {
+    .add {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .add-category-price, .name-image {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+}

@@ -127,7 +127,7 @@ import mayonaisse from './itemsImages/sauces/mayonaisse.png';
 import mustardsauce from './itemsImages/sauces/mustard-sauce.png';
 import paprika from './itemsImages/sauces/paprika.png';
 import pastasauce from './itemsImages/sauces/pasta-sauce.png';
-import peanutbutter from './itemsImages/sauces/peanut-butter.png';
+import peanutbutter from './itemsImages/sauces/peanut-butter2.png';
 import salsa from './itemsImages/sauces/salsa-dip.png';
 import schezwan from './itemsImages/sauces/schezwan.png';
 import soysauce from './itemsImages/sauces/soy-sauce.png';
@@ -945,7 +945,7 @@ export const products = [
         image: bagel,
         quantity: "4 pcs",
         price: "₹120",
-        category: "snacks",
+        category: "breads",
         description: "Our bagels are soft, chewy, and baked to perfection. Enjoy them toasted with your favorite spreads, or use them for sandwiches to add a delightful texture and flavor to your meal."
     },
     {
@@ -954,7 +954,7 @@ export const products = [
         image: bananachips,
         quantity: "150 g",
         price: "₹50",
-        category: "snacks",
+        category: "breads",
         description: "Crispy and slightly sweet, our banana chips make for a tasty and healthy snack. Perfect for munching on the go, they are packed with fiber and natural goodness."
     },
     {
@@ -963,7 +963,7 @@ export const products = [
         image: crossiant,
         quantity: "2 pcs",
         price: "₹80",
-        category: "snacks",
+        category: "breads",
         description: "Our croissants are buttery, flaky, and golden brown, delivering a perfect balance of crispness and softness. Ideal for breakfast or an afternoon snack."
     },
     {
@@ -972,7 +972,7 @@ export const products = [
         image: darkchocolate,
         quantity: "100 g",
         price: "₹150",
-        category: "snacks",
+        category: "breads",
         description: "Indulge in the rich and intense flavor of our dark chocolate. Made from high-quality cocoa, it offers a perfect balance of bitterness and sweetness."
     },
     {
@@ -981,7 +981,7 @@ export const products = [
         image: donut,
         quantity: "1 pc",
         price: "₹40",
-        category: "snacks",
+        category: "breads",
         description: "Soft, fluffy, and coated with a sugary glaze, our donuts are the perfect treat to satisfy your sweet tooth. Enjoy them as a quick snack or dessert."
     },
     {
@@ -990,7 +990,7 @@ export const products = [
         image: nachos,
         quantity: "200 g",
         price: "₹90",
-        category: "snacks",
+        category: "breads",
         description: "Crispy and crunchy, our nachos are perfect for dipping in salsa or guacamole. Enjoy them as a snack or as part of your favorite Mexican-inspired meal."
     },
     {
@@ -1008,7 +1008,7 @@ export const products = [
         image: popcornbox,
         quantity: "150 g",
         price: "₹60",
-        category: "snacks",
+        category: "breads",
         description: "Our popcorn is light, crunchy, and perfect for movie nights or anytime snacking. Enjoy it with your favorite seasonings or plain for a healthy treat."
     },
     {
@@ -1017,7 +1017,7 @@ export const products = [
         image: rusk,
         quantity: "200 g",
         price: "₹45",
-        category: "snacks",
+        category: "breads",
         description: "Our rusks are crisp and crunchy, perfect for dipping in tea or coffee. Enjoy the delightful flavor of this classic snack, made with high-quality ingredients."
     },
     {
@@ -1026,7 +1026,7 @@ export const products = [
         image: wafer,
         quantity: "150 g",
         price: "₹35",
-        category: "snacks",
+        category: "breads",
         description: "Light and crispy, our wafers are perfect for a quick snack or dessert. Available in various flavors, they offer a delightful crunch in every bite."
     },
     {

@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Telex&display=swap');
+
+.side-bar {
+    width: 20%;
+    height: auto;
+    padding: 20px;
+    border-right: 1px solid #d8d8d8;
+    font-family: "Telex";
+}
+
+.sidebar-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sidebar-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    color: #c1564c;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-option:hover {
+    background-color: #c1564c;
+    color: white;
+}
+
+.sidebar-option:focus{
+    background-color: #c1564c;
+    color: white;
+}
+
+.sidebar-option p {
+    margin: 0;
+}
+
+.option-icon{
+    width: 28px;
+    height: 28px;
+}

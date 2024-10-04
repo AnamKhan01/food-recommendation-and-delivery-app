@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@0,100..900;1,100..900&family=Alfa+Slab+One&family=Anton+SC&family=Bebas+Neue&family=Gluten:wght@100..900&display=swap');
+
+.admin-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f0be49;
+    color:#c1564c;
+    border-radius: 10px; 
+}
+
+.admin-logo {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+}
+
+h2 {
+    margin: 0;
+    font-family: "Advent Pro", sans-serif;
+    font-size: 2.5rem;
+}
