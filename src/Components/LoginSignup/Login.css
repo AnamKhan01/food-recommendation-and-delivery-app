@@ -56,8 +56,8 @@
 /* Input fields */
 .login-popup input[type="email"],
 .login-popup input[type="password"],
-.login-popup input[type="number"],
-.login-popup input[type="name"] {
+.login-popup input[type="tel"],
+.login-popup input[type="text"] {
     width: 100%;
     padding: 10px;
     margin: 10px 0;

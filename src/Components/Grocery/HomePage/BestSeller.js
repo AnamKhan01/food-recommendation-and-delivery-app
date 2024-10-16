@@ -1,12 +1,20 @@
-import React, { useContext, useState } from 'react';
-import { products } from './products.js';
+import React, { useContext, useState, useEffect } from 'react';
 import './BestSeller.css';
 import { StoreContext } from '../Context/StoreContext.js';
 import ProductDetail from './ProductDetail';
 
-const BestSeller = () => {
-  const { addToCart, removeFromCart, cartItems } = useContext(StoreContext); 
+const BestSeller = ({ selectedCategory }) => {
+  const { addToCart, removeFromCart, cartItems, products, url } = useContext(StoreContext);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [shuffledProducts, setShuffledProducts] = useState([]);
+
+  useEffect(() => {
+    const shuffleArray = (array) => {
+      return array.sort(() => Math.random() - 0.5);
+    };
+
+    setShuffledProducts(shuffleArray([...products]));
+  }, [products]);
 
   const handleAddToCart = (id) => {
     addToCart(id);
@@ -21,21 +29,25 @@ const BestSeller = () => {
   };
 
   const showProductDetail = (product) => {
-    setSelectedProduct(product); 
+    setSelectedProduct(product);
   };
 
   const closeProductDetail = () => {
-    setSelectedProduct(null); 
+    setSelectedProduct(null);
   };
+
+  const displayedProducts = selectedCategory
+    ? products.filter((product) => product.category === selectedCategory.name) 
+    : shuffledProducts;
 
   return (
     <div className='items-container'>
-      {products.slice(0, 24).map((card, index) => {
-        const currentQuantity = cartItems[card.id] || 0; 
+      {displayedProducts.slice(0, 24).map((card, index) => {
+        const currentQuantity = cartItems[card.id] || 0;
 
         return (
           <div className='item-card' key={index} onClick={() => showProductDetail(card)}>
-            <img src={card.image} className='item-image' alt={card.name} />
+            <img src={url + "/images/" + card.image} className='item-image' alt={card.name} />
             <div className='item-details'>
               <h5 className='item-title'>{card.name}</h5>
               <p className='item-quantity'>{card.quantity}</p>
@@ -47,7 +59,7 @@ const BestSeller = () => {
                 <button
                   className='quantity-btn'
                   onClick={(e) => {
-                    e.stopPropagation(); 
+                    e.stopPropagation();
                     decreaseQuantity(card.id);
                   }}
                 >
@@ -57,7 +69,7 @@ const BestSeller = () => {
                 <button
                   className='quantity-btn'
                   onClick={(e) => {
-                    e.stopPropagation(); 
+                    e.stopPropagation();
                     increaseQuantity(card.id);
                   }}
                 >
@@ -68,7 +80,7 @@ const BestSeller = () => {
               <button
                 className='item-button'
                 onClick={(e) => {
-                  e.stopPropagation(); 
+                  e.stopPropagation();
                   handleAddToCart(card.id);
                 }}
               >

@@ -5,9 +5,32 @@ import { ShoppingCart } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import './RecipeHeader.css';
 import hotpot from '../../images/hot-pot.png';
+import { useContext, useEffect  } from 'react';
+import { StoreContext } from '../../Components/Grocery/Context/StoreContext';
+import { FaUserCircle } from "react-icons/fa";
+import { HiShoppingBag } from "react-icons/hi2";
+import { VscSignOut } from "react-icons/vsc";
 
-const RecipeHeader = ({setShowLogin}) => {
+const RecipeHeader = ({ setShowLogin }) => {
   const navigate = useNavigate();
+
+  const { token, settoken, username, setUsername } = useContext(StoreContext);
+
+  useEffect(() => {
+    const storedUsername = localStorage.getItem('username');
+    if (storedUsername) {
+      setUsername(storedUsername);
+    }
+  }, [setUsername]);
+
+  const logOut = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+    settoken("");
+    setUsername("");
+    navigate("/");
+  }
+
 
   const handleNavLinkClick = (sectionId) => {
     navigate('/', { replace: true });
@@ -16,10 +39,10 @@ const RecipeHeader = ({setShowLogin}) => {
       if (section) {
         section.scrollIntoView({ behavior: 'smooth' });
       }
-    }, 100); 
+    }, 100);
   };
 
-  const handleCartClick = ()=>{
+  const handleCartClick = () => {
     navigate('/grocery-home');
   };
 
@@ -40,14 +63,25 @@ const RecipeHeader = ({setShowLogin}) => {
               <ShoppingCart className='custom-icon' />
             </Nav.Link>
           </Nav>
-          <div className="custom-auth-buttons">
-            <Button variant="outline-light" className="custom-sign-in-btn" onClick={() => setShowLogin(1)}> 
-              <FaUserPlus className="me-2" />SIGN-IN
-            </Button>
-            <Button variant="warning" className="custom-login-btn" onClick={() => setShowLogin(2)}>
-              <FaSignInAlt className="me-2" />LOGIN
-            </Button>
-          </div>
+          {!token
+            ?
+            <div className="custom-auth-buttons">
+              <Button variant="outline-light" className="custom-sign-in-btn" onClick={() => setShowLogin(1)}>
+                <FaUserPlus className="me-2" />SIGN-IN
+              </Button>
+              <Button variant="warning" className="custom-login-btn" onClick={() => setShowLogin(2)}>
+                <FaSignInAlt className="me-2" />LOGIN
+              </Button>
+            </div>
+            :
+            <div className="recipe-navbar-profile">
+              <p className='recipe-profile-name'>{username}<FaUserCircle className='recipe-profile-image' /></p>
+              <ul className='recipe-nav-profile-dropdown'>
+                <li><HiShoppingBag /><p>Your Orders</p></li>
+                <li onClick={logOut}><VscSignOut /> <p>Logout</p></li>
+              </ul>
+            </div>
+          }
         </Navbar.Collapse>
       </div>
     </Navbar>

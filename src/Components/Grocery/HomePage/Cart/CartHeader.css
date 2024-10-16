@@ -5,12 +5,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@0,100..900;1,100..900&family=Alfa+Slab+One&family=Anton+SC&family=Bebas+Neue&family=Gluten:wght@100..900&display=swap');
 
 .header-section {
-  z-index: 1000;
+  z-index: 1;
   background-color: #f0be49;
   width: 96%;
   margin: 1rem 0.5rem 0.5rem 1.85rem;
   border-radius: 20px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .shopping-bar {
@@ -74,8 +74,8 @@
 /* Navigation Items */
 .nav-items {
   display: flex;
-  align-items: flex-end;
-  gap: 1rem;
+  align-items: center;
+  gap: 2rem;
 }
 
 /* .nav-shopping-icon {
@@ -161,3 +161,90 @@
   }
 }
 
+
+.cart-navbar-profile {
+  position: relative; 
+  font-family: 'Telex', cursive;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 1rem;
+  padding:0.5rem;
+}
+
+.cart-profile-name {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #c1564c;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 0.2rem; 
+  margin: 0;
+}
+
+.cart-profile-image {
+  font-size: 2rem;
+  color: #c1564c;
+  margin-bottom: 0.1rem; 
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.cart-nav-profile-dropdown {
+  display: none; 
+  position: absolute;
+  top: 100%;  
+  right: 0; 
+  background-color: #fff;
+  color: #c1564c;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  min-width: 200px;
+  overflow: auto;
+  z-index: inherit; 
+}
+
+.cart-nav-profile-dropdown li {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.cart-nav-profile-dropdown li:hover {
+  background-color: #c1564c;
+  color: #f5e9e4;
+}
+
+.cart-navbar-profile:hover .cart-nav-profile-dropdown {
+  display: block;
+}
+
+.cart-nav-profile-dropdown li p {
+  margin-left: 0.5rem;
+}
+
+.cart-nav-profile-dropdown li:hover p {
+  color: #f5e9e4;
+}
+
+.cart-nav-profile-dropdown li svg {
+  font-size: 1.2rem;
+  color: #c1564c;
+}
+
+.cart-nav-profile-dropdown li:hover svg {
+  color: #f5e9e4;
+}
+
+.cart-nav-profile-dropdown p {
+  margin: 0;
+}

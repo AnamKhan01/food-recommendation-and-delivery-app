@@ -7,15 +7,23 @@ import { useNavigate } from 'react-router-dom';
 import Login from '../../../LoginSignup/Login';
 import './Cart.css';
 import ForgotPassword from '../../../LoginSignup/ForgotPassword';
+import { toast } from 'react-toastify';
 
 const Cart = () => {
 
-    const { cartItems, products, removeFromCart, getTotalCartAmount } = useContext(StoreContext);
+    const { token, cartItems, products, removeFromCart, getTotalCartAmount, url } = useContext(StoreContext);
 
     const navigate = useNavigate();
 
     const handleOrderClick = () => {
-        navigate("/place-order");
+        if (!token) {
+            toast.error('Please log in to proceed.');
+            return;
+        }
+        else
+        {
+            navigate("/place-order");
+        }
     }
 
     const [showLogin, setShowLogin] = useState(0);
@@ -43,7 +51,7 @@ const Cart = () => {
                             if (cartItems[item.id] > 0) {
                                 return (
                                     <div className='cart-items-title cart-items-item'>
-                                        <img src={item.image} alt=" "></img>
+                                        <img src={url + "/images/" + item.image} alt=" "></img>
                                         <p>{item.name}</p>
                                         <p>{item.price}</p>
                                         <p>{cartItems[item.id]}</p>
@@ -58,11 +66,11 @@ const Cart = () => {
                     <div className='cart-bottom'>
                         <div className='cart-total-details'>
                             <b>Subtotal (
-                            {totalCartItems}
-                            &nbsp; Items)</b>
+                                {totalCartItems}
+                                &nbsp; Items)</b>
                             <b className='totalPrice'>₹{getTotalCartAmount()}</b>
                         </div>
-                        
+
                         <button onClick={handleOrderClick} className='checkout-btn'>PROCEED TO CHECKOUT</button>
                     </div>
 

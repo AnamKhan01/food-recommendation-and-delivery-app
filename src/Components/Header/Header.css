@@ -159,3 +159,83 @@
     margin-right: 1rem;
     margin-bottom: 0.5rem;
 }
+.navbar-profile {
+    position: relative; 
+    font-family: 'Telex', sans-serif;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.profile-name{
+    font-weight: bold;
+    font-size: 1.3rem !important;
+}
+
+.navbar-profile p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #c1564c;
+    font-size: 1.1rem;
+}
+
+.profile-image {
+    margin-left: 1rem;
+    font-size: 2rem;
+    color: #c1564c; 
+    margin-bottom: 0.3rem;
+}
+
+.nav-profile-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;  
+    right: 23%;
+    background-color: #fff;
+    color: #c1564c;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    z-index: 10;
+    min-width: 200px; 
+}
+
+.nav-profile-dropdown li {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.nav-profile-dropdown li:hover {
+    background-color: #c1564c;
+    color: #f5e9e4;
+}
+
+.navbar-profile:hover .nav-profile-dropdown {
+    display: block;
+}
+
+.nav-profile-dropdown li p {
+    margin-left: 0.5rem;
+}
+
+.nav-profile-dropdown li:hover p {
+    color: #f5e9e4;
+}
+
+.nav-profile-dropdown li svg {
+    font-size: 1.2rem;
+    color: #c1564c;
+}
+
+.nav-profile-dropdown li:hover svg {
+    color: #f5e9e4;
+}

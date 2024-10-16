@@ -1,15 +1,34 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { FaSignInAlt } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import './ShoppingHeader.css';
 import { ShoppingCart } from 'lucide-react';
 import { StoreContext } from '../Context/StoreContext';
-
+import { FaUserCircle } from "react-icons/fa";
+import { HiShoppingBag } from "react-icons/hi2";
+import { VscSignOut } from "react-icons/vsc";
 import logo from './grocery-basket.png';
 
 const ShoppingHeader = ({ setShowLogin }) => {
 
-  const { cartItems} = useContext(StoreContext);
+  const { cartItems } = useContext(StoreContext);
+
+  const { token, settoken, username, setUsername } = useContext(StoreContext);
+
+  useEffect(() => {
+    const storedUsername = localStorage.getItem('username');
+    if (storedUsername) {
+      setUsername(storedUsername);
+    }
+  }, [setUsername]);
+
+  const logOut = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+    settoken("");
+    setUsername("");
+    navigate("/");
+  }
 
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,29 +52,27 @@ const ShoppingHeader = ({ setShowLogin }) => {
     navigate('/cart');
   };
 
-  const totalCartItems = Object.values(cartItems).length;
+  const totalCartItems = Object.values(cartItems).filter(quantity => quantity > 0).length;
 
   return (
     <>
       <header className="header-section">
         <nav className="shopping-bar">
           <div className="shopping-bar-container">
-            {/* Brand */}
+
             <div className="brand" onClick={() => handleNavLinkClick('home')}>
               <img src={logo} alt="FlashFeast Logo" className="logo" />
               <span className="brand-name">FlashFeast</span>
             </div>
 
-            {/* Toggle Button for Mobile */}
             <button className="toggle-button" onClick={toggleMenu} aria-label="Toggle navigation">
               <span className="bar"></span>
               <span className="bar"></span>
               <span className="bar"></span>
             </button>
 
-            {/* Navbar Links */}
             <div className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
-              {/* Search Bar */}
+
               <div className="search-container">
                 <input
                   type="search"
@@ -65,20 +82,30 @@ const ShoppingHeader = ({ setShowLogin }) => {
                 />
               </div>
 
-              {/* Navigation Icons and Buttons */}
               <div className="nav-items">
                 <button className="home-button" onClick={() => handleNavLinkClick('home')}>
                   🏠︎ HOME
                 </button>
-                <button className="login-button" onClick={() => setShowLogin(2)}>
-                  <FaSignInAlt className="icon" /> LOGIN
-                </button>
+                {!token
+                  ?
+                  <button className="login-button" onClick={() => setShowLogin(2)}>
+                    <FaSignInAlt className="icon" /> LOGIN
+                  </button>
+                  :
+                  <div className="shop-navbar-profile">
+                    <p className='shop-profile-name'>{username}<FaUserCircle className="shop-profile-image" /></p>
+                    <ul className="shop-nav-profile-dropdown">
+                      <li><HiShoppingBag /><p>Your Orders</p></li>
+                      <li onClick={logOut}><VscSignOut /> <p>Logout</p></li>
+                    </ul>
+                  </div>
+                }
               </div>
             </div>
           </div>
         </nav>
       </header>
-      {/* Fixed Cart Button */}
+
       <div className="fixed-cart-button">
         <button className="fixed-cart-icon" onClick={handleShoppingCartClick}>
           <ShoppingCart className='fixed-cart' />

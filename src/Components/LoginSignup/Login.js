@@ -1,12 +1,94 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import './Login.css';
 import cancel from './crossed.png';
 import crispe from './cycle.gif';
 import carrot from './carrot.gif';
 import google from './google-symbol.png';
+import { StoreContext } from "../Grocery/Context/StoreContext";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { useGoogleLogin } from '@react-oauth/google';
 
 const Login = ({ setShowLogin }) => {
+
+    const [user, setUser] = useState([]);
+    const { url, settoken, setUsername } = useContext(StoreContext);
+
+    const login = useGoogleLogin({
+        onSuccess: (codeResponse) => setUser(codeResponse),
+        onError: (error) => console.log('Login Failed:', error)
+    });
+
+    useEffect(() => {
+        if (user && user.access_token) {
+            axios
+                .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
+                    headers: {
+                        Authorization: `Bearer ${user.access_token}`,
+                        Accept: 'application/json'
+                    }
+                })
+                .then((res) => {
+                    const googleLoginUrl = url + "/api/user/google-login"; 
+                    axios.post(googleLoginUrl, {
+                        name: res.data.name,
+                        email: res.data.email,
+                        password: res.data.id,
+                    })
+                    .then((response) => {
+                        if (response.data.success) {
+                            settoken(response.data.token);
+                            setUsername(response.data.username);
+                            localStorage.setItem("token", response.data.token);
+                            localStorage.setItem("username", response.data.username);
+                            setShowLogin(false);
+                            toast.success(response.data.message);
+                        } else {
+                            toast.error(response.data.message);
+                        }
+                    })
+                    .catch((err) => console.log(err));
+                })
+                .catch((err) => console.log(err));
+        }
+    }, [user, settoken, setUsername, setShowLogin, url]);
+
     const [currState, setCurrState] = useState(2);
+    const [data, setdata] = useState({
+        name: "",
+        email: "",
+        password: "",
+        contactNo: ""
+    });
+
+    const onChangeHandler = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setdata(data => ({ ...data, [name]: value }));
+    };
+
+    const onLogin = async (event) => {
+        event.preventDefault();
+        let newUrl = url;
+        if (currState === 2) {
+            newUrl += "/api/user/login";
+        } else {
+            newUrl += "/api/user/register";
+        }
+
+        const response = await axios.post(newUrl, data);
+
+        if (response.data.success) {
+            settoken(response.data.token);
+            setUsername(response.data.username);
+            localStorage.setItem("token", response.data.token);
+            localStorage.setItem("username", response.data.username);
+            setShowLogin(false);
+            toast.success(response.data.message);
+        } else {
+            toast.error(response.data.message);
+        }
+    };
 
     return (
         <div>
@@ -16,37 +98,32 @@ const Login = ({ setShowLogin }) => {
                 <div className="form-content">
                     <img className="cancel-icon" src={cancel} alt="cancel" onClick={() => setShowLogin(false)} />
                     {currState === 1 ? <h1>Sign Up</h1> : <h1>Login</h1>}
-                    <form>
-                        {currState === 1 ?
+                    <form onSubmit={onLogin}>
+                        {currState === 1 ? (
                             <>
-                                <input type="name" placeholder="Username" required />
-                                <input type="number" placeholder="Contact Number" required />
+                                <input type="text" name="name" onChange={onChangeHandler} value={data.name} placeholder="Username" required />
+                                <input type="tel" name="contactNo" onChange={onChangeHandler} value={data.contactNo} placeholder="Contact Number" />
                             </>
-                            : <></>
-                        }
-                        <input type="email" placeholder="Email" required />
-                        <input type="password" placeholder="Password" required />
-                        {currState === 1
-                            ?
+                        ) : null}
+                        <input type="email" name="email" onChange={onChangeHandler} value={data.email} placeholder="Email" required />
+                        <input type="password" name="password" onChange={onChangeHandler} value={data.password} placeholder="Password" required />
+                        {currState === 1 ? (
                             <div>
                                 <input type="checkbox" required />
                                 <p>I agree to the terms of use and privacy policy.</p>
                             </div>
-                            : <></>}
+                        ) : null}
                         <input type="submit" value={currState === 2 ? "Login" : "Create Account"} />
-                        <div className="google-container">
-                            <img className="google-logo" src={google} alt=""></img>
+                        <div className="google-container" onClick={() => login()}>
+                            <img className="google-logo" src={google} alt="" />
                             <input className="google-button" type="button" value={currState === 2 ? "Log in with Google" : "Sign up with Google"} />
                         </div>
                     </form>
 
-                    {/* <p>OR</p>
-                <button>{currState === "Sign Up" ? "Create Account" : "Login"}</button> */}
-
-
                     {currState === 2 ? (
                         <p className="links-container">
-                            <span className="links" onClick={() => setCurrState(1)}>Sign Up Now</span><span onClick={() => setShowLogin(3)} className="forgot-pwd">Forgot Password</span>
+                            <span className="links" onClick={() => setCurrState(1)}>Sign Up Now</span>
+                            <span onClick={() => setShowLogin(3)} className="forgot-pwd">Forgot Password</span>
                         </p>
                     ) : (
                         <p>

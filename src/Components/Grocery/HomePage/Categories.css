@@ -21,6 +21,7 @@
     padding-top: 1.2rem;
     width: 22%;
     height: 40%;
+    cursor: pointer;
     margin-right: 20px;
     margin-bottom: 1.6rem;
     border-radius: 20px;
@@ -44,10 +45,25 @@
 .category-title {
     font-size: 1.2rem;
     font-weight: 500;
-    font-family: "Bree Serif","Serif";
+    font-family: "Bree Serif", "Serif";
 }
 
 .category-text {
     color: #777;
-    font-size:medium;
+    font-size: medium;
+}
+
+.category-card.selected {
+    background-color: #feee9d; 
+    border: 2px solid #c1564c; 
+    /* color: white;  */
+    /* box-shadow: #c1564c 0px 2px 4px 0px, #c1564c 0px 2px 16px 0px; */
+}
+
+.category-card.selected .category-title {
+    /* color: white; */
+}
+
+.category-card.selected .category-text {
+    /* color: #f5e9e4; */
 }

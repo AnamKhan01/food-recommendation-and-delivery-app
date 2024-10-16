@@ -52,8 +52,10 @@
     
 }
 
-.card-footer a{
+.card-footer p{
     font-weight: bold;
+    text-decoration:underline;
+    cursor: pointer;
 }
 
 .shop-icon{
@@ -109,8 +111,8 @@
 
 .text-muted:hover{
     text-decoration: underline!important;
-    text-decoration-color: red !important;
-    color: red !important;
+    text-decoration-color: #c1564c !important;
+    color: #c1564c !important;
 }
 
 .individual-cards:hover{

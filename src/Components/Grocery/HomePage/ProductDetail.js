@@ -3,7 +3,7 @@ import './ProductDetail.css';
 import { StoreContext } from '../Context/StoreContext';
 
 const ProductDetail = ({ product, onClose }) => {
-  const { addToCart, removeFromCart, cartItems } = useContext(StoreContext);
+  const { addToCart, removeFromCart, cartItems, url } = useContext(StoreContext);
 
   if (!product) return null; 
 
@@ -30,7 +30,7 @@ const ProductDetail = ({ product, onClose }) => {
           &times;
         </button>
         <div className="product-detail-content">
-          <img src={product.image} className="product-detail-image" alt={product.name} />
+          <img src={url + "/images/" + product.image} className="product-detail-image" alt={product.name} />
           <div className="product-info">
             <h2 className="product-detail-title">{product.name}</h2>
             <p className="product-detail-quantity"><strong>Quantity:</strong> {product.quantity}</p>
