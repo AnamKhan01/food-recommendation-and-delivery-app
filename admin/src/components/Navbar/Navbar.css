@@ -11,9 +11,11 @@
 }
 
 .admin-logo {
-    height: 4rem;
-    width: 4rem;
+    height: 4.5rem;
+    width: 4.5rem;
     border-radius: 50%;
+    background-color: #c1564c;
+    /* border: 2px solid #c1564c; */
 }
 
 h2 {

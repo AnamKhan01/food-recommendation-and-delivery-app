@@ -85,7 +85,7 @@ const CartHeader = ({ setShowLogin }) => {
                                     <div className="cart-navbar-profile">
                                         <p className='cart-profile-name'>{username}<FaUserCircle className="cart-profile-image" /></p>
                                         <ul className="cart-nav-profile-dropdown">
-                                            <li><HiShoppingBag /><p>Your Orders</p></li>
+                                            <li onClick={()=>navigate('/myOrders')}><HiShoppingBag /><p>Your Orders</p></li>
                                             <li onClick={logOut}><VscSignOut /> <p>Logout</p></li>
                                         </ul>
                                     </div>

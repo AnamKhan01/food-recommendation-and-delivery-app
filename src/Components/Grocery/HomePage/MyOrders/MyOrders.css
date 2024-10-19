@@ -1,0 +1,102 @@
+.my-orders {
+    max-width: 85%;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 1.7rem;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Telex', sans-serif;
+    min-height: 100vh;
+}
+
+.my-orders h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-family: 'Advent Pro', serif;
+    font-weight: bold;
+}
+
+.order-container {
+    /* display: flex; */
+    gap: 20px;
+    width:100%
+}
+
+.my-orders-order {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.my-orders-order:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.my-orders-order img {
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+    object-fit: contain;
+}
+
+.my-orders-order p {
+    margin: 0 10px;
+    color: #555;
+    font-size: 1rem;
+    flex-grow: 1;
+}
+
+.my-orders-order p b {
+    color: #c1564c; /* Primary color for status */
+}
+
+.my-orders-order span {
+    color: #2ecc71; /* Green dot for active orders */
+}
+
+.my-orders-order button {
+    background-color: #f0be49;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    font-family: 'Telex', sans-serif;
+    margin-left: 20px;
+}
+
+.my-orders-order button:hover {
+    background-color: #c1564c;
+}
+
+@media screen and (max-width: 768px) {
+    .order-container {
+        grid-template-columns: 1fr;
+    }
+
+    .my-orders-order {
+        padding: 15px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .my-orders-order img {
+        margin-bottom: 15px;
+    }
+
+    .my-orders-order button {
+        margin-top: 15px;
+        margin-left: 0;
+    }
+}

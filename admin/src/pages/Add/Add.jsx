@@ -10,9 +10,10 @@ const Add = () => {
 
     const [image, setimage] = useState(false);
     const [data, setdata] = useState({
+    
         name: "",
         description: "",
-        category: "Fruits and Vegetables",
+        category: "fruits and vegetables",
         price: "",
         quantity: ""
     })
@@ -33,13 +34,13 @@ const Add = () => {
         formData.append("category", data.category);
         formData.append("image", image);
 
-        const response = await axios.post(`${url}/api/product/add, formData`);
+        const response = await axios.post(`${url}/api/product/add`, formData);
 
         if (response.data.success) {
             setdata({
                 name: "",
                 description: "",
-                category: "Fruits and Vegetables",
+                category: "fruits and vegetables",
                 price: "",
                 quantity: "",
             })
@@ -53,6 +54,7 @@ const Add = () => {
 
     return (
         <div className='add'>
+            <h2 className='form-heading'>Add Product Details</h2>
             <form onSubmit={onSubmitHandler} className='flex-col'>
                 <div className="name-image">
                     <div className="add-product-name flex-col">
@@ -85,13 +87,15 @@ const Add = () => {
                             <option value="beverages">Beverages</option>
                         </select>
                     </div>
-                    <div className="add-product-quantity flex-col">
-                        <p>Product Quanity</p>
-                        <input onChange={onChangeHandler} value={data.quantity} type="text" name="quantity" placeholder='Type here' />
-                    </div>
-                    <div className="add-product-price flex-col">
-                        <p>Product Price</p>
-                        <input onChange={onChangeHandler} value={data.price} type="text" name="price" placeholder='₹20' />
+                    <div className='add-quantity-price'>
+                        <div className="add-product-quantity flex-col">
+                            <p>Product Quanity</p>
+                            <input onChange={onChangeHandler} value={data.quantity} type="text" name="quantity" placeholder='Type here' />
+                        </div>
+                        <div className="add-product-price flex-col">
+                            <p>Product Price</p>
+                            <input onChange={onChangeHandler} value={data.price} type="text" name="price" placeholder='₹20' />
+                        </div>
                     </div>
                 </div>
                 <button className='admin-add-button' type='submit'>Add</button>
@@ -101,4 +105,4 @@ const Add = () => {
     )
 }
 
-export default Add
+export default Add;

@@ -42,7 +42,7 @@ const BestSeller = ({ selectedCategory }) => {
 
   return (
     <div className='items-container'>
-      {displayedProducts.slice(0, 24).map((card, index) => {
+      {displayedProducts.slice(0, 30).map((card, index) => {
         const currentQuantity = cartItems[card.id] || 0;
 
         return (

@@ -9,6 +9,7 @@ import Cart from '../Grocery/HomePage/Cart/Cart';
 import PlaceOrder from '../Grocery/HomePage/PlaceOrder';
 import Verify from '../Grocery/HomePage/Verify/Verify';
 import ResetPassword from '../LoginSignup/ResetPassword';
+import MyOrders from '../Grocery/HomePage/MyOrders/MyOrders';
 
 const LandingPage = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -28,6 +29,7 @@ const LandingPage = () => {
       <Route path="/place-order" element={<PlaceOrder />} />
       <Route path='/verify' element={<Verify/>} />
       <Route path="/recipe/:id" element={<RecipeDetail />} />
+      <Route path="/myorders" element={<MyOrders/>}/>
       <Route path="/reset-password/:token" element={<ResetPassword />} />
       <Route 
         path="/" 

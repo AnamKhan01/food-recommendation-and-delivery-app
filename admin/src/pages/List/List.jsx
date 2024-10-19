@@ -39,7 +39,7 @@ const List = () => {
 
   return (
     <div className='list'>
-        <p className='list-heading'>All Products List</p>
+        <h2 className='list-heading'>All Products List</h2>
         <div className='list-table'>
             <div className="list-table-format title">
                 <b>Image</b>

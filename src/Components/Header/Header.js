@@ -77,7 +77,7 @@ const Header = ({ setShowLogin }) => {
               <div className="navbar-profile">
                 <p className='profile-name'>{username}<FaUserCircle className='profile-image' /></p>
                 <ul className='nav-profile-dropdown'>
-                  <li><HiShoppingBag /><p>Your Orders</p></li>
+                  <li onClick={()=>navigate('/myOrders')}><HiShoppingBag /><p>Your Orders</p></li>
                   <li onClick={logOut}><VscSignOut /> <p>Logout</p></li>
                 </ul>
               </div>

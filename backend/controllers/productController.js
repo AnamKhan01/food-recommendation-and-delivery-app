@@ -4,7 +4,10 @@ import fs from 'fs';
 const addProduct = async(req,res) => {
     let image_filename = `${req.file.filename}`;
 
+    const uniqueId = Date.now() + Math.floor(Math.random() * 1000);
+
     const product = new productModel({
+        id:uniqueId,
         name:req.body.name,
         description:req.body.description,
         price:req.body.price,
@@ -47,5 +50,25 @@ const removeProduct = async(req,res) => {
     }
 }
 
+const searchProduct = async (req, res) => {
+    try {
+      const searchQuery = req.query.q;
+  
+      if (!searchQuery || typeof searchQuery !== 'string') {
+        return res.json({ success: false, message: 'Invalid search query' });
+      }
+  
+      const products = await productModel.find({
+        name: { $regex: searchQuery, $options: 'i' } 
+      });
+  
+      res.json({ success: true, data: products });
+    } catch (error) {
+      console.log(error);
+      res.json({ success: false, message: 'Error while searching' });
+    }
+  };
+  
 
-export {addProduct,listProduct,removeProduct}
+
+export {addProduct,listProduct,removeProduct, searchProduct}

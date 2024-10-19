@@ -362,3 +362,44 @@
 .shop-nav-profile-dropdown p {
   margin: 0;
 }
+
+.items-suggestion-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  position: absolute;
+  z-index: 1000;
+  width: 40.3%;
+  border-radius: 5px;
+  font-family: 'Telex', sans-serif;
+}
+
+.items-suggestion-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom:1px solid rgb(230, 230, 230);
+}
+
+.items-suggestion-item:hover {
+  background-color: #f0f0f0;
+}
+
+.items-add-remove-button {
+  background-color: #c1564c;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.items-add-remove-button:hover {
+  background-color: #b35047;
+}

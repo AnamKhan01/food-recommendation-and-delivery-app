@@ -1,0 +1,118 @@
+/* Orders.css */
+
+.order {
+    width: 100%;
+    margin: 3rem;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Telex';
+  }
+  
+  .order h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-top: 0;
+    font-family: 'Advent Pro', sans-serif;
+  }
+  
+  .order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .order-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    gap: 1.5rem;
+  }
+  
+  .order-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .order-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-right: 20px;
+  }
+  
+  .order-item div {
+    flex-grow: 1;
+    margin-right: 20px;
+  }
+  
+  .order-item-product {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 8px;
+  }
+  
+  .order-item-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .order-item-address p {
+    font-size: 0.9rem;
+    color: #777;
+    margin: 0;
+  }
+  
+  .order-item-phone {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 8px;
+  }
+  
+  .order-item p {
+    font-size: 1rem;
+    color: #555;
+    margin-left: 15px;
+  }
+  
+  .status-select {
+    padding: 8px 12px;
+    font-size: 1rem;
+    border: 1px solid rgb(139, 139, 139);
+    color: #555;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 20%;
+    transition: background-color 0.3s ease;
+  }
+/*   
+  select:hover {
+    background-color: #c1564c;
+  } */
+  
+  @media screen and (max-width: 768px) {
+    .order-item {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 15px;
+    }
+  
+    .order-item img {
+      margin-bottom: 15px;
+    }
+  
+    select {
+      margin-top: 10px;
+    }
+  }
+  

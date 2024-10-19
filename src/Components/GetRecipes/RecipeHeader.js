@@ -77,7 +77,7 @@ const RecipeHeader = ({ setShowLogin }) => {
             <div className="recipe-navbar-profile">
               <p className='recipe-profile-name'>{username}<FaUserCircle className='recipe-profile-image' /></p>
               <ul className='recipe-nav-profile-dropdown'>
-                <li><HiShoppingBag /><p>Your Orders</p></li>
+                <li onClick={()=>navigate('/myOrders')}><HiShoppingBag /><p>Your Orders</p></li>
                 <li onClick={logOut}><VscSignOut /> <p>Logout</p></li>
               </ul>
             </div>
