@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect} from 'react';
 import { StoreContext } from '../../Context/StoreContext';
 import { MdDelete } from "react-icons/md";
 import CartHeader from './CartHeader';
@@ -8,11 +8,16 @@ import Login from '../../../LoginSignup/Login';
 import './Cart.css';
 import ForgotPassword from '../../../LoginSignup/ForgotPassword';
 import { toast } from 'react-toastify';
+import emptyCart from './empty-cart.gif';
 
 const Cart = () => {
     const { token, cartItems, products, removeFromCart, getTotalCartAmount, url, unavailableIngredients } = useContext(StoreContext);
     const navigate = useNavigate();
     const [showLogin, setShowLogin] = useState(0);
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'instant' });  
+      }, []);
 
     const handleOrderClick = () => {
         if (!token) {
@@ -31,6 +36,7 @@ const Cart = () => {
             {showLogin === 3 ? <ForgotPassword setShowLogin={setShowLogin} /> : <></>}
             <CartHeader setShowLogin={setShowLogin} />
             <div className='cart-footer-container'>
+            {cartItems.length === 0 ? 
                 <div className='cart-container'>
                     <div className='cart-items'>
                         <div className='cart-items-title'>
@@ -73,6 +79,12 @@ const Cart = () => {
                         <button onClick={handleOrderClick} className='checkout-btn'>PROCEED TO CHECKOUT</button>
                     </div>
                 </div>
+                :
+                <div className='empty-cart-container'>
+                    <h3>Oops!! Your cart is empty.</h3>
+                <img src={emptyCart} className='empty-cart' alt="Your cart is empty"></img>
+                </div>
+            }
                 <ShoppingFooter />
             </div>
         </>

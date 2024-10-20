@@ -153,3 +153,26 @@
     font-size: 1.1rem;
     font-weight: 100;
 }
+
+.empty-cart-container{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: 90vh;
+    flex-direction: column;
+    gap:1.5rem;
+}
+
+.empty-cart-container h3{
+    font-family: "Advent Pro";
+    font-weight: bolder;
+    font-size: 2rem;
+}
+
+.empty-cart{
+    /* margin:0 auto; */
+    border-radius: 50%;
+    width: 60%;
+}

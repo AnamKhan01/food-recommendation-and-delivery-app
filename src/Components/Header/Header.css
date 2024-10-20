@@ -49,33 +49,6 @@
     margin-left: 3rem;
 }
 
-/* .sign-in-btn {
-    color: white!important; 
-    border: none !important; 
-    font-weight: bold !important;
-    background-color: red !important;
-}
-  
-.login-btn {
-    color: white !important; 
-    background-color: red!important; 
-    border: none !important; 
-    margin-left: 2rem;
-    font-weight: bold !important;
-}
-  
-.login-btn:hover {
-    background-color: black!important;
-    color: yellow !important;
-}
-  
-.sign-in-btn:hover {
-    background-color: black!important;
-    color: yellow !important;
-}
-   */
-
-
 .login-btn,
 .sign-in-btn {
     background-color: #c1564c !important;

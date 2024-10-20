@@ -22,7 +22,7 @@ const SignUp = ({ setShowLogin }) => {
     });
 
     useEffect(() => {
-        if (user && user.access_token) {  // Added check for user.access_token
+        if (user && user.access_token) {  
             axios
                 .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
                     headers: {
@@ -104,7 +104,7 @@ const SignUp = ({ setShowLogin }) => {
                     <div className="form-content">
                         <img className="cancel-icon" src={cancel} alt="cancel" onClick={() => setShowLogin(false)} />
                         {currState === 1 ? <h1>Sign Up</h1> : <h1>Login</h1>}
-                        <form onSubmit={onLogin}>
+                        <form className="login-form-layout" onSubmit={onLogin}>
                             {currState === 1 ? (
                                 <>
                                     <input type="text" name="name" onChange={onChangeHandler} value={data.name} placeholder="Username" required />

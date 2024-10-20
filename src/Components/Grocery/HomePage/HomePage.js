@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ShoppingHeader from "../ShoppingHeader/ShoppingHeader";
 import "./HomePage.css";
 import grocery from "./grocery-bag.png";
@@ -18,6 +18,11 @@ const HomePage = ({ selectedCategory, onCategorySelect }) => {
     const handleCategorySelect = (category) => {
         onCategorySelect(category);
     };
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'instant' });  
+      }, []);
+
 
     return (
         <>
