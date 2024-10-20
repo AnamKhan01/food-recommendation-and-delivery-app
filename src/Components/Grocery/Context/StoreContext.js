@@ -10,6 +10,7 @@ const StoreContextProvider = (props) => {
     const [token,settoken] = useState("");
     const [username, setUsername] = useState("");
     const [products,setProducts] = useState([]);
+    const [unavailableIngredients, setUnavailableIngredients] = useState([]);
 
     const addToCart = async (itemId) => {
         if (!cartItems[itemId]) {
@@ -39,6 +40,7 @@ const StoreContextProvider = (props) => {
         const response = await axios.post(url + "/api/cart/get",{},{headers:{token}});
         setCartItems(response.data.cartData);
     }
+
 
     useEffect(() => {
         async function loadData(){
@@ -78,7 +80,9 @@ const StoreContextProvider = (props) => {
         token,
         settoken,
         username,
-        setUsername
+        setUsername,
+        unavailableIngredients, 
+        setUnavailableIngredients
     }
     return (
         <StoreContext.Provider value={contextValue}>

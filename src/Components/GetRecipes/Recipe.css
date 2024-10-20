@@ -1,7 +1,7 @@
 .recipe-instructions-container {
     width: 100%;
     z-index: 1;
-    background-color:yellowgreen;
+    background-color:white;
     padding: 20px;
     background-image: url('./images/background.svg');
 }
@@ -15,7 +15,7 @@
     flex-direction: column;
     max-width: 1200px;
     padding: 40px;
-    background-color: #c4e185;
+    background-color: #f9c959;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
 }
@@ -24,6 +24,7 @@
   font-family: "Oswald", sans-serif;
   font-size: 2.5rem;
   margin-bottom: 20px;
+  color: #c1564c;
 }
 
 .recipe-instructions-section p{

@@ -128,3 +128,28 @@
     color: #c1564c;
     background-color: #f5e9e4;
 }
+ 
+.unavailable-ingredients {
+    width: 70%;
+    font-family: "Telex";
+    font-weight: bold;
+    margin-top: 2rem;
+    background-color: #f1f0f0; 
+    border-radius: 10px;
+    padding: 0.8rem;
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.unavailable-ingredients p{
+    margin: 0;
+}
+
+
+.unavailable-ingredients span{
+    font-family: "Telex";
+    font-size: 1.1rem;
+    font-weight: 100;
+}

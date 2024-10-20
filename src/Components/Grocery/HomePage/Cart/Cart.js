@@ -10,25 +10,20 @@ import ForgotPassword from '../../../LoginSignup/ForgotPassword';
 import { toast } from 'react-toastify';
 
 const Cart = () => {
-
-    const { token, cartItems, products, removeFromCart, getTotalCartAmount, url } = useContext(StoreContext);
-
+    const { token, cartItems, products, removeFromCart, getTotalCartAmount, url, unavailableIngredients } = useContext(StoreContext);
     const navigate = useNavigate();
+    const [showLogin, setShowLogin] = useState(0);
 
     const handleOrderClick = () => {
         if (!token) {
             toast.error('Please log in to proceed.');
             return;
-        }
-        else
-        {
+        } else {
             navigate("/place-order");
         }
     }
 
-    const [showLogin, setShowLogin] = useState(0);
-
-    const totalCartItems = Object.values(cartItems).length;
+    const totalCartItems = Object.keys(cartItems).reduce((sum, itemId) => sum + cartItems[itemId], 0);
 
     return (
         <>
@@ -50,7 +45,7 @@ const Cart = () => {
                             const priceVal = parseFloat(item.price.replace(/[^\d.]/g, ''));
                             if (cartItems[item.id] > 0) {
                                 return (
-                                    <div className='cart-items-title cart-items-item'>
+                                    <div key={item.id} className='cart-items-title cart-items-item'>
                                         <img src={url + "/images/" + item.image} alt=" "></img>
                                         <p>{item.name}</p>
                                         <p>{item.price}</p>
@@ -58,22 +53,25 @@ const Cart = () => {
                                         <p>₹{priceVal * (cartItems[item.id])}</p>
                                         <p onClick={() => removeFromCart(item.id)}><MdDelete /></p>
                                     </div>
-                                )
+                                );
                             }
                             return null;
                         })}
                     </div>
+
+                    {unavailableIngredients.length > 0 && (
+                        <div className='unavailable-ingredients'>
+                            <p>Unavailable Ingredients: <span> {unavailableIngredients.join(', ')}</span> </p>
+                        </div>
+                    )}
+
                     <div className='cart-bottom'>
                         <div className='cart-total-details'>
-                            <b>Subtotal (
-                                {totalCartItems}
-                                &nbsp; Items)</b>
+                            <b>Subtotal ({totalCartItems} Items)</b>
                             <b className='totalPrice'>₹{getTotalCartAmount()}</b>
                         </div>
-
                         <button onClick={handleOrderClick} className='checkout-btn'>PROCEED TO CHECKOUT</button>
                     </div>
-
                 </div>
                 <ShoppingFooter />
             </div>
