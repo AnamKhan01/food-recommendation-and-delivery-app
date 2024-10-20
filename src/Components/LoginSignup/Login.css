@@ -42,6 +42,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 100%;
 }
 
 /* Heading inside login */
@@ -204,7 +205,24 @@
     color: #0056b3;
 }
 
+.password-container {
+    position: relative;
+    width: 100%;
+}
 
+.toggle-password-img {
+    position: absolute;
+    right: 10px; /* Adjust this value to place it correctly inside the input */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+}
+
+.login-form-layout{
+    width: 100%;
+}
 /* Mobile responsiveness */
 @media (max-width: 480px) {
     .login-popup {

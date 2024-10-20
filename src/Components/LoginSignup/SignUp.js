@@ -4,6 +4,8 @@ import cancel from './crossed.png';
 import crispe from './cycle.gif';
 import carrot from './carrot.gif';
 import google from './google-symbol.png';
+import hideIcon from './smile.png'; 
+import viewIcon from './cool-glasses.png';
 import { StoreContext } from "../Grocery/Context/StoreContext";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -12,6 +14,7 @@ import { useGoogleLogin } from '@react-oauth/google';
 const SignUp = ({ setShowLogin }) => {
     const [user, setUser] = useState([]);
     const { url, settoken, setUsername } = useContext(StoreContext);
+    const [showPassword, setShowPassword] = useState(false);
 
     const login = useGoogleLogin({
         onSuccess: (codeResponse) => setUser(codeResponse),
@@ -19,7 +22,7 @@ const SignUp = ({ setShowLogin }) => {
     });
 
     useEffect(() => {
-        if (user && user.access_token) {  // Added check for `user.access_token`
+        if (user && user.access_token) {  // Added check for user.access_token
             axios
                 .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
                     headers: {
@@ -66,6 +69,10 @@ const SignUp = ({ setShowLogin }) => {
         setdata(prevData => ({ ...prevData, [name]: value }));
     };
 
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
     const onLogin = async (event) => {
         event.preventDefault();
         let newUrl = url;
@@ -105,7 +112,22 @@ const SignUp = ({ setShowLogin }) => {
                                 </>
                             ) : null}
                             <input type="email" name="email" onChange={onChangeHandler} value={data.email} placeholder="Email" required />
-                            <input type="password" name="password" onChange={onChangeHandler} value={data.password} placeholder="Password" required />
+                            <div className="password-container">
+                                <input
+                                    type={showPassword ? "text" : "password"}
+                                    name="password"
+                                    onChange={onChangeHandler}
+                                    value={data.password}
+                                    placeholder="Password"
+                                    required
+                                />
+                                <img
+                                    className="toggle-password-img"
+                                    src={showPassword ? hideIcon : viewIcon}
+                                    alt="toggle password visibility"
+                                    onClick={togglePasswordVisibility}
+                                />
+                            </div>
                             {currState === 1 ? (
                                 <div>
                                     <input type="checkbox" required />

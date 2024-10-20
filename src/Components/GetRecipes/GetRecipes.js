@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef} from 'react';
 import { useNavigate } from 'react-router-dom';
 import RecipeList from './RecipeList';
 import { getIngredients, getRecipes } from './api/recipeApi';
@@ -7,7 +7,7 @@ import RecipeHeader from './RecipeHeader';
 import bread from './images/bread.gif';
 import { SlArrowRightCircle, SlArrowLeftCircle } from "react-icons/sl";
 import SignUp from '../LoginSignup/SignUp';
-import Login from '../LoginSignup/Login'; 
+import Login from '../LoginSignup/Login';
 import ForgotPassword from '../LoginSignup/ForgotPassword';
 
 const predefinedIngredients = [
@@ -24,12 +24,14 @@ const normalizeIngredient = (ingredient) => {
   return ingredient.toLowerCase().trim();
 };
 
+
 // Function to check if the selected ingredient is part of the ingredient name
 const isIngredientMatch = (ingredient, selectedIngredient) => {
   const normalizedIngredient = normalizeIngredient(ingredient);
   const normalizedSelectedIngredient = normalizeIngredient(selectedIngredient);
   return normalizedIngredient.includes(normalizedSelectedIngredient);
 };
+
 
 const GetRecipes = () => {
   const [selectedIngredients, setSelectedIngredients] = useState([]);
@@ -158,11 +160,12 @@ const GetRecipes = () => {
 
   const showNavControls = selectedIngredients.length > 0 && recipes.length > 0;
 
+
   return (
     <>
       {showLogin === 1 ? <SignUp setShowLogin={setShowLogin} /> : <></>}
       {showLogin === 2 ? <Login setShowLogin={setShowLogin} /> : <></>}
-      {showLogin===3 ? <ForgotPassword setShowLogin={setShowLogin} /> : <></>}
+      {showLogin === 3 ? <ForgotPassword setShowLogin={setShowLogin} /> : <></>}
       <div className="get-recipes-container">
         <RecipeHeader setShowLogin={setShowLogin} />
         <div className='main-container'>
@@ -229,7 +232,7 @@ const GetRecipes = () => {
                         <button className='remove-all-button' onClick={handleRemoveSelect}>Remove All</button>
                       </div>
                     </div>
-                    <RecipeList recipes={currentRecipes} onRecipeClick={handleRecipeClick} />
+                    <RecipeList recipes={currentRecipes} onRecipeClick={handleRecipeClick}/>
                   </div>
                 )}
               </div>

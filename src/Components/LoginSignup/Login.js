@@ -4,6 +4,8 @@ import cancel from './crossed.png';
 import crispe from './cycle.gif';
 import carrot from './carrot.gif';
 import google from './google-symbol.png';
+import hideIcon from './smile.png'; 
+import viewIcon from './cool-glasses.png';
 import { StoreContext } from "../Grocery/Context/StoreContext";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -13,6 +15,7 @@ const Login = ({ setShowLogin }) => {
 
     const [user, setUser] = useState([]);
     const { url, settoken, setUsername } = useContext(StoreContext);
+    const [showPassword, setShowPassword] = useState(false);
 
     const login = useGoogleLogin({
         onSuccess: (codeResponse) => setUser(codeResponse),
@@ -90,6 +93,10 @@ const Login = ({ setShowLogin }) => {
         }
     };
 
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
     return (
         <div>
             <div className="login-overlay" onClick={() => setShowLogin(false)}></div>
@@ -98,7 +105,7 @@ const Login = ({ setShowLogin }) => {
                 <div className="form-content">
                     <img className="cancel-icon" src={cancel} alt="cancel" onClick={() => setShowLogin(false)} />
                     {currState === 1 ? <h1>Sign Up</h1> : <h1>Login</h1>}
-                    <form onSubmit={onLogin}>
+                    <form className='login-form-layout' onSubmit={onLogin}>
                         {currState === 1 ? (
                             <>
                                 <input type="text" name="name" onChange={onChangeHandler} value={data.name} placeholder="Username" required />
@@ -106,7 +113,22 @@ const Login = ({ setShowLogin }) => {
                             </>
                         ) : null}
                         <input type="email" name="email" onChange={onChangeHandler} value={data.email} placeholder="Email" required />
-                        <input type="password" name="password" onChange={onChangeHandler} value={data.password} placeholder="Password" required />
+                        <div className="password-container">
+                                <input
+                                    type={showPassword ? "text" : "password"}
+                                    name="password"
+                                    onChange={onChangeHandler}
+                                    value={data.password}
+                                    placeholder="Password"
+                                    required
+                                />
+                                <img
+                                    className="toggle-password-img"
+                                    src={showPassword ? hideIcon : viewIcon}
+                                    alt="toggle password visibility"
+                                    onClick={togglePasswordVisibility}
+                                />
+                            </div>
                         {currState === 1 ? (
                             <div>
                                 <input type="checkbox" required />
