@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Delius+Unicase:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gluten:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+
+.body-contents {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+}
+
+.written-content {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    right: 0;
+    top: 2%;
+}
+
+.slogan {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 6rem;
+    color: #c1564c; 
+    margin: 0px;
+    padding: 0px;
+    line-height: 1.2;
+}
+
+.about {
+    font-size: 1.2rem;
+    font-family: "Telex", serif;
+    color: #fff;
+    margin-top: 1.5rem;
+    letter-spacing: 1px;
+    width: 120%;
+}
+
+.swift {
+    margin-left: 7rem;
+}
+
+.sub-heading {
+    margin-left: 5rem;
+}
+
+.getRecipes {
+    margin-top: 2rem;
+    padding: 0.8rem 1.6rem;
+    font-family: 'Telex';
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: #f5e9e4 !important;
+    color: #c1564c !important;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.getRecipes span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.getRecipes span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.getRecipes:hover span {
+    padding-right: 25px;
+}
+
+.getRecipes:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.getRecipes:hover {
+    background-color: #f5e9e4 !important;
+    color: #6e2b25 !important;
+    border: 2px #c1564c !important;
+}
+
+
+@media (max-width: 768px) {
+    .body-contents{
+        display: flex;
+        align-items: center;
+    }
+
+    .slogan {
+        font-size: 4rem; /* Further reduce font size */
+    }
+
+    .about {
+        font-size: 0.9rem; /* Further reduce font size */
+    }
+
+    .getRecipes {
+        padding: 0.5rem 1rem; /* Adjust button padding */
+        font-size: 1.2rem; /* Further reduce button font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .body-contents{
+        display: flex;
+        align-items: center;
+    }
+
+    .slogan {
+        font-size: 3rem; /* Further reduce font size */
+    }
+
+    .about {
+        font-size: 0.8rem; /* Further reduce font size */
+    }
+
+    .getRecipes {
+        font-size: 1rem; /* Further reduce button font size */
+        padding: 0.4rem 0.8rem; /* Adjust button padding */
+    }
+}

@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Delius+Unicase&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Della+Respira&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Telex&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@0,100..900;1,100..900&family=Alfa+Slab+One&family=Anton+SC&family=Bebas+Neue&family=Gluten:wght@100..900&display=swap');
+
+.main-navbar {
+    font-family: 'Delius Unicase', cursive;
+    width: 100%;
+    z-index: 1;
+    padding: 0 !important;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+}
+
+.navbar-container {
+    display: flex;
+    width: 100%;
+    padding: 0px;
+    justify-content: space-between;
+    align-items: top;
+}
+
+
+.navbar-brand {
+    color: #c1564c !important;
+    font-weight: bold;
+    font-family: "Advent Pro", sans-serif;
+    font-size: 2.5rem !important;
+    margin-left: 30px;
+    margin-top: 12px;
+    text-decoration: none !important;
+}
+
+.nav-link {
+    font-weight: bold !important;
+    font-family: 'Telex', cursive;
+    font-size: 1.2rem !important;
+    color: #fff !important;
+}
+
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    font-family: 'Telex', cursive;
+    font-weight: bold !important;
+    margin-left: 3rem;
+}
+
+.login-btn,
+.sign-in-btn {
+    background-color: #c1564c !important;
+    color: #f5e9e4 !important;
+    border: none !important;
+    padding: 0.3rem 0.6rem;
+    font-family: 'Telex', sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+
+.sign-in-btn:hover,
+.login-btn:hover {
+    background-color: #f5e9e4 !important;
+    color: #c1564c !important;
+}
+
+
+#basic-navbar-nav {
+    margin-top: 0.8rem !important;
+}
+
+.nav-link {
+    display: inline-block;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-link::before,
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px; /* Thickness of the line */
+    background-color: #c1564c; /* Color of the underline/overline */
+    left: 0;
+    transition: transform 0.4s ease;
+}
+
+.nav-link::before {
+    top: 0; /* Overline */
+    transform: scaleX(0);
+    transform-origin: right;
+}
+
+.nav-link::after {
+    bottom: 0; /* Underline */
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.nav-link:hover {
+    text-decoration: none !important;
+    border-radius: 1rem;
+    padding: 0.5rem 0.75rem;
+    color: #6e2b25 !important;
+}
+
+.nav-link:hover::before {
+    transform: scaleX(1); /* Overline animation */
+    transform-origin: left;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1); /* Underline animation */
+    transform-origin: right;
+}
+
+
+.hotPot{
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+}
+.navbar-profile {
+    position: relative; 
+    font-family: 'Telex', sans-serif;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.profile-name{
+    font-weight: bold;
+    font-size: 1.3rem !important;
+}
+
+.navbar-profile p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #c1564c;
+    font-size: 1.1rem;
+}
+
+.profile-image {
+    margin-left: 1rem;
+    font-size: 2rem;
+    color: #c1564c; 
+    margin-bottom: 0.3rem;
+}
+
+.nav-profile-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;  
+    right: 23%;
+    background-color: #fff;
+    color: #c1564c;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    z-index: 10;
+    min-width: 200px; 
+}
+
+.nav-profile-dropdown li {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.nav-profile-dropdown li:hover {
+    background-color: #c1564c;
+    color: #f5e9e4;
+}
+
+.navbar-profile:hover .nav-profile-dropdown {
+    display: block;
+}
+
+.nav-profile-dropdown li p {
+    margin-left: 0.5rem;
+}
+
+.nav-profile-dropdown li:hover p {
+    color: #f5e9e4;
+}
+
+.nav-profile-dropdown li svg {
+    font-size: 1.2rem;
+    color: #c1564c;
+}
+
+.nav-profile-dropdown li:hover svg {
+    color: #f5e9e4;
+}
+/* Responsive styles */
+@media (max-width: 768px) {
+    .auth-buttons {
+      gap: 1rem;
+      /* Align the sign-in button to the right on small screens */
+      justify-content: flex-end;
+    }
+  
+    .navbar-collapse {
+      display: none;
+    }
+  
+    .navbar-toggler {
+      display: block !important;
+      background-color: transparent;
+      border: none;
+      font-size: 1.5rem;
+      color: #c1564c;
+    }
+  
+    /* Show the navbar-collapse when toggled */
+    .navbar-collapse.show {
+      display: flex;
+      flex-direction: column; /* Stack links vertically */
+      align-items: flex-start; /* Align to the start */
+      width: 100%;
+      background-color: #fff;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 10;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 1rem 0; /* Add padding for better spacing */
+    }
+  
+    .navbar-collapse .nav-link {
+      width: 100%; /* Make links full width */
+      padding: 1rem 2rem; /* Padding for links */
+      color: #c1564c !important;
+    }
+  
+    .navbar-collapse .sign-in-btn {
+      align-self: flex-end; /* Align sign-in button to the right */
+      margin-top: 1rem; /* Space above the button */
+    }
+  
+    .navbar-profile {
+      display: none; /* Hide profile section on small screens */
+    }
+  }
+  
