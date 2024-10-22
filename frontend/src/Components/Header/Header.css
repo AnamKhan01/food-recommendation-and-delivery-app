@@ -116,12 +116,12 @@
 }
 
 .nav-link:hover::before {
-    transform: scaleX(1); /* Overline animation */
+    transform: scaleX(1); 
     transform-origin: left;
 }
 
 .nav-link:hover::after {
-    transform: scaleX(1); /* Underline animation */
+    transform: scaleX(1); 
     transform-origin: right;
 }
 
@@ -212,54 +212,231 @@
 .nav-profile-dropdown li:hover svg {
     color: #f5e9e4;
 }
-/* Responsive styles */
-@media (max-width: 768px) {
-    .auth-buttons {
-      gap: 1rem;
-      /* Align the sign-in button to the right on small screens */
-      justify-content: flex-end;
+
+/* Base styles already applied above */
+
+/* iPhone 14 Pro Max (430px) */
+@media (max-width: 430px) {
+    /* Adjustments for smaller screen sizes */
+    .navbar-container {
+        padding: 0 10px;
     }
-  
-    .navbar-collapse {
-      display: none;
+
+    .navbar-brand {
+        font-size: 1.8rem !important;
+        margin-left: 5px;
+        margin-top: 8px;
     }
-  
-    .navbar-toggler {
-      display: block !important;
-      background-color: transparent;
-      border: none;
-      font-size: 1.5rem;
-      color: #c1564c;
+
+    .hotPot {
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-right: 0.5rem;
     }
-  
-    /* Show the navbar-collapse when toggled */
+
+    .nav-link {
+        font-size: 1rem !important;
+        padding: 0.4rem 0.5rem;
+        margin: 0.2rem 0 !important;
+    }
+
     .navbar-collapse.show {
-      display: flex;
-      flex-direction: column; /* Stack links vertically */
-      align-items: flex-start; /* Align to the start */
-      width: 100%;
-      background-color: #fff;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      z-index: 10;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 1rem 0; /* Add padding for better spacing */
+        padding: 0.5rem 0 !important;
     }
-  
-    .navbar-collapse .nav-link {
-      width: 100%; /* Make links full width */
-      padding: 1rem 2rem; /* Padding for links */
-      color: #c1564c !important;
+
+    .navbar-profile p {
+        font-size: 0.9rem;
     }
-  
-    .navbar-collapse .sign-in-btn {
-      align-self: flex-end; /* Align sign-in button to the right */
-      margin-top: 1rem; /* Space above the button */
+
+    .auth-buttons {
+        gap: 1rem;
+        margin-left: 0.5rem;
     }
-  
+
+    .login-btn,
+    .sign-in-btn {
+        font-size: 0.9rem;
+        padding: 0.2rem 0.4rem;
+        border-radius: 0.4rem;
+    }
+
+    .profile-name {
+        font-size: 1rem !important;
+    }
+
+    .profile-image {
+        font-size: 1.5rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .nav-profile-dropdown {
+        min-width: 150px;
+        right: 10%;
+    }
+
+    .nav-profile-dropdown li {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .nav-cart {
+        margin: 0.2rem 0 !important;
+        font-size: 1.3rem;
+    }
+
+    .navbar-toggler {
+        font-size: 1.2rem;
+    }
+
     .navbar-profile {
-      display: none; /* Hide profile section on small screens */
+        display: none;
     }
-  }
-  
+
+    .navbar-collapse.show {
+        width: 100%;
+        background-color: #f5e9e4;
+    }
+}
+
+/* General Mobile View (Max-width: 768px) */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.5rem !important;
+        margin-left: 10px;
+        left: 0;
+    }
+
+    .hotPot {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .navbar-container {
+        justify-content: space-between;
+    }
+
+    .navbar-collapse {
+        display: none;
+    }
+
+    .navbar-collapse.show {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background-color: #fff;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        z-index: 10;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-expand .navbar-nav {
+        display: flex;
+        flex-direction: column !important;
+    }
+
+    .navbar-collapse .nav-link {
+        width: 100%;
+        padding: 0.5rem 1rem;
+        color: #c1564c !important;
+        text-align: left;
+    }
+
+    .navbar-collapse .nav-link:hover {
+        color: #6e2b25 !important;
+        background-color: #f5e9e4;
+    }
+
+    .auth-buttons {
+        gap: 1rem;
+        justify-content: flex-start;
+    }
+
+    .navbar-toggler {
+        display: block !important;
+        background-color: transparent;
+        border: none;
+        font-size: 1.5rem;
+        color: #c1564c;
+    }
+
+    .auth-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-collapse .sign-in-btn {
+        align-self: flex-start;
+        margin-top: 1rem;
+    }
+
+    .navbar-profile {
+        display: none;
+    }
+}
+
+/* Small Tablets (Max-width: 1024px) */
+@media (max-width: 1024px) {
+    .navbar-brand {
+        font-size: 1.8rem;
+    }
+
+    .hotPot {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .nav-link {
+        font-size: 1.1rem;
+    }
+
+    .auth-buttons {
+        gap: 2rem;
+    }
+
+    .login-btn,
+    .sign-in-btn {
+        padding: 0.3rem 0.6rem;
+    }
+
+    .profile-name {
+        font-size: 1.2rem;
+    }
+
+    .profile-image {
+        font-size: 1.8rem;
+    }
+
+    .nav-profile-dropdown {
+        right: 15%;
+    }
+
+    .nav-profile-dropdown li {
+        font-size: 0.95rem;
+    }
+}
+
+/* Larger Screens (Above 1024px) */
+@media (min-width: 1024px) {
+    .navbar-container {
+        justify-content: space-between;
+    }
+
+    .navbar-profile {
+        display: flex;
+    }
+
+    .navbar-collapse.show {
+        display: none !important;
+    }
+
+    .nav-link {
+        font-size: 1.2rem;
+    }
+
+    .login-btn,
+    .sign-in-btn {
+        font-size: 1rem;
+    }
+}

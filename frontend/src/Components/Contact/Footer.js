@@ -30,6 +30,10 @@ const Footer = () => {
     }
   };
 
+  const handleSocialClick = (url) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <>
       <div className="shop-pattern">
@@ -80,19 +84,27 @@ const Footer = () => {
 
               <div className="social-container">
                 <div className="social-icon">
-                  <div><FaFacebookF /></div>
-                  <div><FaInstagram /></div>
-                  <div><FaYoutube /></div>
-                  <div><FaPinterestP /></div>
+                  <div onClick={() => handleSocialClick('https://www.facebook.com')}>
+                    <FaFacebookF />
+                  </div>
+                  <div onClick={() => handleSocialClick('https://www.instagram.com')}>
+                    <FaInstagram />
+                  </div>
+                  <div onClick={() => handleSocialClick('https://youtube.com/@flashfeast-s3v?si=mRtxNPfFMWLVV6oM')}>
+                    <FaYoutube />
+                  </div>
+                  <div onClick={() => handleSocialClick('https://www.pinterest.com')}>
+                    <FaPinterestP />
+                  </div>
                 </div>
               </div>
+
               <div className="copyright-tag">
                 <p className="copyright">© FlashFeast 2024 All rights reserved.</p>
               </div>
             </div>
           </div>
-          <div className="footer-bg">
-          </div>
+          <div className="footer-bg"></div>
         </div>
       </footer>
     </>

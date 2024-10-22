@@ -80,6 +80,24 @@
     background-color: #c1564c;
 }
 
+.no-orders {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 50px;
+}
+
+.no-orders p {
+    font-family: "Advent Pro";
+    font-weight: bolder;
+    color:#555;
+    font-size: 2rem;
+}
+
+.no-orders img {
+    border-radius: 50%;
+}
+
+
 @media screen and (max-width: 768px) {
     .order-container {
         grid-template-columns: 1fr;

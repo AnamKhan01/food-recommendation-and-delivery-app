@@ -69,7 +69,7 @@ const Header = ({ setShowLogin }) => {
             id="basic-navbar-nav" 
             className={navCollapsed ? 'collapse' : 'navbar-collapse show'}
           >
-            <Nav className="mx-4">
+            <Nav className="mx-4 nav-links-container">
               <Nav.Link className='mx-4 px-3 header-links' onClick={() => handleNavLinkClick('home')}>Home</Nav.Link>
               <Nav.Link className='mx-5 px-3 header-links' onClick={() => handleNavLinkClick('features')}>Features</Nav.Link>
               <Nav.Link className='mx-5 px-3 header-links' onClick={() => handleNavLinkClick('shopping')}>Shopping</Nav.Link>
