@@ -6,7 +6,7 @@ export const StoreContext = createContext(null);
 const StoreContextProvider = (props) => {
 
     const [cartItems, setCartItems] = useState({});
-    const url = "http://localhost:3001";
+    const url = "https://flashfeast-backend.vercel.app";
     const [token,settoken] = useState("");
     const [username, setUsername] = useState("");
     const [products,setProducts] = useState([]);
