@@ -112,7 +112,7 @@ const forgotPassword = async (req, res) => {
         }
 
         const resetToken = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-        const resetLink = `http://localhost:3000/reset-password/${resetToken}`;
+        const resetLink = `https://flashfeast-bay.vercel.app/reset-password/${resetToken}`;
 
         await transporter.sendMail({
             from: 'flashfeast007@gmail.com',
