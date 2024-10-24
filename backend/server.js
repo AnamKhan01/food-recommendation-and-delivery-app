@@ -8,7 +8,7 @@ import orderRouter from "./routes/orderRoute.js";
 import "dotenv/config"
 
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 app.use(express.json())
 app.use(cors())
@@ -16,7 +16,7 @@ app.use(cors())
 connectDB();
 
 app.use("/api/product",productRouter);
-app.use("/images",express.static('uploads'))
+app.use("/images", express.static('/tmp'));
 app.use("/api/user",userRouter)
 app.use("/api/cart",cartRouter)
 app.use("/api/order",orderRouter)
