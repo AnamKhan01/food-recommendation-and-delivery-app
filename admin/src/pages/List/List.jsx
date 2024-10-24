@@ -6,7 +6,7 @@ import { MdOutlineCancel } from "react-icons/md";
 
 const List = () => {
     
-    const url = 'http://localhost:3001';
+    const url = 'https://flashfeast-backend.vercel.app';
 
     const [list,setlist] = useState([])
 
