@@ -11,7 +11,7 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 app.use(cors({
-    origin: "https://flashfeast-bay.vercel.app", 
+    origin: ["https://flashfeast-bay.vercel.app", "https://flashfeast-admin.vercel.app/"], 
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }));
