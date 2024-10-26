@@ -52,7 +52,7 @@ const ResetPassword = ({ setShowLogin }) => {
                         onClick={() => setShowLogin(false)} // Ensure this is passed from parent
                     />
                     <h1>Create a new password</h1>
-                    <form onSubmit={handleSubmit}>
+                    <form className="reset-password-form" onSubmit={handleSubmit}>
                         <div className="password-container">
                             <input
                                 type={showNewPassword ? "text" : "password"}
