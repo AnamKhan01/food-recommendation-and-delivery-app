@@ -10,7 +10,8 @@ import viewIcon from './cool-glasses.png';
 const ResetPassword = ({ setShowLogin }) => {
     const [newPassword, setNewPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");  
-    const [showPassword, setShowPassword] = useState(false);
+    const [showNewPassword, setShowNewPassword] = useState(false); // Separate state
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false); // Separate state
     const { token } = useParams();
     const navigate = useNavigate(); 
 
@@ -31,8 +32,12 @@ const ResetPassword = ({ setShowLogin }) => {
         }
     };
     
-    const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
+    const toggleNewPasswordVisibility = () => {
+        setShowNewPassword(!showNewPassword);
+    };
+
+    const toggleConfirmPasswordVisibility = () => {
+        setShowConfirmPassword(!showConfirmPassword);
     };
 
     return (
@@ -40,12 +45,17 @@ const ResetPassword = ({ setShowLogin }) => {
             <div className="login-overlay" onClick={() => setShowLogin(false)}></div>
             <div className="login-popup" style={{ width: '35%' }}>
                 <div className="form-content">
-                    <img className="cancel-icon" src={cancel} alt="cancel" onClick={() => setShowLogin(false)} />
+                    <img 
+                        className="cancel-icon" 
+                        src={cancel} 
+                        alt="cancel" 
+                        onClick={() => setShowLogin(false)} // Ensure this is passed from parent
+                    />
                     <h1>Create a new password</h1>
                     <form onSubmit={handleSubmit}>
                         <div className="password-container">
                             <input
-                                type={showPassword ? "text" : "password"}
+                                type={showNewPassword ? "text" : "password"}
                                 placeholder="New Password"
                                 value={newPassword}
                                 onChange={(e) => setNewPassword(e.target.value)}
@@ -53,14 +63,14 @@ const ResetPassword = ({ setShowLogin }) => {
                             />
                             <img
                                 className="toggle-password-img"
-                                src={showPassword ? hideIcon : viewIcon}
+                                src={showNewPassword ? hideIcon : viewIcon}
                                 alt="toggle password visibility"
-                                onClick={togglePasswordVisibility}
+                                onClick={toggleNewPasswordVisibility} // Toggle visibility for new password
                             />
                         </div>
                         <div className="password-container">
                             <input
-                                type={showPassword ? "text" : "password"}  
+                                type={showConfirmPassword ? "text" : "password"}  
                                 placeholder="Confirm Password"
                                 value={confirmPassword}
                                 onChange={(e) => setConfirmPassword(e.target.value)}
@@ -68,9 +78,9 @@ const ResetPassword = ({ setShowLogin }) => {
                             />
                             <img
                                 className="toggle-password-img"
-                                src={showPassword ? hideIcon : viewIcon}
+                                src={showConfirmPassword ? hideIcon : viewIcon}
                                 alt="toggle password visibility"
-                                onClick={togglePasswordVisibility}
+                                onClick={toggleConfirmPasswordVisibility} // Toggle visibility for confirm password
                             />
                         </div>
                         <input type="submit" value="Reset Password" />
