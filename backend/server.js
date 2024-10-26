@@ -24,7 +24,13 @@ const port = process.env.PORT || 3001;
 //     credentials: true
 // }));
 
-app.use(cors());
+const cors = require('cors');
+app.use(cors({
+  origin: '*', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
+
 
 app.use(express.json())
 
