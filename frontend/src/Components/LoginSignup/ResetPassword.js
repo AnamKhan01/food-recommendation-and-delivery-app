@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import './Login.css';
-import cancel from './crossed.png';
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useParams, useNavigate } from "react-router-dom"; 
@@ -10,8 +9,8 @@ import viewIcon from './cool-glasses.png';
 const ResetPassword = ({ setShowLogin }) => {
     const [newPassword, setNewPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");  
-    const [showNewPassword, setShowNewPassword] = useState(false); // Separate state
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false); // Separate state
+    const [showNewPassword, setShowNewPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false); 
     const { token } = useParams();
     const navigate = useNavigate(); 
 
@@ -45,12 +44,6 @@ const ResetPassword = ({ setShowLogin }) => {
             <div className="login-overlay" onClick={() => setShowLogin(false)}></div>
             <div className="login-popup" style={{ width: '35%' }}>
                 <div className="form-content">
-                    <img 
-                        className="cancel-icon" 
-                        src={cancel} 
-                        alt="cancel" 
-                        onClick={() => setShowLogin(false)} // Ensure this is passed from parent
-                    />
                     <h1>Create a new password</h1>
                     <form className="reset-password-form" onSubmit={handleSubmit}>
                         <div className="password-container">
@@ -65,7 +58,7 @@ const ResetPassword = ({ setShowLogin }) => {
                                 className="toggle-password-img"
                                 src={showNewPassword ? hideIcon : viewIcon}
                                 alt="toggle password visibility"
-                                onClick={toggleNewPasswordVisibility} // Toggle visibility for new password
+                                onClick={toggleNewPasswordVisibility}
                             />
                         </div>
                         <div className="password-container">
