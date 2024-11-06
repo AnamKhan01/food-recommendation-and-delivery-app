@@ -1,74 +1,80 @@
 import productModel from "../models/productModel.js";
-import fs from 'fs';
 
-const addProduct = async(req,res) => {
-    let image_filename = `${req.file.filename}`;
+const addProduct = async (req, res) => {
+    try {
+        const uniqueId = Date.now() + Math.floor(Math.random() * 1000);
 
-    const uniqueId = Date.now() + Math.floor(Math.random() * 1000);
+        // Upload image to Cloudinary
+        const result = await cloudinary.uploader.upload_stream(
+            { resource_type: 'image' },
+            (error, result) => {
+                if (error) {
+                    return res.json({ success: false, message: "Image upload failed" });
+                }
 
-    const product = new productModel({
-        id:uniqueId,
-        name:req.body.name,
-        description:req.body.description,
-        price:req.body.price,
-        quantity:req.body.quantity,
-        category:req.body.category,
-        image:image_filename
-    })
+                const product = new productModel({
+                    id: uniqueId,
+                    name: req.body.name,
+                    description: req.body.description,
+                    price: req.body.price,
+                    quantity: req.body.quantity,
+                    category: req.body.category,
+                    image: result.secure_url // Save Cloudinary URL
+                });
 
-    try{
-        await product.save();
-        res.json({success:true,message:"Product Added"})
-    }
-    catch(error){
+                product.save();
+                res.json({ success: true, message: "Product Added", imageUrl: result.secure_url });
+            }
+        ).end(req.file.buffer); // Stream image buffer to Cloudinary
+    } catch (error) {
         console.log(error);
-        res.json({success:false,message:"Error"})
+        res.json({ success: false, message: "Error" });
     }
-}
+};
 
-const listProduct = async(req,res) => {
-    try{
+const listProduct = async (req, res) => {
+    try {
         const products = await productModel.find({});
-        res.json({success:true,data:products})    
-    }
-    catch(error){
+        res.json({ success: true, data: products });
+    } catch (error) {
         console.log(error);
-        res.json({success:false,message:"Error"})
+        res.json({ success: false, message: "Error" });
     }
-}
+};
 
-const removeProduct = async(req,res) => {
-    try{
+const removeProduct = async (req, res) => {
+    try {
         const product = await productModel.findById(req.body.id);
-        fs.unlink(`uploads/${product.image}`,()=>{});
+
+        // Remove image from Cloudinary
+        const publicId = product.image.split('/').pop().split('.')[0]; // Extract public ID
+        await cloudinary.uploader.destroy(publicId);
+
         await productModel.findByIdAndDelete(req.body.id);
-        res.json({success:true,message:"Product removed"})    
-    }
-    catch(error){
+        res.json({ success: true, message: "Product removed" });
+    } catch (error) {
         console.log(error);
-        res.json({success:false,message:"Error"})
+        res.json({ success: false, message: "Error" });
     }
-}
+};
 
 const searchProduct = async (req, res) => {
     try {
-      const searchQuery = req.query.q;
-  
-      if (!searchQuery || typeof searchQuery !== 'string') {
-        return res.json({ success: false, message: 'Invalid search query' });
-      }
-  
-      const products = await productModel.find({
-        name: { $regex: searchQuery, $options: 'i' } 
-      });
-  
-      res.json({ success: true, data: products });
+        const searchQuery = req.query.q;
+
+        if (!searchQuery || typeof searchQuery !== 'string') {
+            return res.json({ success: false, message: 'Invalid search query' });
+        }
+
+        const products = await productModel.find({
+            name: { $regex: searchQuery, $options: 'i' }
+        });
+
+        res.json({ success: true, data: products });
     } catch (error) {
-      console.log(error);
-      res.json({ success: false, message: 'Error while searching' });
+        console.log(error);
+        res.json({ success: false, message: 'Error while searching' });
     }
-  };
-  
+};
 
-
-export {addProduct,listProduct,removeProduct, searchProduct}
+export { addProduct, listProduct, removeProduct, searchProduct };
