@@ -1,31 +1,38 @@
 import productModel from "../models/productModel.js";
+import { v2 as cloudinary } from 'cloudinary';
+
+// Helper function to upload image to Cloudinary
+const uploadToCloudinary = (fileBuffer) => {
+    return new Promise((resolve, reject) => {
+        const uploadStream = cloudinary.uploader.upload_stream(
+            { resource_type: 'image' },
+            (error, result) => {
+                if (error) return reject(error);
+                resolve(result);
+            }
+        );
+        uploadStream.end(fileBuffer);
+    });
+};
 
 const addProduct = async (req, res) => {
     try {
         const uniqueId = Date.now() + Math.floor(Math.random() * 1000);
 
-        // Upload image to Cloudinary
-        const result = await cloudinary.uploader.upload_stream(
-            { resource_type: 'image' },
-            (error, result) => {
-                if (error) {
-                    return res.json({ success: false, message: "Image upload failed" });
-                }
+        // Upload image to Cloudinary and await the result
+        const result = await uploadToCloudinary(req.file.buffer);
+        const product = new productModel({
+            id: uniqueId,
+            name: req.body.name,
+            description: req.body.description,
+            price: req.body.price,
+            quantity: req.body.quantity,
+            category: req.body.category,
+            image: result.secure_url // Save Cloudinary URL
+        });
 
-                const product = new productModel({
-                    id: uniqueId,
-                    name: req.body.name,
-                    description: req.body.description,
-                    price: req.body.price,
-                    quantity: req.body.quantity,
-                    category: req.body.category,
-                    image: result.secure_url // Save Cloudinary URL
-                });
-
-                product.save();
-                res.json({ success: true, message: "Product Added", imageUrl: result.secure_url });
-            }
-        ).end(req.file.buffer); // Stream image buffer to Cloudinary
+        await product.save();
+        res.json({ success: true, message: "Product Added", imageUrl: result.secure_url });
     } catch (error) {
         console.log(error);
         res.json({ success: false, message: "Error" });
