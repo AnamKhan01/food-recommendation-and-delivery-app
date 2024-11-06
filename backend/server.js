@@ -31,7 +31,7 @@ connectDB();
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
-app.use("/api/product", upload.single('image'), productRouter); 
+app.use("/api/product",  productRouter);
 app.use("/api/user",userRouter)
 app.use("/api/cart",cartRouter)
 app.use("/api/order",orderRouter)

@@ -7,14 +7,16 @@ const uploadToCloudinary = (fileBuffer) => {
         const uploadStream = cloudinary.uploader.upload_stream(
             { resource_type: 'image' },
             (error, result) => {
-                if (error) return reject(error);
+                if (error) {
+                    console.error("Cloudinary upload error:", error);
+                    return reject(error);
+                }
                 resolve(result);
             }
         );
         uploadStream.end(fileBuffer);
     });
 };
-
 const addProduct = async (req, res) => {
     try {
         if (!req.file || !req.file.buffer) {
