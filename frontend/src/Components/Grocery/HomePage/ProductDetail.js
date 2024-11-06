@@ -30,7 +30,8 @@ const ProductDetail = ({ product, onClose }) => {
           &times;
         </button>
         <div className="product-detail-content">
-          <img src={url + "/images/" + product.image} className="product-detail-image" alt={product.name} />
+          <img src={product.image} className="product-detail-image" alt={product.name} /> 
+          {/* src={url + "/images/" + product.image} */}
           <div className="product-info">
             <h2 className="product-detail-title">{product.name}</h2>
             <p className="product-detail-quantity"><strong>Quantity:</strong> {product.quantity}</p>
