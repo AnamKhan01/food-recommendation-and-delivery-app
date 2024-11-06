@@ -6,23 +6,9 @@ const productRouter = express.Router();
 
 // Use memory storage instead of disk storage, as the image is uploaded directly to Cloudinary
 const storage = multer.memoryStorage();
-const upload = multer({ storage });
+const upload = multer({ storage: storage });
 
-// Route to add a product, with image upload handling
-productRouter.post("/add", upload.single("image"), async (req, res, next) => {
-    try {
-        // Ensure image file is provided
-        if (!req.file) {
-            return res.status(400).json({ success: false, message: "Image file is missing" });
-        }
-
-        // Call the addProduct controller function
-        await addProduct(req, res);
-    } catch (error) {
-        console.error("Error in /add route:", error);
-        res.status(500).json({ success: false, message: "Internal server error" });
-    }
-});
+productRouter.post("/add", upload.single("image"), addProduct);
 
 // Route for listing products
 productRouter.get("/list", listProduct);
