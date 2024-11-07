@@ -13,7 +13,7 @@ const ResetPassword = ({ setShowLogin }) => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post('https://flashfeast-backend.vercel.app/api/user/reset-password', { token, newPassword });
+            const response = await axios.post('http://localhost:3001/api/user/reset-password', { token, newPassword });
             toast.success(response.data.message);
             navigate("/"); 
         } catch (error) {

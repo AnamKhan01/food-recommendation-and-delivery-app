@@ -1,6 +1,6 @@
 import userModel from "../models/userModel.js";
 import jwt from 'jsonwebtoken';
-import bcrypt from 'bcryptjs';
+import bcrypt from 'bcrypt';
 import validator from "validator";
 import nodemailer from 'nodemailer';
 
@@ -112,7 +112,7 @@ const forgotPassword = async (req, res) => {
         }
 
         const resetToken = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-        const resetLink = `https://flashfeast-bay.vercel.app/reset-password/${resetToken}`;
+        const resetLink = `http://localhost:3000/reset-password/${resetToken}`;
 
         await transporter.sendMail({
             from: 'flashfeast007@gmail.com',

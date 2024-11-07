@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 
 const Add = () => {
 
-    const url = 'https://flashfeast-backend.vercel.app';
+    const url = 'http://localhost:3001';
 
     const [image, setimage] = useState(false);
     const [data, setdata] = useState({

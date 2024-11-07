@@ -10,7 +10,7 @@ const ForgotPassword = ({ setShowLogin }) => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post('https://flashfeast-backend.vercel.app/api/user/forgot-password', { email });
+            const response = await axios.post('http://localhost:3001/api/user/forgot-password', { email });
             setShowLogin(false);
             toast.success(response.data.message)
         } catch (error) {

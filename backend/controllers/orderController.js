@@ -7,7 +7,7 @@ const stripe = new Stripe("sk_test_51QATd2C1adLNAMOA5YJf7hWF9kUYgvc2hCX2nUO5Npvi
 
 const placeOrder = async(req, res) => {
 
-    const frontend_url = "https://flashfeast-bay.vercel.app/"
+    const frontend_url = "http://localhost:3000"
 
     try {
         const newOrder  = new orderModel({

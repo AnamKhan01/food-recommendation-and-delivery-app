@@ -25,13 +25,12 @@ cloudinary.config({
 });
 
 app.use(express.json())
+app.use(cors())
 
 connectDB();
 
-const storage = multer.memoryStorage();
-const upload = multer({ storage });
-
-app.use("/api/product",  productRouter);
+app.use("/api/product",productRouter);
+app.use("/images",express.static('uploads'))
 app.use("/api/user",userRouter)
 app.use("/api/cart",cartRouter)
 app.use("/api/order",orderRouter)

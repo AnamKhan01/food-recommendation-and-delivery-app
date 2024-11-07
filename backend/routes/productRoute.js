@@ -5,16 +5,13 @@ import multer from "multer";
 const productRouter = express.Router();
 
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, '/tmp'); 
-    },
-    filename: (req, file, cb) => {
-        return cb(null, `${Date.now()}-${file.originalname}`); 
+    destination:"uploads",
+    filename:(req,file,cb) => {
+        return cb(null,`${Date.now()}${file.originalname}`)
     }
-});
+})
 
-const upload = multer({ storage: storage });
-
+const upload = multer({storage:storage})
 
 productRouter.post("/add",upload.single("image"),addProduct);
 productRouter.get("/list",listProduct);

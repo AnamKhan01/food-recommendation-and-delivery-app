@@ -7,7 +7,7 @@ import orderBag from '../../assets/vegetable.png';
 
 const Orders = () => {
 
-  const url = 'https://flashfeast-backend.vercel.app';
+  const url = 'http://localhost:3001';
   const [orders, setOrders] = useState([]);
 
   const fetchAllOrders = async () => {
