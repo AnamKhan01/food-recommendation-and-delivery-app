@@ -221,6 +221,11 @@
 .login-form-layout{
     width: 100%;
 }
+
+.reset-password-form{
+    width: 100%;
+}
+
 /* Mobile responsiveness */
 @media (max-width: 480px) {
     .login-popup {

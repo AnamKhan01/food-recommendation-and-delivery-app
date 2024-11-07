@@ -6,7 +6,7 @@ import { MdOutlineCancel } from "react-icons/md";
 
 const List = () => {
     
-    const url = 'http://localhost:3001';
+    const url = 'https://flashfeast-backend.vercel.app';
 
     const [list,setlist] = useState([])
 
@@ -52,7 +52,7 @@ const List = () => {
             {list.map((item,index)=>{
                 return (
                     <div key={index} className='list-table-format'>
-                        <img src={`${url}/images/` + item.image} alt=''></img>
+                        <img src={item.image} alt=''></img>
                         <p>{item.name}</p>
                         <p>{item.category}</p>
                         <p>{item.quantity}</p>

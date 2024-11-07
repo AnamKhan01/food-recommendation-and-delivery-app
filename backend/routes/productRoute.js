@@ -4,19 +4,19 @@ import multer from "multer";
 
 const productRouter = express.Router();
 
-const storage = multer.diskStorage({
-    destination:"uploads",
-    filename:(req,file,cb) => {
-        return cb(null,`${Date.now()}${file.originalname}`)
-    }
-})
+// Use memory storage instead of disk storage, as the image is uploaded directly to Cloudinary
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 
-const upload = multer({storage:storage})
+productRouter.post("/add", upload.single("image"), addProduct);
 
-productRouter.post("/add",upload.single("image"),addProduct);
-productRouter.get("/list",listProduct);
-productRouter.post("/remove",removeProduct);
-productRouter.get("/search",searchProduct);
+// Route for listing products
+productRouter.get("/list", listProduct);
 
+// Route to remove a product
+productRouter.post("/remove", removeProduct);
+
+// Route to search for products
+productRouter.get("/search", searchProduct);
 
 export default productRouter;

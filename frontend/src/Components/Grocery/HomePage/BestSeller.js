@@ -47,7 +47,8 @@ const BestSeller = ({ selectedCategory }) => {
 
         return (
           <div className='item-card' key={index} onClick={() => showProductDetail(card)}>
-            <img src={url + "/images/" + card.image} className='item-image' alt={card.name} />
+            <img src={card.image} className='item-image' alt={card.name} />
+            {/* <img src={url + "/images/" + card.image} className='item-image' alt={card.name} /> */}
             <div className='item-details'>
               <h5 className='item-title'>{card.name}</h5>
               <p className='item-quantity'>{card.quantity}</p>
