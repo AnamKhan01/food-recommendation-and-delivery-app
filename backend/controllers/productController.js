@@ -1,74 +1,74 @@
 import productModel from "../models/productModel.js";
 import fs from 'fs';
+import path from 'path';
 
-const addProduct = async(req,res) => {
-    let image_filename = `${req.file.filename}`;
-
+const addProduct = async (req, res) => {
+    const image_filename = req.file ? `${req.file.filename}` : null;
     const uniqueId = Date.now() + Math.floor(Math.random() * 1000);
 
     const product = new productModel({
-        id:uniqueId,
-        name:req.body.name,
-        description:req.body.description,
-        price:req.body.price,
-        quantity:req.body.quantity,
-        category:req.body.category,
-        image:image_filename
-    })
+        id: uniqueId,
+        name: req.body.name,
+        description: req.body.description,
+        price: req.body.price,
+        quantity: req.body.quantity,
+        category: req.body.category,
+        image: image_filename
+    });
 
-    try{
+    try {
         await product.save();
-        res.json({success:true,message:"Product Added"})
-    }
-    catch(error){
+        res.json({ success: true, message: "Product Added" });
+    } catch (error) {
         console.log(error);
-        res.json({success:false,message:"Error"})
+        res.json({ success: false, message: "Error" });
     }
-}
+};
 
-const listProduct = async(req,res) => {
-    try{
+const listProduct = async (req, res) => {
+    try {
         const products = await productModel.find({});
-        res.json({success:true,data:products})    
-    }
-    catch(error){
+        res.json({ success: true, data: products });
+    } catch (error) {
         console.log(error);
-        res.json({success:false,message:"Error"})
+        res.json({ success: false, message: "Error" });
     }
-}
+};
 
-const removeProduct = async(req,res) => {
-    try{
+const removeProduct = async (req, res) => {
+    try {
         const product = await productModel.findById(req.body.id);
-        fs.unlink(`uploads/${product.image}`,()=>{});
+        if (product && product.image) {
+            const imagePath = path.join("/tmp", product.image); // Update image path
+            fs.unlink(imagePath, (err) => {
+                if (err) console.error("Error deleting image:", err);
+            });
+        }
         await productModel.findByIdAndDelete(req.body.id);
-        res.json({success:true,message:"Product removed"})    
-    }
-    catch(error){
+        res.json({ success: true, message: "Product removed" });
+    } catch (error) {
         console.log(error);
-        res.json({success:false,message:"Error"})
+        res.json({ success: false, message: "Error" });
     }
-}
+};
 
 const searchProduct = async (req, res) => {
     try {
-      const searchQuery = req.query.q;
-  
-      if (!searchQuery || typeof searchQuery !== 'string') {
-        return res.json({ success: false, message: 'Invalid search query' });
-      }
-  
-      const products = await productModel.find({
-        name: { $regex: searchQuery, $options: 'i' } 
-      });
-  
-      res.json({ success: true, data: products });
+        const searchQuery = req.query.q;
+
+        if (!searchQuery || typeof searchQuery !== 'string') {
+            return res.json({ success: false, message: 'Invalid search query' });
+        }
+
+        const products = await productModel.find({
+            name: { $regex: searchQuery, $options: 'i' }
+        });
+
+        res.json({ success: true, data: products });
     } catch (error) {
-      console.log(error);
-      res.json({ success: false, message: 'Error while searching' });
+        console.log(error);
+        res.json({ success: false, message: 'Error while searching' });
     }
-  };
-  
+};
 
-
-export {addProduct,listProduct,removeProduct, searchProduct}
+export { addProduct, listProduct, removeProduct, searchProduct };
