@@ -1,27 +1,48 @@
 import productModel from "../models/productModel.js";
-import fs from 'fs';
-import path from 'path';
+import { v2 as cloudinary } from 'cloudinary';
 
-const addProduct = async (req, res) => {
-    const image_filename = req.file ? `${req.file.filename}` : null;
-    const uniqueId = Date.now() + Math.floor(Math.random() * 1000);
-
-    const product = new productModel({
-        id: uniqueId,
-        name: req.body.name,
-        description: req.body.description,
-        price: req.body.price,
-        quantity: req.body.quantity,
-        category: req.body.category,
-        image: image_filename
+// Helper function to upload image to Cloudinary
+const uploadToCloudinary = (fileBuffer) => {
+    return new Promise((resolve, reject) => {
+        const uploadStream = cloudinary.uploader.upload_stream(
+            { resource_type: 'image' },
+            (error, result) => {
+                if (error) {
+                    console.error("Cloudinary upload error:", error);
+                    return reject(error);
+                }
+                resolve(result);
+            }
+        );
+        uploadStream.end(fileBuffer);
     });
-
+};
+const addProduct = async (req, res) => {
     try {
+        if (!req.file || !req.file.buffer) {
+            return res.status(400).json({ success: false, message: "Image file is required" });
+        }
+
+        // Upload image to Cloudinary
+        const result = await uploadToCloudinary(req.file.buffer);
+        
+        const uniqueId = Date.now() + Math.floor(Math.random() * 1000);
+        
+        const product = new productModel({
+            id: uniqueId,
+            name: req.body.name,
+            description: req.body.description,
+            price: req.body.price,
+            quantity: req.body.quantity,
+            category: req.body.category,
+            image: result.secure_url // Save Cloudinary URL
+        });
+
         await product.save();
-        res.json({ success: true, message: "Product Added" });
+        res.json({ success: true, message: "Product added successfully", imageUrl: result.secure_url });
     } catch (error) {
-        console.log(error);
-        res.json({ success: false, message: "Error" });
+        console.error("Error in addProduct:", error);
+        res.status(500).json({ success: false, message: "Failed to add product" });
     }
 };
 
@@ -30,25 +51,27 @@ const listProduct = async (req, res) => {
         const products = await productModel.find({});
         res.json({ success: true, data: products });
     } catch (error) {
-        console.log(error);
-        res.json({ success: false, message: "Error" });
+        console.error("Error in listProduct:", error);
+        res.status(500).json({ success: false, message: "Failed to list products" });
     }
 };
 
 const removeProduct = async (req, res) => {
     try {
         const product = await productModel.findById(req.body.id);
-        if (product && product.image) {
-            const imagePath = path.join("/tmp", product.image); // Update image path
-            fs.unlink(imagePath, (err) => {
-                if (err) console.error("Error deleting image:", err);
-            });
+        if (!product) {
+            return res.status(404).json({ success: false, message: "Product not found" });
         }
+
+        // Extract public ID from the Cloudinary URL to delete the image
+        const publicId = product.image.split('/').pop().split('.')[0];
+        await cloudinary.uploader.destroy(publicId);
+
         await productModel.findByIdAndDelete(req.body.id);
-        res.json({ success: true, message: "Product removed" });
+        res.json({ success: true, message: "Product removed successfully" });
     } catch (error) {
-        console.log(error);
-        res.json({ success: false, message: "Error" });
+        console.error("Error in removeProduct:", error);
+        res.status(500).json({ success: false, message: "Failed to remove product" });
     }
 };
 
@@ -57,7 +80,7 @@ const searchProduct = async (req, res) => {
         const searchQuery = req.query.q;
 
         if (!searchQuery || typeof searchQuery !== 'string') {
-            return res.json({ success: false, message: 'Invalid search query' });
+            return res.status(400).json({ success: false, message: "Invalid search query" });
         }
 
         const products = await productModel.find({
@@ -66,8 +89,8 @@ const searchProduct = async (req, res) => {
 
         res.json({ success: true, data: products });
     } catch (error) {
-        console.log(error);
-        res.json({ success: false, message: 'Error while searching' });
+        console.error("Error in searchProduct:", error);
+        res.status(500).json({ success: false, message: "Error while searching" });
     }
 };
 
