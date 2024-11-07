@@ -39,7 +39,7 @@
 /* Table headers */
 .list-table-format.title {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 0.60fr 1fr 1fr 1fr 1fr 1fr 1fr;
     padding: 17px;
     background-color: #c1564c; /* Secondary color */
     color: #fff;
@@ -52,7 +52,7 @@
 /* Individual product row */
 .list-table-format {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 0.60fr 1fr 1fr 1fr 1fr 1fr 1fr;
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid #ddd;

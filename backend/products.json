@@ -359,6 +359,7 @@
         "category": "pantry staples",
         "description": "Whole, dried corn kernels, perfect for popping or grinding into cornmeal for baking."
     },
+
     {
         "id": 58,
         "name": "Cornstarch",
@@ -395,6 +396,7 @@
         "category": "pantry staples",
         "description": "Durum wheat macaroni, ideal for making pasta dishes, salads, and soups. A pantry essential."
     },
+    
     {
         "id": 62,
         "name": "Maida (All-purpose Flour)",

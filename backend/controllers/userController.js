@@ -97,8 +97,8 @@ const registerUser = async (req, res) => {
 const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-        user: 'flashfeast007@gmail.com',
-        pass: 'cdjuapvvwecvgmzl',
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
     }
 });
 
@@ -115,7 +115,7 @@ const forgotPassword = async (req, res) => {
         const resetLink = `https://flashfeast-bay.vercel.app/reset-password/${resetToken}`;
 
         await transporter.sendMail({
-            from: 'flashfeast007@gmail.com',
+            from: process.env.EMAIL_USER,
             to: email,
             subject: 'Password Reset Request',
             html: `<p>Click <a href="${resetLink}">here</a> to reset your password.</p>`,
