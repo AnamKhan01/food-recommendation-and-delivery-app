@@ -1,0 +1,78 @@
+/* Background overlay with blur effect */
+.login-body {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Darker overlay for better contrast */
+    backdrop-filter: blur(10px); /* Blurred background */
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Login container styling */
+.login-container {
+    background: rgba(255, 255, 255, 0.9); /* Slightly more opaque for better readability */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 24rem; /* Width optimized for a centered form */
+    text-align: center;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Form title */
+.login-container h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-family: "Advent Pro", serif;
+}
+
+/* Input fields styling */
+.admin-input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+    font-family: "Telex", sans-serif;
+}
+
+.admin-input:focus {
+    outline: none;
+    border-color: #c1564c; 
+}
+
+/* Login button styling */
+.login-container button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #c1564c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+    font-family: "Telex";
+}
+
+.login-container button:hover {
+    background-color: #f0be49;
+    color: #c1564c;
+}
